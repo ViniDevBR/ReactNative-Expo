@@ -14,7 +14,7 @@ export function Header() {
       <Search />
       
       <FontAwesome5 name="bell" size={24} color="#1165BA" />
-      <Ionicons name="menu" size={24} color="#1165BA" />
+      <Ionicons onPress={() => {}} name="menu" size={24} color="#1165BA" />
     </View>
   );
 }
