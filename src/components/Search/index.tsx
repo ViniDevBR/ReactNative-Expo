@@ -1,4 +1,6 @@
-import { View, Text, TextInput } from 'react-native'
+//REACT
+import { View, TextInput } from 'react-native'
+//STYLES AND ICON
 import { styles } from './styles';
 import { FontAwesome } from '@expo/vector-icons'; 
 

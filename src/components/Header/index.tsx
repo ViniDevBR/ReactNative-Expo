@@ -1,6 +1,10 @@
+//REACT
 import { View, Text } from 'react-native'
+//COMPONENTS
 import { Search } from '../Search';
-import { styles} from './styles';
+//STYLES
+import { styles } from './styles';
+//ICONS
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 
