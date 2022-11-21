@@ -1,14 +1,20 @@
+//EXPO
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { Header } from './src/components/Header';
+//REACT
+import { StyleSheet } from 'react-native';
+//COMPONENTS
 import { Loading } from './src/components/Loading';
 import { Background } from './src/components/Background';
+//GOOGLE FONTS
 import { 
   useFonts,
   Roboto_400Regular,
   Roboto_700Bold
 } from "@expo-google-fonts/roboto";
-import { Home } from './src/screens/Home';
+//SAFE AREA CONTEXT
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { Routes } from './src/routes';
+
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -17,27 +23,15 @@ export default function App() {
   })
   
   return (
-    <Background>
-      {fontsLoaded ? <Home/> : <Loading/> } 
-      <StatusBar 
-        style='light'
-        backgroundColor= 'transparent'
-        translucent
-      />
-    </Background>
+    <SafeAreaProvider>
+      <Background>
+        {fontsLoaded ? <Routes/> : <Loading/> } 
+        <StatusBar 
+          style='light'
+          backgroundColor= 'transparent'
+          translucent
+        />
+      </Background>
+    </SafeAreaProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#000',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  view: {
-    color: 'white',
-    fontSize: 24,
-    textAlign: 'center'
-  }
-});
