@@ -1,7 +1,12 @@
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { Header } from '../../components/Header';
+//REACT
 import { View } from 'react-native';
+//SAFE AREA CONTEXT
+import { SafeAreaView } from 'react-native-safe-area-context';
+//COMPONENTS
+import { Header } from '../../components/Header';
 import { styles } from './styles'
+
+
 export function Home() {
   return(
     <SafeAreaView>
