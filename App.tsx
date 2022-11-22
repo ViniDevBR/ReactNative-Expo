@@ -1,10 +1,7 @@
 //EXPO
 import { StatusBar } from 'expo-status-bar';
-//REACT
-import { StyleSheet } from 'react-native';
 //COMPONENTS
 import { Loading } from './src/components/Loading';
-import { Background } from './src/components/Background';
 //GOOGLE FONTS
 import { 
   useFonts,
@@ -14,7 +11,7 @@ import {
 //SAFE AREA CONTEXT
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Routes } from './src/routes';
-import { Header } from './src/components/Header';
+
 
 
 export default function App() {
