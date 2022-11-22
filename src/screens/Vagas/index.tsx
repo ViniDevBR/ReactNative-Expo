@@ -1,6 +1,6 @@
 //REACT
 import { useState } from 'react'
-import { View, Text, Modal, TouchableOpacity } from 'react-native'
+import { View, Text, Modal, TouchableOpacity, Pressable } from 'react-native'
 //SAFE AREA CONTEXT
 import { SafeAreaView } from 'react-native-safe-area-context'
 //COMPONENTS
@@ -33,8 +33,11 @@ export function Vagas() {
             animationType="fade"
             transparent={true}
             visible={modalData}
+            onRequestClose={() => setModalData(!modalData)}
+            
           >
             <View style={styles.centeredView}>
+              <Pressable onPress={() => setModalData(!modalData)} style={styles.pressable} />
               <View style={styles.modalView}>
                 <Text style={styles.modalText}>Data do anúncio</Text>
 
@@ -80,8 +83,10 @@ export function Vagas() {
             animationType="fade"
             transparent={true}
             visible={modalType}
+            onRequestClose={() => setModalType(!modalType)}
           >
             <View style={styles.centeredView}>
+            <Pressable onPress={() => setModalType(!modalType)} style={styles.pressable} />
               <View style={styles.modalView}>
                 <Text style={styles.modalText}>Tipo de vaga</Text>
 
@@ -127,8 +132,10 @@ export function Vagas() {
             animationType="fade"
             transparent={true}
             visible={modalEXP}
+            onRequestClose={() => setModalEXP(!modalEXP)}
           >
             <View style={styles.centeredView}>
+            <Pressable onPress={() => setModalEXP(!modalEXP)} style={styles.pressable} />
               <View style={styles.modalView}>
                 <Text style={styles.modalText}>Nivel de experiência</Text>
 

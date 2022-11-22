@@ -61,4 +61,9 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold"
   },
+  pressable: {
+    flex: 1, 
+    width:'100%',
+    backgroundColor: 'transparent'
+  }
 })
