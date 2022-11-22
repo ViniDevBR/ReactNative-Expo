@@ -24,14 +24,12 @@ export default function App() {
   
   return (
     <SafeAreaProvider>
-      <Background>
-        {fontsLoaded ? <Routes/> : <Loading/> } 
-        <StatusBar 
-          style='light'
-          backgroundColor= 'transparent'
-          translucent
-        />
-      </Background>
+      {fontsLoaded ? <Routes/> : <Loading/> } 
+      <StatusBar 
+        style='dark'
+        backgroundColor= 'transparent'
+        translucent
+      />
     </SafeAreaProvider>
   );
 }

@@ -8,7 +8,9 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
     backgroundColor: '#FFFFFF',
     width: '100%',
-    paddingHorizontal: 10
+    padding: 11,
+    borderBottomWidth: 1,
+    borderBottomColor: '#E0EDFD'
   },
   title: {
     color: '#1165BA'

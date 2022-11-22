@@ -21,6 +21,8 @@ export function AppRoutes() {
       headerShown: false,
       tabBarActiveTintColor: '#1165BA',
       tabBarInactiveTintColor: '#898989',
+      tabBarHideOnKeyboard: true,
+      tabBarLabelPosition: 'below-icon',
       tabBarStyle: {
         backgroundColor: "#fff",
         position: 'absolute',
@@ -30,6 +32,9 @@ export function AppRoutes() {
       tabBarItemStyle: {
         position: 'relative',
         top: Platform.OS === 'android' ? 0 : -10,
+      },
+      tabBarLabelStyle: {
+        fontSize: 15
       }
     }}>
       <Screen 
@@ -38,7 +43,6 @@ export function AppRoutes() {
         options={{
           tabBarIcon: ({ color }) => <House color={color} size={32} />,
           tabBarLabel: 'Inicio',
-          
         }} 
       />
       <Screen 
