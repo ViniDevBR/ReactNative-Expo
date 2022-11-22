@@ -7,12 +7,12 @@ import { Header } from '../../components/Header';
 import { styles } from './styles'
 
 
-export function Home() {
+export function UserInfo() {
   return(
     <SafeAreaView>
        <View style={styles.container}>
         <Header />
-        <Text>HOME</Text>
+        <Text>USER</Text>
       </View>
     </SafeAreaView>
   )
