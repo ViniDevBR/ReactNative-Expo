@@ -14,6 +14,7 @@ import {
 //SAFE AREA CONTEXT
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Routes } from './src/routes';
+import { Header } from './src/components/Header';
 
 
 export default function App() {

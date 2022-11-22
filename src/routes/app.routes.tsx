@@ -41,7 +41,13 @@ export function AppRoutes() {
         name="Home" 
         component={Home} 
         options={{
-          tabBarIcon: ({ color }) => <House color={color} size={32} />,
+          tabBarIcon: ({ color, focused }) => {return (
+            <House 
+              weight={focused === true ? 'duotone' : 'thin'} 
+              color={color} 
+              size={32} 
+            />
+          )},
           tabBarLabel: 'Inicio',
         }} 
       />
@@ -49,7 +55,12 @@ export function AppRoutes() {
         name="Location" 
         component={Location} 
         options={{
-          tabBarIcon: ({ color }) => <MapPin color={color} size={32} />,
+          tabBarIcon: ({ color, focused }) => {return (
+            <MapPin 
+              weight={focused === true ? 'duotone' : 'thin'} 
+              color={color} 
+              size={32} 
+            />)},
           tabBarLabel: 'Local'
         }} 
       />
@@ -57,7 +68,13 @@ export function AppRoutes() {
         name="Add" 
         component={Add} 
         options={{
-          tabBarIcon: ({ color }) => <PlusCircle color={color} size={32} />,
+          tabBarIcon: ({ color, focused }) => {return (
+            <PlusCircle 
+              weight={focused === true ? 'duotone' : 'thin'} 
+              color={color} 
+              size={32} 
+            />
+          )},
           tabBarLabel: 'Adicionar'
         }} 
       />
@@ -65,7 +82,13 @@ export function AppRoutes() {
         name="User" 
         component={UserInfo} 
         options={{
-          tabBarIcon: ({ color }) => <User color={color} size={32} />,
+          tabBarIcon: ({ color, focused }) => {return (
+            <User 
+              weight={focused === true ? 'duotone' : 'thin'} 
+              color={color} 
+              size={32} 
+            />
+          )},
           tabBarLabel: 'Perfil'
         }} 
       />
@@ -73,7 +96,13 @@ export function AppRoutes() {
         name="Vagas" 
         component={Vagas} 
         options={{
-          tabBarIcon: ({ color }) => <Suitcase color={color} size={32} />,
+          tabBarIcon: ({ color, focused }) => {return (
+            <Suitcase 
+              weight={focused === true ? 'duotone' : 'thin'} 
+              color={color} 
+              size={32} 
+            />
+          )},
           tabBarLabel: 'Vagas'
         }} 
       />
