@@ -7,177 +7,104 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import { Header } from '../../components/Header'
 import { Background } from '../../components/Background'
 import { Select } from '../../components/Selects'
-//STYLES
-import { styles } from './styles'
-
+import { ModalVagas } from '../../components/ModalVagas'
+import { Buttons } from '../../components/Button'
+//STYLES & ICONS
+import { Content, DivContainer, Results, ContainerButtons } from './styles'
+import { Check, Plus } from 'phosphor-react-native'
 
 export function Vagas() {
   const [modalData, setModalData] = useState<boolean>(false)
   const [modalType, setModalType] = useState<boolean>(false)
   const [modalEXP, setModalEXP] = useState<boolean>(false)
+  const [click, setClick] = useState<boolean>(false)
 
+  function handleClick() {
+    setClick(!click)
+
+  }
   return (
     <Background>
-      <SafeAreaView>
-        <View>
+      <SafeAreaView style={{ flex: 1 }}>
+        <DivContainer>
           <Header />
           <Select 
             openData={() => setModalData(!modalData)} 
             openEXP={() => setModalEXP(!modalEXP)} 
             openType={() => setModalType(!modalType)}
-          />
-          <Text>VAGAS</Text>
+            />
+        </DivContainer>
 
-
-          <Modal
-            animationType="fade"
-            transparent={true}
+        <DivContainer>
+          <ModalVagas 
             visible={modalData}
-            onRequestClose={() => setModalData(!modalData)}
-            
-          >
-            <View style={styles.centeredView}>
-              <Pressable onPress={() => setModalData(!modalData)} style={styles.pressable} />
-              <View style={styles.modalView}>
-                <Text style={styles.modalText}>Data do anúncio</Text>
-
-                <View style={styles.centeredView2}>
-                  <TouchableOpacity 
-                    style={[styles.buttonOptions, 
-                      {backgroundColor: modalData ? '#008000': '#000'},
-                      {borderColor: modalData ? '#008000': ""}]}
-                  >
-                    <Text style={{color: modalData ? '#fff':'#000'}}>
-                      A qualquer momento
-                    </Text>  
-                  </TouchableOpacity>
-                  <TouchableOpacity style={styles.buttonOptions}>
-                    <Text>
-                      Última semana
-                    </Text>  
-                  </TouchableOpacity>
-                  <TouchableOpacity style={styles.buttonOptions}>
-                    <Text>
-                      Último mês
-                    </Text>  
-                  </TouchableOpacity>
-                  <TouchableOpacity style={styles.buttonOptions}>
-                    <Text>
-                      Últimas 24 horas
-                    </Text>  
-                  </TouchableOpacity>
-                </View>
-
-                <TouchableOpacity
-                  style={styles.buttonClose}
-                  onPress={() => setModalData(!modalData)}
-                >
-                  <Text style={styles.textStyle}>Exibir 1mil+ resultados</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-          </Modal>
-
-
-          <Modal
-            animationType="fade"
-            transparent={true}
+            backButton={() => setModalData(!modalData)}
+            overlay={() => setModalData(!modalData)}
+            title='Data do anúncio'
+            exit={() => setModalData(!modalData)}
+            exitTitle='Exibir 1mil+ resultados'
+            buttons={
+              <ContainerButtons>
+                <Buttons title='A qualquer momento'/>
+                <Buttons title='Última mês'/>
+                <Buttons title='Últimas 24 horas'/>
+                <Buttons title='Última semana'/>
+              </ContainerButtons>
+            }
+          />
+          <ModalVagas 
             visible={modalType}
-            onRequestClose={() => setModalType(!modalType)}
-          >
-            <View style={styles.centeredView}>
-            <Pressable onPress={() => setModalType(!modalType)} style={styles.pressable} />
-              <View style={styles.modalView}>
-                <Text style={styles.modalText}>Tipo de vaga</Text>
-
-                <View style={styles.centeredView2}>
-                  <TouchableOpacity 
-                    style={[styles.buttonOptions, 
-                      {backgroundColor: modalType ? '#008000': '#000'},
-                      {borderColor: modalType ? '#008000': ""}]}
-                  >
-                    <Text style={{color: modalType ? '#fff':'#000'}}>
-                      Tempo integral
-                    </Text>  
-                  </TouchableOpacity>
-                  <TouchableOpacity style={styles.buttonOptions}>
-                    <Text>
-                      Meio Periodo
-                    </Text>  
-                  </TouchableOpacity>
-                  <TouchableOpacity style={styles.buttonOptions}>
-                    <Text>
-                      Temporario
-                    </Text>  
-                  </TouchableOpacity>
-                  <TouchableOpacity style={styles.buttonOptions}>
-                    <Text>
-                      Estagio
-                    </Text>  
-                  </TouchableOpacity>
-                </View>
-
-                <TouchableOpacity
-                  style={styles.buttonClose}
-                  onPress={() => setModalType(!modalType)}
-                >
-                  <Text style={styles.textStyle}>Exibir 1mil+ resultados</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-          </Modal>
-
-
-          <Modal
-            animationType="fade"
-            transparent={true}
+            backButton={() => setModalType(!modalType)}
+            overlay={() => setModalType(!modalType)}
+            title='Tipo de vaga'
+            exit={() => setModalType(!modalType)}
+            exitTitle='Exibir 1mil+ resultados'
+            buttons={
+              <ContainerButtons>
+                <Buttons
+                  onPress={handleClick} 
+                  icon={click === false ? 
+                    <Plus size={16} color="#444343" weight="bold" />  :
+                    <Check size={16} color="#FFFFFF" weight="bold" />
+                  }
+                  type={click === true ? 'selected': undefined}
+                  title='A qualquer momento'/>
+                <Buttons
+                  onPress={() => setClick(!click)} 
+                  icon={<Check size={16} color="#2e0be0" weight="thin" />}
+                  title='Última mês'/>
+                <Buttons 
+                  onPress={() => setClick(!click)}
+                  icon={<Check size={16} color="#2e0be0" weight="thin" />}
+                  title='Últimas 24 horas'/>
+                <Buttons 
+                  onPress={() => setClick(!click)}
+                  icon={<Check size={16} color="#2e0be0" weight="thin" />}
+                  title='Última semana'/>
+              </ContainerButtons>
+            }
+          />
+          <ModalVagas 
             visible={modalEXP}
-            onRequestClose={() => setModalEXP(!modalEXP)}
-          >
-            <View style={styles.centeredView}>
-            <Pressable onPress={() => setModalEXP(!modalEXP)} style={styles.pressable} />
-              <View style={styles.modalView}>
-                <Text style={styles.modalText}>Nivel de experiência</Text>
+            backButton={() => setModalEXP(!modalEXP)}
+            overlay={() => setModalEXP(!modalEXP)}
+            title='Nível de experiência'
+            exit={() => setModalEXP(!modalEXP)}
+            exitTitle='Exibir 1mil+ resultados'
+            buttons={
+              <ContainerButtons>
+                <Buttons type='selected' title='A qualquer momento'/>
+                <Buttons title='Última mês'/>
+                <Buttons title='Últimas 24 horas'/>
+                <Buttons title='Última semana'/>
+              </ContainerButtons>
+            }
+          />
+        </DivContainer>
 
-                <View style={styles.centeredView2}>
-                  <TouchableOpacity 
-                    style={[styles.buttonOptions, 
-                      {backgroundColor: modalEXP ? '#008000': '#000'},
-                      {borderColor: modalEXP ? '#008000': ""}]}
-                  >
-                    <Text style={{color: modalEXP ? '#fff':'#000'}}>
-                      Tempo integral
-                    </Text>  
-                  </TouchableOpacity>
-                  <TouchableOpacity style={styles.buttonOptions}>
-                    <Text>
-                      Meio Periodo
-                    </Text>  
-                  </TouchableOpacity>
-                  <TouchableOpacity style={styles.buttonOptions}>
-                    <Text>
-                      Temporario
-                    </Text>  
-                  </TouchableOpacity>
-                  <TouchableOpacity style={styles.buttonOptions}>
-                    <Text>
-                      Estagio
-                    </Text>  
-                  </TouchableOpacity>
-                </View>
-
-                <TouchableOpacity
-                  style={styles.buttonClose}
-                  onPress={() => setModalEXP(!modalEXP)}
-                >
-                  <Text style={styles.textStyle}>Exibir 1mil+ resultados</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-          </Modal>
-
-
-        </View>
+        <Content>
+          <Results>1.215 Resultados</Results>
+        </Content>
       </SafeAreaView>
     </Background>
   )

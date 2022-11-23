@@ -4,17 +4,15 @@ import { View, Text } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 //COMPONENTS
 import { Header } from '../../components/Header'
-import { styles } from './styles'
+import { HomeContainer } from './styles'
 import { Background } from '../../components/Background'
 
 export function Home() {
   return (
     <Background>
-      <SafeAreaView>
-        <View style={styles.container}>
-          <Header />
-          <Text>HOME</Text>
-        </View>
+      <SafeAreaView style={{ flex: 1 }}>
+        <Header />
+        <Text>HOME</Text>
       </SafeAreaView>
     </Background>
   )
