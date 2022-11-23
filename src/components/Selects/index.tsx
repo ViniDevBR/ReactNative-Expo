@@ -1,7 +1,6 @@
-import { SetStateAction } from "react";
-import { ScrollView, View } from "react-native";
 import { Buttons } from "../Button";
-import { styles } from "./styles";
+import { SelectContainer, ScrollView } from "./styles";
+import { CaretCircleDown } from 'phosphor-react-native'
 
 interface Props {
   openData: VoidFunction
@@ -12,12 +11,24 @@ interface Props {
 
 export function Select(props: Props) {
   return(
-    <ScrollView horizontal contentContainerStyle={styles.scrollview}>
-      <View style={styles.container}>
-        <Buttons onPress={props.openData} title="Data" />
-        <Buttons onPress={props.openType} title="Tipo" />
-        <Buttons onPress={props.openEXP} title="Nivel de experiencia" />
-      </View>
+    <ScrollView horizontal>
+      <SelectContainer>
+        <Buttons 
+          onPress={props.openData} 
+          title="Data"
+          icon={<CaretCircleDown size={15} color="#1165BA" weight="bold" />} 
+        />
+        <Buttons 
+          onPress={props.openType} 
+          title="Tipo" 
+          icon={<CaretCircleDown size={15} color="#1165BA" weight="bold" />} 
+        />
+        <Buttons 
+          onPress={props.openEXP} 
+          title="Nivel de experiencia" 
+          icon={<CaretCircleDown size={15} color="#1165BA" weight="bold" />} 
+        />
+      </SelectContainer>
     </ScrollView>
   )
 }

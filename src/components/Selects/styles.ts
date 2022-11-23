@@ -1,16 +1,13 @@
-import { StyleSheet } from "react-native";
+import styled from 'styled-components/native'
 
-export const styles = StyleSheet.create({
-  container: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#E0EDFD',
-    width: '100%'
-  },
-  scrollview: {
+export const SelectContainer = styled.View`
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 0 0 0;
+`
+export const ScrollView = styled.ScrollView.attrs({
+  contentContainerStyle: {
     paddingHorizontal: 10
   }
-})
+})`
+`

@@ -1,25 +1,24 @@
-import { TouchableOpacity, Text, TouchableOpacityProps } from "react-native";
-import { styles } from "./styles";
-import {CaretCircleDown} from 'phosphor-react-native'
-
+//REACT
+import { ReactNode } from "react";
+import { TouchableOpacityProps } from "react-native";
+//STYLES
+import { ButtonContainer, Title } from "./styles";
 
 
 interface Props extends TouchableOpacityProps {
   title: string
-  icon?: boolean
+  icon?: ReactNode
+  type?: 'close' | 'selected' | undefined
 }
 
-export function Buttons({title, icon = true, ...props}: Props) {
+export function Buttons({title, ...props}: Props) {
   return(
-    <TouchableOpacity {...props} style={styles.container}>
-      <Text style={styles.text}>
+    <ButtonContainer types={props.type} {...props}>
+      <Title types={props.type} style={{marginRight: props.icon ? 10 : 0}}>
         {title}
-      </Text>
-      {icon === true ?
-        <CaretCircleDown size={15} color="#1165BA" weight="bold" />
-        :
-        null
-      }
-    </TouchableOpacity>
+      </Title>
+
+      { props.icon }
+    </ButtonContainer>
   )
 }

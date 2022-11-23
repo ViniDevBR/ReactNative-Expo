@@ -1,15 +1,18 @@
 //REACT
-import { View, Text, TouchableOpacity } from 'react-native'
+import { TouchableOpacity } from 'react-native'
 import { useState } from 'react'
 //REACT NAVIGATION
 import { useNavigation } from '@react-navigation/native'
 //COMPONENTS
 import { Search } from '../Search';
 //STYLES
-import { styles } from './styles';
+import { HeaderContainer, Logo, LogoBold } from './styles';
 //ICONS
 import { Ionicons } from '@expo/vector-icons';
 import { Bell, BellSlash } from 'phosphor-react-native'
+import light from '../../theme/light';
+import dark from '../../theme/dark';
+
 
 
 export function Header() {
@@ -25,28 +28,28 @@ export function Header() {
   }
 
   return (
-    <View style={styles.container}>
-      <Text onPress={handleNavigation} style={styles.title}>
-        Sou <Text style={styles.titleBold}>Junior</Text>
-      </Text>
+    <HeaderContainer>
+      <Logo onPress={handleNavigation}>
+        Sou <LogoBold>Junior</LogoBold>
+      </Logo>
       <Search />
       <TouchableOpacity onPress={handleClickNotifications} >
         {click === true ?  
           <Bell 
             size={24} 
-            color='#1165BA'
+            color={light.COLORS.PRIMARY_900}
             weight="duotone" 
           /> :
           <BellSlash 
             size={24} 
-            color='#f00'
+            color={light.COLORS.NOTIFICATION}
             weight="duotone" 
           /> 
         }
       </TouchableOpacity>
       <TouchableOpacity>
-        <Ionicons name="menu" size={30} color="#1165BA" />
+        <Ionicons name="menu" size={30} color={light.COLORS.PRIMARY_900} />
       </TouchableOpacity>
-    </View>
+    </HeaderContainer>
   );
 }

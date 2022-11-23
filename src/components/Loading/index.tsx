@@ -1,6 +1,5 @@
 //REACT
 import { View, ActivityIndicator } from 'react-native';
-
 //STYLES
 import { styles } from './styles';
 
