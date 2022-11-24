@@ -4,20 +4,20 @@ import { useState } from 'react'
 //REACT NAVIGATION
 import { useNavigation } from '@react-navigation/native'
 //COMPONENTS
-import { Search } from '../Search';
+import { Search } from '../Search'
 //STYLES
-import { HeaderContainer, Logo, LogoBold } from './styles';
+import { HeaderContainer, Logo, LogoBold } from './styles'
 //ICONS
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons'
 import { Bell, BellSlash } from 'phosphor-react-native'
-import light from '../../theme/light';
-import dark from '../../theme/dark';
-
-
+import { useTheme } from 'styled-components'
+import { Menu } from '../Menu'
 
 export function Header() {
   const [click, setClick] = useState<boolean>(false)
+  const [menu, setMenu] = useState<boolean>(false)
 
+  const { COLORS } = useTheme()
   const { navigate } = useNavigation()
 
   function handleClickNotifications() {
@@ -26,6 +26,9 @@ export function Header() {
   function handleNavigation() {
     navigate('Home')
   }
+  function handleMenu() {
+    setMenu(!menu)
+  }
 
   return (
     <HeaderContainer>
@@ -33,23 +36,25 @@ export function Header() {
         Sou <LogoBold>Junior</LogoBold>
       </Logo>
       <Search />
-      <TouchableOpacity onPress={handleClickNotifications} >
-        {click === true ?  
-          <Bell 
-            size={24} 
-            color={light.COLORS.PRIMARY_900}
-            weight="duotone" 
-          /> :
-          <BellSlash 
-            size={24} 
-            color={light.COLORS.NOTIFICATION}
-            weight="duotone" 
-          /> 
-        }
+
+      <TouchableOpacity onPress={handleClickNotifications}>
+        {click === true ? (
+          <Bell size={24} color={COLORS.PRIMARY_900} weight="duotone" />
+        ) : (
+          <BellSlash size={24} color={COLORS.NOTIFICATION} weight="duotone" />
+        )}
       </TouchableOpacity>
-      <TouchableOpacity>
-        <Ionicons name="menu" size={30} color={light.COLORS.PRIMARY_900} />
+
+      <TouchableOpacity onPress={handleMenu}>
+        <Ionicons name="menu" size={30} color={COLORS.PRIMARY_900} />
       </TouchableOpacity>
+
+      <Menu
+        setState={setMenu}
+        visible={menu}
+        backButton={handleMenu}
+        overlay={handleMenu}
+      />
     </HeaderContainer>
-  );
+  )
 }

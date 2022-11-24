@@ -36,7 +36,7 @@ export const Title = styled.Text<TButton>`
   color: ${({theme}) => theme.COLORS.TEXT};
   
   ${({types}) => types === 'close' && css`
-    color: ${({theme}) => theme.COLORS.BACKGROUND};
+    color: ${({theme}) => theme.COLORS.TEXT};
     font-size: ${({theme}) => theme.FONT_SIZE.BIG};
   `}
   

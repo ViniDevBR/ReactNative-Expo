@@ -5,7 +5,7 @@ export const HeaderContainer = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: ${({theme}) => theme.COLORS.BACKGROUND};
+  background-color: ${props => props.theme.COLORS.BACKGROUND};
   width: 100%;
   padding: 11px;
   border-bottom-width: 1px;
