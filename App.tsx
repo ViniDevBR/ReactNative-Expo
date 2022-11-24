@@ -16,6 +16,7 @@ import { ThemeProvider } from 'styled-components/native'
 import light from './src/theme/light';
 import dark from './src/theme/dark';
 
+
 export default function App() {
   const [fontsLoaded] = useFonts({
     Roboto_400Regular,
@@ -26,7 +27,7 @@ export default function App() {
     <ThemeProvider theme={light}>
       <SafeAreaProvider>
         <Background>
-          {fontsLoaded ? <Routes/> : <Loading/> } 
+          {fontsLoaded ? <Routes /> : <Loading/> } 
           <StatusBar 
             style='dark'
             backgroundColor= 'transparent'
