@@ -27,8 +27,8 @@ export const ButtonContainer = styled.TouchableOpacity<TButton>`
 
   ${({types}) => types === 'selected' && css`
     background-color: ${({theme}) => theme.COLORS.BUTTON_100};
-    border: none;
-    
+    border: 1px solid ${({theme}) => theme.COLORS.BUTTON_100};
+
   `}
 `
 
