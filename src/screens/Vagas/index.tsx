@@ -88,8 +88,8 @@ export function Vagas() {
                 <Buttons
                   onPress={handleClickAny} 
                   icon={clickAny === false ? 
-                    <Plus size={16} color="#444343" weight="bold" />  :
-                    <Check size={16} color="#FFFFFF" weight="bold" />
+                    <Plus size={14} color="#444343" weight="bold" />  :
+                    <Check size={14} color="#FFFFFF" weight="bold" />
                   }
                   type={clickAny === true ? 'selected': undefined}
                   title='A qualquer momento'
@@ -97,8 +97,8 @@ export function Vagas() {
                 <Buttons
                   onPress={handleClickMonth} 
                   icon={clickMonth === false ? 
-                    <Plus size={16} color="#444343" weight="bold" />  :
-                    <Check size={16} color="#FFFFFF" weight="bold" />
+                    <Plus size={14} color="#444343" weight="bold" />  :
+                    <Check size={14} color="#FFFFFF" weight="bold" />
                   }
                   type={clickMonth === true ? 'selected': undefined}
                   title='Última mês'
@@ -106,16 +106,16 @@ export function Vagas() {
                 <Buttons 
                   onPress={handleClick24}
                   icon={click24h === false ? 
-                    <Plus size={16} color="#444343" weight="bold" />  :
-                    <Check size={16} color="#FFFFFF" weight="bold" />
+                    <Plus size={14} color="#444343" weight="bold" />  :
+                    <Check size={14} color="#FFFFFF" weight="bold" />
                   }
                   type={click24h === true ? 'selected': undefined}
                   title='Últimas 24 horas'/>
                 <Buttons 
                   onPress={handleClickWeek}
                   icon={clickWeek === false ? 
-                    <Plus size={16} color="#444343" weight="bold" />  :
-                    <Check size={16} color="#FFFFFF" weight="bold" />
+                    <Plus size={14} color="#444343" weight="bold" />  :
+                    <Check size={14} color="#FFFFFF" weight="bold" />
                   }
                   type={clickWeek === true ? 'selected': undefined}
                   title='Última semana'/>
@@ -134,8 +134,8 @@ export function Vagas() {
                 <Buttons
                   onPress={handleClickFull} 
                   icon={clickFull === false ? 
-                    <Plus size={16} color="#444343" weight="bold" />  :
-                    <Check size={16} color="#FFFFFF" weight="bold" />
+                    <Plus size={14} color="#444343" weight="bold" />  :
+                    <Check size={14} color="#FFFFFF" weight="bold" />
                   }
                   type={clickFull === true ? 'selected': undefined}
                   title='Tempo integral'
@@ -143,8 +143,8 @@ export function Vagas() {
                 <Buttons
                   onPress={handleClickTemp} 
                   icon={clickTemp === false ? 
-                    <Plus size={16} color="#444343" weight="bold" />  :
-                    <Check size={16} color="#FFFFFF" weight="bold" />
+                    <Plus size={14} color="#444343" weight="bold" />  :
+                    <Check size={14} color="#FFFFFF" weight="bold" />
                   }
                   type={clickTemp === true ? 'selected': undefined}
                   title='Temporario'
@@ -152,8 +152,8 @@ export function Vagas() {
                 <Buttons 
                   onPress={handleClickStage}
                   icon={clickStage === false ? 
-                    <Plus size={16} color="#444343" weight="bold" />  :
-                    <Check size={16} color="#FFFFFF" weight="bold" />
+                    <Plus size={14} color="#444343" weight="bold" />  :
+                    <Check size={14} color="#FFFFFF" weight="bold" />
                   }
                   type={clickStage === true ? 'selected': undefined}
                   title='Estagio'/>
@@ -172,8 +172,8 @@ export function Vagas() {
                 <Buttons
                   onPress={handleClickJR} 
                   icon={clickJR === false ? 
-                    <Plus size={16} color="#444343" weight="bold" />  :
-                    <Check size={16} color="#FFFFFF" weight="bold" />
+                    <Plus size={14} color="#444343" weight="bold" />  :
+                    <Check size={14} color="#FFFFFF" weight="bold" />
                   }
                   type={clickJR === true ? 'selected': undefined}
                   title='Junior'
@@ -181,8 +181,8 @@ export function Vagas() {
                 <Buttons
                   onPress={handleClickPL} 
                   icon={clickPL === false ? 
-                    <Plus size={16} color="#444343" weight="bold" />  :
-                    <Check size={16} color="#FFFFFF" weight="bold" />
+                    <Plus size={14} color="#444343" weight="bold" />  :
+                    <Check size={14} color="#FFFFFF" weight="bold" />
                   }
                   type={clickPL === true ? 'selected': undefined}
                   title='Pleno'
@@ -190,8 +190,8 @@ export function Vagas() {
                 <Buttons 
                   onPress={handleClickSR}
                   icon={clickSR === false ? 
-                    <Plus size={16} color="#444343" weight="bold" />  :
-                    <Check size={16} color="#FFFFFF" weight="bold" />
+                    <Plus size={14} color="#444343" weight="bold" />  :
+                    <Check size={14} color="#FFFFFF" weight="bold" />
                   }
                   type={clickSR === true ? 'selected': undefined}
                   title='Senior'/>
