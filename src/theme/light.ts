@@ -1,13 +1,16 @@
 export default {
   COLORS: {
-    BACKGROUND: '#FFFFFF',
+    BACKGROUND: '#FAFAFA',
+    BACKGROUND2: '#FFFFFF',
+    
     PRIMARY_900: '#1165BA',
     PRIMARY_700: '#C1DFFF',
-    PRIMARY_600: '#E0EDFD',
+    //PRIMARY_600: '#E0EDFD',
     PRIMARY_500: '#ECF5FF',
 
     PLACEHOLDER: '#9A9DA1',
     TEXT: '#444343',
+    TITLE: '',
 
     NOTIFICATION: '#F00000',
 
