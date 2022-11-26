@@ -9,6 +9,7 @@ export default {
 
     PLACEHOLDER: '#000',
     TEXT: '#FFFFFFDE',
+    TITLE: '',
 
     NOTIFICATION: '#FF4338',
 

@@ -23,7 +23,7 @@ export default function App() {
   })
 
   return (
-    <ThemeProvider theme={light}>
+    <ThemeProvider theme={dark}>
       <SafeAreaProvider>
         <Background>
           {fontsLoaded ? <Routes /> : <Loading />}
