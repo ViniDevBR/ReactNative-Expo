@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState } from 'react'
+import { Children, createContext, ReactNode, useContext, useState } from 'react'
 
 interface Notification {
   state: boolean
@@ -16,3 +16,13 @@ interface MenuProviderProps {
 export const NotificationContext = createContext<Notification>(
   {} as Notification
 )
+
+export function MenuContext(props: MenuProviderProps) {
+  const context = useContext(NotificationContext)
+
+  return(
+    <>
+      {props. children}
+    </>
+  )
+}
