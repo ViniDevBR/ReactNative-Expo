@@ -1,28 +1,25 @@
-import { Children, createContext, ReactNode, useContext, useState } from 'react'
+import { createContext, Dispatch, ReactNode, SetStateAction, useState } from 'react'
 
-interface Notification {
-  state: boolean
+ export interface Notification {
+  notification: boolean
+  setNotification: Dispatch<SetStateAction<boolean>>
+  menu: boolean
+  setMenu: Dispatch<SetStateAction<boolean>>
 }
-interface Menu {
-  state: boolean
-}
-interface NotificationtProviderProps {
+
+interface HeaderProviderProps {
   children: ReactNode
 }
-interface MenuProviderProps {
-  children: ReactNode
-}
 
-export const NotificationContext = createContext<Notification>(
-  {} as Notification
-)
+export const HeaderContext = createContext<Notification>({} as Notification)
 
-export function MenuContext(props: MenuProviderProps) {
-  const context = useContext(NotificationContext)
-
+export function MenuContextProvider(props: HeaderProviderProps) {
+  const [notification, setNotification] = useState<boolean>(false)
+  const [menu, setMenu] = useState<boolean>(false)
+  
   return(
-    <>
-      {props. children}
-    </>
+    <HeaderContext.Provider value={{ notification, setNotification, menu, setMenu}}>
+      {props.children}
+    </HeaderContext.Provider>
   )
 }
