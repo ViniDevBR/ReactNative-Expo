@@ -1,27 +1,29 @@
 //REACT
 import { TouchableOpacity } from 'react-native'
-import { useState } from 'react'
 //REACT NAVIGATION
 import { useNavigation } from '@react-navigation/native'
 //COMPONENTS
 import { Search } from '../Search'
+import { Menu } from '../Menu'
 //STYLES
 import { HeaderContainer, Logo, LogoBold } from './styles'
 //ICONS
 import { Ionicons } from '@expo/vector-icons'
 import { Bell, BellSlash } from 'phosphor-react-native'
+//STYLED-COMPONENTS
 import { useTheme } from 'styled-components'
-import { Menu } from '../Menu'
+//HOOK
+import { useHeader } from '../../hooks/useHeader'
+
+
 
 export function Header() {
-  const [click, setClick] = useState<boolean>(false)
-  const [menu, setMenu] = useState<boolean>(false)
-
+  const { menu, setMenu, notification, setNotification } = useHeader()
   const { COLORS } = useTheme()
   const { navigate } = useNavigation()
 
   function handleClickNotifications() {
-    setClick(!click)
+    setNotification(!notification)
   }
   function handleNavigation() {
     navigate('Home')
@@ -38,7 +40,7 @@ export function Header() {
       <Search />
 
       <TouchableOpacity onPress={handleClickNotifications}>
-        {click === true ? (
+        {notification === true ? (
           <Bell size={24} color={COLORS.PRIMARY_900} weight="duotone" />
         ) : (
           <BellSlash size={24} color={COLORS.NOTIFICATION} weight="duotone" />
@@ -50,7 +52,6 @@ export function Header() {
       </TouchableOpacity>
 
       <Menu
-        setState={setMenu}
         visible={menu}
         backButton={handleMenu}
         overlay={handleMenu}

@@ -1,5 +1,8 @@
+//REACT
 import { Modal } from 'react-native'
+//COMPONENTE
 import { Buttons } from '../Button'
+//STYLE
 import { ModalContainer, Overlay, ModalView, ModalText } from './styles'
 
 
@@ -23,7 +26,7 @@ export function ModalVagas(props: Props) {
     >
       <ModalContainer>
         <Overlay onPress={props.overlay} />
-        <ModalView>
+        <ModalView style={{elevation: 30}}>
           <ModalText>{props.title}</ModalText>
 
           {props.buttons}

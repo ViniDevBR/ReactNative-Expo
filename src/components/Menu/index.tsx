@@ -1,4 +1,9 @@
-import { Modal, TouchableOpacity, View, Text } from 'react-native'
+//REACT
+import { Modal, TouchableOpacity } from 'react-native'
+import { useState } from 'react'
+//NAVIGATION
+import { useNavigation } from '@react-navigation/native'
+//STYLES
 import {
   ModalContainer,
   Overlay,
@@ -10,51 +15,50 @@ import {
   Options,
   ItemMenu
 } from './styles'
-import { Buttons } from '../Button'
+//PHOSPHOR ICONS
 import { CaretLeft } from 'phosphor-react-native'
-import { useNavigation } from '@react-navigation/native'
+//COMPONENTE
+import { LogOut } from '../LogOut'
+//HOOK
+import { useHeader } from '../../hooks/useHeader'
 
 interface Props {
   visible: boolean
   backButton: VoidFunction
   overlay: VoidFunction
-  setState: any
 }
 
 export function Menu(props: Props) {
   const { navigate } = useNavigation()
+  const { menu, setMenu } = useHeader()
+  const [logOut, setLogOut] = useState<boolean>(false)
 
   function handleMenuHome() {
     navigate('Home')
-    {
-      props.setState(props.visible)
-    }
+    setMenu(!menu)
   }
   function handleMenuLocal() {
     navigate('Location')
-    {
-      props.setState(props.visible)
-    }
+    setMenu(!menu)
   }
   function handleMenuAdd() {
     navigate('Add')
-    {
-      props.setState(props.visible)
-    }
+    setMenu(!menu)
   }
   function handleMenuUser() {
     navigate('User')
-    {
-      props.setState(props.visible)
-    }
+    setMenu(!menu)
   }
   function handleMenuVagas() {
     navigate('Vagas')
-    {
-      props.setState(props.visible)
-    }
+    setMenu(!menu)
   }
+  function handleLogOutConfirm() {
+    setLogOut(!logOut)
+  }
+  function handleClickYes() {
 
+  }
   return (
     <Modal
       animationType="fade"
@@ -96,12 +100,19 @@ export function Menu(props: Props) {
               <ItemMenu>Vagas</ItemMenu>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={handleMenuVagas}>
+            <TouchableOpacity onPress={handleLogOutConfirm}>
               <ItemMenu>SAIR</ItemMenu>
             </TouchableOpacity>
           </Options>
         </ModalView>
       </ModalContainer>
+
+      <LogOut 
+        backButton={handleLogOutConfirm}
+        overlay={handleLogOutConfirm}
+        visible={logOut}
+        yesConfirm={handleClickYes}
+      />
     </Modal>
   )
 }
