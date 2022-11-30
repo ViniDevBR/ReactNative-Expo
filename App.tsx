@@ -15,6 +15,9 @@ import { Routes } from './src/routes'
 import { ThemeProvider } from 'styled-components/native'
 import light from './src/theme/light'
 import dark from './src/theme/dark'
+import { MenuContextProvider } from './src/context'
+
+
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -22,18 +25,21 @@ export default function App() {
     Roboto_700Bold
   })
 
+  
   return (
-    <ThemeProvider theme={dark}>
-      <SafeAreaProvider>
-        <Background>
-          {fontsLoaded ? <Routes /> : <Loading />}
-          <StatusBar
-            style="inverted"
-            backgroundColor="transparent"
-            translucent
-          />
-        </Background>
-      </SafeAreaProvider>
-    </ThemeProvider>
+    <MenuContextProvider>
+      <ThemeProvider theme={light}>
+        <SafeAreaProvider>
+          <Background>
+            {fontsLoaded ? <Routes /> : <Loading />}
+            <StatusBar
+              style="inverted"
+              backgroundColor="transparent"
+              translucent
+            />
+          </Background>
+        </SafeAreaProvider>
+      </ThemeProvider>
+    </MenuContextProvider>
   )
 }
