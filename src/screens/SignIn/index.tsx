@@ -1,5 +1,12 @@
 //REACT
-import { Pressable, StyleSheet } from 'react-native'
+import {
+  Pressable,
+  StyleSheet,
+  TouchableWithoutFeedback,
+  View,
+  Keyboard,
+  KeyboardAvoidingView
+} from 'react-native'
 import { useState } from 'react'
 //STYLES
 import {
@@ -15,9 +22,9 @@ import {
 } from './styles'
 import { useTheme } from 'styled-components'
 //COMPONENTS
-import { Input } from '../../components/Input'
+import { ControlledInput } from '../../components/ControlInput'
 //HOOK FORM
-import { useForm } from 'react-hook-form'
+import { useForm, Controller } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { Buttons } from '../../components/Button'
@@ -29,9 +36,10 @@ import { User, Lock } from 'phosphor-react-native'
 //NAVIGATION
 import { useNavigation } from '@react-navigation/native'
 
-interface IFormInputs {
+export interface IFormInputs {
   user: string
   password: string
+  terms: string
 }
 
 const schema = yup
@@ -51,14 +59,12 @@ export function SignIn() {
   const [isChecked, setChecked] = useState(false)
   const { COLORS } = useTheme()
   const { navigate } = useNavigation()
-
-  const { control, handleSubmit } = useForm<IFormInputs>({
-    resolver: yupResolver(schema)
-  })
-
-  function onSubmit(data: IFormInputs) {
-    console.log(data)
-  }
+  const {
+    control,
+    handleSubmit,
+    formState: { errors }
+  } = useForm<IFormInputs>()
+  const onSubmit = (data: IFormInputs) => console.log(data)
   function handleCheckBox() {
     setChecked(!isChecked)
   }
@@ -69,59 +75,78 @@ export function SignIn() {
     navigate('SignUp')
   }
   return (
-    <SignInContainer>
-      <Title>
-        Sou <TitleBold>Junior</TitleBold>
-      </Title>
-      <Title type="subtitle">Entrar</Title>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <SignInContainer>
+        <Title>
+          Sou <TitleBold>Junior</TitleBold>
+        </Title>
+        <Title type="subtitle">Entrar</Title>
 
-      <Input
-        placeholder="User"
-        icon={<User size={20} weight="duotone" color={COLORS.ICON} />}
-      />
-      <Input
-        placeholder="Password"
-        icon={<Lock size={20} weight="duotone" color={COLORS.ICON} />}
-        secureTextEntry
-        autoCorrect={false}
-        clearTextOnFocus
-      />
-
-      <TermsAcept onPress={handleCheckBox}>
-        <Checkbox
-          style={styles.checkbox}
-          value={isChecked}
-          onValueChange={setChecked}
-          color={isChecked ? COLORS.PRIMARY_900 : undefined}
+        <ControlledInput
+          control={control}
+          name="user"
+          placeholder="User"
+          keyboardType="email-address"
+          icon="user"
         />
-        <TermsText>
-          Li e aceito os
-          <TermsLine> termos </TermsLine>e
-          <TermsLine> políticas de privacidade </TermsLine>
-        </TermsText>
-      </TermsAcept>
 
-      <Buttons onPress={handleLogin} type="signin" title="Entrar" />
+        <ControlledInput
+          control={control}
+          name="password"
+          placeholder="Password"
+          icon="lock"
+          secureTextEntry
+          autoCorrect={false}
+          clearTextOnFocus
+        />
 
-      <LinesContainer>
-        <Line1 />
-        <TextOU>OU</TextOU>
-        <Line1 />
-      </LinesContainer>
+        <TermsAcept onPress={handleCheckBox}>
+          <Controller
+            name="terms"
+            control={control}
+            render={({ field: { onChange, value } }) => (
+              <Checkbox
+                style={styles.checkbox}
+                value={!!value}
+                onValueChange={onChange}
+                color={COLORS.PRIMARY_900}
+              />
+            )}
+          />
 
-      <Buttons
-        onPress={handleLogin}
-        type="linkedin"
-        title="Entrar com Linkedin"
-        iconLeft={
-          <Fontisto name="linkedin" size={24} color={COLORS.PRIMARY_900} />
-        }
-      />
+          <TermsText>
+            Li e aceito os
+            <TermsLine> termos </TermsLine>e
+            <TermsLine> políticas de privacidade </TermsLine>
+          </TermsText>
+        </TermsAcept>
 
-      <Pressable onPress={handleSignUp}>
-        <Title type="signup">Criar conta</Title>
-      </Pressable>
-    </SignInContainer>
+        <Buttons
+          onPress={handleSubmit(onSubmit)}
+          type="signin"
+          title="Entrar"
+        />
+
+        <LinesContainer>
+          <Line1 />
+          <TextOU>OU</TextOU>
+          <Line1 />
+        </LinesContainer>
+
+        <Buttons
+          onPress={handleSubmit(onSubmit)}
+          type="linkedin"
+          title="Entrar com Linkedin"
+          iconLeft={
+            <Fontisto name="linkedin" size={24} color={COLORS.PRIMARY_900} />
+          }
+        />
+
+        <Pressable onPress={handleSignUp}>
+          <Title type="signup">Criar conta</Title>
+        </Pressable>
+      </SignInContainer>
+    </TouchableWithoutFeedback>
   )
 }
 
