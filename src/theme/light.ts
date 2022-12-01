@@ -8,7 +8,7 @@ export default {
     //PRIMARY_600: '#E0EDFD',
     PRIMARY_500: '#ECF5FF',
 
-    PLACEHOLDER: '#9A9DA1',
+    PLACEHOLDER: '#777777',
     TEXT: '#434343',
     TEXT2: '#A0A0A0',
 
