@@ -18,7 +18,8 @@ export function Select(props: Props) {
         <Buttons
           onPress={props.openData}
           title="Data"
-          icon={
+          emptyBox={false}
+          iconRight={
             <CaretCircleDown
               size={15}
               color={COLORS.PLACEHOLDER}
@@ -29,7 +30,8 @@ export function Select(props: Props) {
         <Buttons
           onPress={props.openType}
           title="Tipo"
-          icon={
+          emptyBox={false}
+          iconRight={
             <CaretCircleDown
               size={15}
               color={COLORS.PLACEHOLDER}
@@ -40,7 +42,8 @@ export function Select(props: Props) {
         <Buttons
           onPress={props.openEXP}
           title="Nivel de experiencia"
-          icon={
+          emptyBox={false}
+          iconRight={
             <CaretCircleDown
               size={15}
               color={COLORS.PLACEHOLDER}

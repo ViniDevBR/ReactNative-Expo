@@ -56,9 +56,7 @@ export function Menu(props: Props) {
   function handleLogOutConfirm() {
     setLogOut(!logOut)
   }
-  function handleClickYes() {
 
-  }
   return (
     <Modal
       animationType="fade"
@@ -107,11 +105,10 @@ export function Menu(props: Props) {
         </ModalView>
       </ModalContainer>
 
-      <LogOut 
+      <LogOut
         backButton={handleLogOutConfirm}
         overlay={handleLogOutConfirm}
         visible={logOut}
-        yesConfirm={handleClickYes}
       />
     </Modal>
   )
