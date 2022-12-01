@@ -5,7 +5,9 @@ export declare global {
       Location: undefined;
       User: undefined;
       Add: undefined;
-      Vagas: undefined
+      Vagas: undefined;
+      SignIn: undefined;
+      SignUp: undefined
     }
   }
 }

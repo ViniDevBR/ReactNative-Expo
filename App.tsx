@@ -11,13 +11,15 @@ import {
 } from '@expo-google-fonts/roboto'
 //SAFE AREA CONTEXT
 import { SafeAreaProvider } from 'react-native-safe-area-context'
+//ROUTES
 import { Routes } from './src/routes'
+//STYLED-COMPONENTS
 import { ThemeProvider } from 'styled-components/native'
 import light from './src/theme/light'
 import dark from './src/theme/dark'
+//CONTEXT
 import { MenuContextProvider } from './src/context'
-
-
+import { SignIn } from './src/screens/SignIn'
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -25,19 +27,12 @@ export default function App() {
     Roboto_700Bold
   })
 
-  
   return (
     <MenuContextProvider>
       <ThemeProvider theme={light}>
         <SafeAreaProvider>
-          <Background>
-            {fontsLoaded ? <Routes /> : <Loading />}
-            <StatusBar
-              style="inverted"
-              backgroundColor="transparent"
-              translucent
-            />
-          </Background>
+          {fontsLoaded ? <Routes /> : <Loading />}
+          <StatusBar style="auto" backgroundColor="transparent" translucent />
         </SafeAreaProvider>
       </ThemeProvider>
     </MenuContextProvider>
