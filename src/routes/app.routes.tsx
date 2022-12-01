@@ -2,6 +2,7 @@
 import { Platform } from 'react-native'
 //REACT MAVIGATION
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 //PHOSPHOR ICONS
 import {
   PlusCircle,
@@ -17,8 +18,11 @@ import { Add } from '../screens/Add'
 import { UserInfo } from '../screens/User'
 import { Vagas } from '../screens/Vagas'
 import { useTheme } from 'styled-components'
+import { SignIn } from '../screens/SignIn'
+import { SignUp } from '../screens/SignUp'
 
 const { Screen, Navigator } = createBottomTabNavigator()
+const Stack = createNativeStackNavigator()
 
 export function AppRoutes() {
   const { COLORS } = useTheme()
@@ -127,5 +131,18 @@ export function AppRoutes() {
         }}
       />
     </Navigator>
+  )
+}
+
+export function AppRoutesWithoutTab() {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false
+      }}
+    >
+      <Stack.Screen name="SignIn" component={SignIn} />
+      <Stack.Screen name="SignUp" component={SignUp} />
+    </Stack.Navigator>
   )
 }
