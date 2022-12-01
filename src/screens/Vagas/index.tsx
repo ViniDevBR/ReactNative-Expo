@@ -89,11 +89,12 @@ export function Vagas() {
             <ContainerButtons>
               <Buttons
                 onPress={handleClickAny}
-                icon={
+                emptyBox={false}
+                iconRight={
                   clickAny === false ? (
                     <Plus size={14} color={COLORS.PLACEHOLDER} weight="bold" />
                   ) : (
-                    <Check size={14} color={COLORS.PLACEHOLDER} weight="bold" />
+                    <Check size={14} color={COLORS.BACKGROUND2} weight="bold" />
                   )
                 }
                 type={clickAny === true ? 'selected' : undefined}
@@ -101,11 +102,12 @@ export function Vagas() {
               />
               <Buttons
                 onPress={handleClickMonth}
-                icon={
+                emptyBox={false}
+                iconRight={
                   clickMonth === false ? (
                     <Plus size={14} color={COLORS.PLACEHOLDER} weight="bold" />
                   ) : (
-                    <Check size={14} color={COLORS.PLACEHOLDER} weight="bold" />
+                    <Check size={14} color={COLORS.BACKGROUND2} weight="bold" />
                   )
                 }
                 type={clickMonth === true ? 'selected' : undefined}
@@ -113,11 +115,12 @@ export function Vagas() {
               />
               <Buttons
                 onPress={handleClick24}
-                icon={
+                emptyBox={false}
+                iconRight={
                   click24h === false ? (
                     <Plus size={14} color={COLORS.PLACEHOLDER} weight="bold" />
                   ) : (
-                    <Check size={14} color={COLORS.PLACEHOLDER} weight="bold" />
+                    <Check size={14} color={COLORS.BACKGROUND2} weight="bold" />
                   )
                 }
                 type={click24h === true ? 'selected' : undefined}
@@ -125,11 +128,12 @@ export function Vagas() {
               />
               <Buttons
                 onPress={handleClickWeek}
-                icon={
+                emptyBox={false}
+                iconRight={
                   clickWeek === false ? (
                     <Plus size={14} color={COLORS.PLACEHOLDER} weight="bold" />
                   ) : (
-                    <Check size={14} color={COLORS.PLACEHOLDER} weight="bold" />
+                    <Check size={14} color={COLORS.BACKGROUND2} weight="bold" />
                   )
                 }
                 type={clickWeek === true ? 'selected' : undefined}
@@ -149,11 +153,12 @@ export function Vagas() {
             <ContainerButtons>
               <Buttons
                 onPress={handleClickFull}
-                icon={
+                emptyBox={false}
+                iconRight={
                   clickFull === false ? (
                     <Plus size={14} color={COLORS.PLACEHOLDER} weight="bold" />
                   ) : (
-                    <Check size={14} color={COLORS.PLACEHOLDER} weight="bold" />
+                    <Check size={14} color={COLORS.BACKGROUND2} weight="bold" />
                   )
                 }
                 type={clickFull === true ? 'selected' : undefined}
@@ -161,11 +166,12 @@ export function Vagas() {
               />
               <Buttons
                 onPress={handleClickTemp}
-                icon={
+                emptyBox={false}
+                iconRight={
                   clickTemp === false ? (
                     <Plus size={14} color={COLORS.PLACEHOLDER} weight="bold" />
                   ) : (
-                    <Check size={14} color={COLORS.PLACEHOLDER} weight="bold" />
+                    <Check size={14} color={COLORS.BACKGROUND2} weight="bold" />
                   )
                 }
                 type={clickTemp === true ? 'selected' : undefined}
@@ -173,11 +179,12 @@ export function Vagas() {
               />
               <Buttons
                 onPress={handleClickStage}
-                icon={
+                emptyBox={false}
+                iconRight={
                   clickStage === false ? (
                     <Plus size={14} color={COLORS.PLACEHOLDER} weight="bold" />
                   ) : (
-                    <Check size={14} color={COLORS.PLACEHOLDER} weight="bold" />
+                    <Check size={14} color={COLORS.BACKGROUND2} weight="bold" />
                   )
                 }
                 type={clickStage === true ? 'selected' : undefined}
@@ -197,11 +204,12 @@ export function Vagas() {
             <ContainerButtons>
               <Buttons
                 onPress={handleClickJR}
-                icon={
+                emptyBox={false}
+                iconRight={
                   clickJR === false ? (
                     <Plus size={14} color={COLORS.PLACEHOLDER} weight="bold" />
                   ) : (
-                    <Check size={14} color={COLORS.PLACEHOLDER} weight="bold" />
+                    <Check size={14} color={COLORS.BACKGROUND2} weight="bold" />
                   )
                 }
                 type={clickJR === true ? 'selected' : undefined}
@@ -209,11 +217,12 @@ export function Vagas() {
               />
               <Buttons
                 onPress={handleClickPL}
-                icon={
+                emptyBox={false}
+                iconRight={
                   clickPL === false ? (
                     <Plus size={14} color={COLORS.PLACEHOLDER} weight="bold" />
                   ) : (
-                    <Check size={14} color={COLORS.PLACEHOLDER} weight="bold" />
+                    <Check size={14} color={COLORS.BACKGROUND2} weight="bold" />
                   )
                 }
                 type={clickPL === true ? 'selected' : undefined}
@@ -221,11 +230,12 @@ export function Vagas() {
               />
               <Buttons
                 onPress={handleClickSR}
-                icon={
+                emptyBox={false}
+                iconRight={
                   clickSR === false ? (
                     <Plus size={14} color={COLORS.PLACEHOLDER} weight="bold" />
                   ) : (
-                    <Check size={14} color={COLORS.PLACEHOLDER} weight="bold" />
+                    <Check size={14} color={COLORS.BACKGROUND2} weight="bold" />
                   )
                 }
                 type={clickSR === true ? 'selected' : undefined}
