@@ -18,7 +18,7 @@ import { useHeader } from '../../hooks/useHeader'
 
 
 export function Header() {
-  const { menu, setMenu, notification, setNotification } = useHeader()
+  const { isMenuOpen, setIsMenuOpen, notification, setNotification } = useHeader()
   const { COLORS } = useTheme()
   const { navigate } = useNavigation()
 
@@ -29,7 +29,7 @@ export function Header() {
     navigate('Home')
   }
   function handleMenu() {
-    setMenu(!menu)
+    setIsMenuOpen(!isMenuOpen)
   }
 
   return (
@@ -52,7 +52,7 @@ export function Header() {
       </TouchableOpacity>
 
       <Menu
-        visible={menu}
+        visible={isMenuOpen}
         backButton={handleMenu}
         overlay={handleMenu}
       />

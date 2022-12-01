@@ -30,28 +30,28 @@ interface Props {
 
 export function Menu(props: Props) {
   const { navigate } = useNavigation()
-  const { menu, setMenu } = useHeader()
+  const { isMenuOpen, setIsMenuOpen } = useHeader()
   const [logOut, setLogOut] = useState<boolean>(false)
 
   function handleMenuHome() {
     navigate('Home')
-    setMenu(!menu)
+    setIsMenuOpen(!isMenuOpen)
   }
   function handleMenuLocal() {
     navigate('Location')
-    setMenu(!menu)
+    setIsMenuOpen(!isMenuOpen)
   }
   function handleMenuAdd() {
     navigate('Add')
-    setMenu(!menu)
+    setIsMenuOpen(!isMenuOpen)
   }
   function handleMenuUser() {
     navigate('User')
-    setMenu(!menu)
+    setIsMenuOpen(!isMenuOpen)
   }
   function handleMenuVagas() {
     navigate('Vagas')
-    setMenu(!menu)
+    setIsMenuOpen(!isMenuOpen)
   }
   function handleLogOutConfirm() {
     setLogOut(!logOut)
