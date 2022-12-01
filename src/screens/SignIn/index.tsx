@@ -1,38 +1,20 @@
 //REACT
-import {
-  Pressable,
-  StyleSheet,
-  TouchableWithoutFeedback,
-  View,
-  Keyboard,
-  KeyboardAvoidingView
-} from 'react-native'
+import { Pressable, StyleSheet, TouchableWithoutFeedback, Keyboard } from 'react-native'
 import { useState } from 'react'
 //STYLES
-import {
-  SignInContainer,
-  Title,
-  TitleBold,
-  TermsAcept,
-  TermsText,
-  TermsLine,
-  Line1,
-  LinesContainer,
-  TextOU
-} from './styles'
+import { SignInContainer, Title, TitleBold, TermsAcept, TermsText, TermsLine, Line1, LinesContainer, TextOU } from './styles'
 import { useTheme } from 'styled-components'
 //COMPONENTS
 import { ControlledInput } from '../../components/ControlInput'
+import { Buttons } from '../../components/Button'
 //HOOK FORM
 import { useForm, Controller } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import { Buttons } from '../../components/Button'
 //EXPO
 import Checkbox from 'expo-checkbox'
 //ICONS
 import { Fontisto } from '@expo/vector-icons'
-import { User, Lock } from 'phosphor-react-native'
 //NAVIGATION
 import { useNavigation } from '@react-navigation/native'
 
@@ -42,34 +24,30 @@ export interface IFormInputs {
   terms: string
 }
 
-const schema = yup
-  .object({
-    user: yup
-      .string()
-      .email('Este e-mail esta correto?')
-      .required('Campo Obrigatório'),
-    password: yup
-      .string()
-      .min(6, 'Não esta faltando alguma coisa?')
-      .required('Campo Obrigatório')
-  })
-  .required()
+const schema = yup.object({
+  user: yup.string()
+    .email('Este e-mail esta correto?')
+    .required('Campo Obrigatório'),
+  password: yup.string()
+    .min(6, 'Não esta faltando alguma coisa?')
+    .required('Campo Obrigatório')
+  }).required()
 
 export function SignIn() {
   const [isChecked, setChecked] = useState(false)
   const { COLORS } = useTheme()
   const { navigate } = useNavigation()
-  const {
-    control,
-    handleSubmit,
-    formState: { errors }
-  } = useForm<IFormInputs>()
+
+  const { control, handleSubmit, formState: { errors }} = useForm<IFormInputs>({
+    resolver: yupResolver(schema),
+    mode: 'onTouched',
+    reValidateMode: 'onChange'
+  })
+  
   const onSubmit = (data: IFormInputs) => console.log(data)
+
   function handleCheckBox() {
     setChecked(!isChecked)
-  }
-  function handleLogin() {
-    navigate('Home')
   }
   function handleSignUp() {
     navigate('SignUp')
@@ -77,6 +55,7 @@ export function SignIn() {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <SignInContainer>
+        
         <Title>
           Sou <TitleBold>Junior</TitleBold>
         </Title>
@@ -88,6 +67,7 @@ export function SignIn() {
           placeholder="User"
           keyboardType="email-address"
           icon="user"
+          error={errors.user}
         />
 
         <ControlledInput
@@ -98,6 +78,7 @@ export function SignIn() {
           secureTextEntry
           autoCorrect={false}
           clearTextOnFocus
+          error={errors.password}
         />
 
         <TermsAcept onPress={handleCheckBox}>
@@ -107,7 +88,7 @@ export function SignIn() {
             render={({ field: { onChange, value } }) => (
               <Checkbox
                 style={styles.checkbox}
-                value={!!value}
+                value={!!value && isChecked}
                 onValueChange={onChange}
                 color={COLORS.PRIMARY_900}
               />

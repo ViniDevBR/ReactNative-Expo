@@ -42,7 +42,7 @@ export const TitleBold = styled.Text`
 
 export const TermsAcept = styled.Pressable`
   margin-top: 7px;
-  margin-bottom: 35px;
+  margin-bottom: 25px;
   flex-direction: row;
   align-items: center;
   align-self: flex-start;

@@ -10,7 +10,7 @@ export const InputContainer = styled.View<Props>`
   background-color: ${props => props.theme.COLORS.BACKGROUND2};
   width: 100%;
   padding: 17px 20px ;
-  margin-bottom: 18px;
+  margin-bottom: 10px;
   border-width: 1px;
   border-radius: 4px;
   flex-direction: row;
