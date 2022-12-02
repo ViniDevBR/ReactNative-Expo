@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 //COMPONENTS
 import { Header } from '../../components/Header'
-import { Background } from '../../components/Background'
 import { Select } from '../../components/Selects'
 import { ModalVagas } from '../../components/ModalVagas'
 import { Buttons } from '../../components/Button'
@@ -33,6 +32,7 @@ export function Vagas() {
   const [clickPL, setClickPL] = useState<boolean>(false)
   const [clickSR, setClickSR] = useState<boolean>(false)
 
+
   function handleClickAny() {
     setClickAny(!clickAny)
   }
@@ -46,6 +46,7 @@ export function Vagas() {
     setClickWeek(!clickWeek)
   }
 
+
   function handleClickFull() {
     setClickFull(!clickFull)
   }
@@ -55,6 +56,7 @@ export function Vagas() {
   function handleClickStage() {
     setClickStage(!clickStage)
   }
+
 
   function handleClickJR() {
     setClickJR(!clickJR)

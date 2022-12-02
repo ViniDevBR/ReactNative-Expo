@@ -4,6 +4,7 @@ import { Text } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 //COMPONENTS
 import { Header } from '../../components/Header'
+//STYLES
 import { useTheme } from 'styled-components'
 
 export function Location() {

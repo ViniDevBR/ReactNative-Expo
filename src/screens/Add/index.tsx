@@ -1,10 +1,12 @@
 //REACT
-import { View, Text } from 'react-native'
+import { Text } from 'react-native'
 //SAFE AREA CONTEXT
 import { SafeAreaView } from 'react-native-safe-area-context'
 //COMPONENTS
 import { Header } from '../../components/Header'
+//STYLED
 import { useTheme } from 'styled-components'
+
 
 export function Add() {
   const { COLORS } = useTheme()

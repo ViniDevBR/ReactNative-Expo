@@ -1,44 +1,37 @@
 //REACT
-import { Pressable, StyleSheet, TouchableWithoutFeedback, Keyboard } from 'react-native'
-import { useState } from 'react'
-//STYLES
-import { SignInContainer, Title, TitleBold, TermsAcept, TermsText, TermsLine, Line1, LinesContainer, TextOU } from './styles'
+import { Pressable, TouchableWithoutFeedback, Keyboard } from 'react-native'
+//STYLES && ICONS
+import { SignInContainer, Title, TitleBold, Line1, LinesContainer, TextOU } from './styles'
 import { useTheme } from 'styled-components'
+import { Fontisto } from '@expo/vector-icons'
 //COMPONENTS
 import { ControlledInput } from '../../components/ControlInput'
 import { Buttons } from '../../components/Button'
 //HOOK FORM
-import { useForm, Controller } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-//EXPO
-import Checkbox from 'expo-checkbox'
-//ICONS
-import { Fontisto } from '@expo/vector-icons'
 //NAVIGATION
 import { useNavigation } from '@react-navigation/native'
 
 export interface IFormInputs {
   user: string
   password: string
+  email?: string
+  terms?: boolean
 }
 
 const defaultForm: IFormInputs = {
   user: '',
-  password: '',
+  password: ''
 }
 
 const schema = yup.object({
-  user: yup.string()
-    .email('Este e-mail esta correto?')
-    .required('Campo Obrigatório'),
-  password: yup.string()
-    .min(6, 'Não esta faltando alguma coisa?')
-    .required('Campo Obrigatório')
-  }).required()
+  user: yup.string().email('Este e-mail esta correto?').required('Campo Obrigatório'),
+  password: yup.string().min(6, 'Não esta faltando alguma coisa?').required('Campo Obrigatório')
+}).required()
 
 export function SignIn() {
-  //const [isChecked, setChecked] = useState<boolean>(false)
   const { COLORS } = useTheme()
   const { navigate } = useNavigation()
 
@@ -48,22 +41,18 @@ export function SignIn() {
     mode: 'onTouched',
     reValidateMode: 'onChange'
   })
-  
+
   function onSubmit(data: IFormInputs) {
     console.log(data)
     navigate('Home')
   }
 
-  // function handleCheckBox() {
-  //   setChecked(!isChecked)
-  // }
   function handleSignUp() {
     navigate('SignUp')
   }
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <SignInContainer>
-        
         <Title>
           Sou <TitleBold>Junior</TitleBold>
         </Title>
@@ -88,27 +77,6 @@ export function SignIn() {
           clearTextOnFocus
           error={errors.password}
         />
-
-        {/* <TermsAcept onPress={handleCheckBox}>
-          <Controller
-            name="terms"
-            control={control}
-            render={({ field: { onChange, value }}) => (
-              <Checkbox
-                style={styles.checkbox}
-                value={!!value && isChecked}
-                onValueChange={onChange}
-                color={COLORS.PRIMARY_900}
-              />
-            )}
-          />
-
-          <TermsText>
-            Li e aceito os
-            <TermsLine> termos </TermsLine>e
-            <TermsLine> políticas de privacidade </TermsLine>
-          </TermsText>
-        </TermsAcept> */}
 
         <Buttons
           onPress={handleSubmit(onSubmit)}
@@ -138,9 +106,3 @@ export function SignIn() {
     </TouchableWithoutFeedback>
   )
 }
-
-export const styles = StyleSheet.create({
-  checkbox: {
-    marginRight: 8
-  }
-})
