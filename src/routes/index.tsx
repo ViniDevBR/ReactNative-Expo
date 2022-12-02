@@ -1,12 +1,11 @@
 import { NavigationContainer } from '@react-navigation/native'
-import { AppRoutes, AppRoutesWithoutTab } from './app.routes'
+import { AppRoutes } from './app.routes'
 
 export function Routes() {
-  const teste = true
 
   return (
     <NavigationContainer>
-      {teste ? <AppRoutesWithoutTab /> : <AppRoutes />}
+      <AppRoutes />
     </NavigationContainer>
   )
 }

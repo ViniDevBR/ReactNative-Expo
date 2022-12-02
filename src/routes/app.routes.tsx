@@ -4,13 +4,7 @@ import { Platform } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 //PHOSPHOR ICONS
-import {
-  PlusCircle,
-  House,
-  MapPin,
-  User,
-  Suitcase
-} from 'phosphor-react-native'
+import { PlusCircle, House, MapPin, User, Suitcase } from 'phosphor-react-native'
 //SCREENS
 import { Home } from '../screens/Home'
 import { Location } from '../screens/Location'
@@ -21,8 +15,8 @@ import { useTheme } from 'styled-components'
 import { SignIn } from '../screens/SignIn'
 import { SignUp } from '../screens/SignUp'
 
+
 const { Screen, Navigator } = createBottomTabNavigator()
-const Stack = createNativeStackNavigator()
 
 export function AppRoutes() {
   const { COLORS } = useTheme()
@@ -50,6 +44,22 @@ export function AppRoutes() {
         }
       }}
     >
+      <Screen
+        name="SignIn"
+        component={SignIn}
+        options={{
+          tabBarStyle: { display: 'none' },
+          tabBarButton: () => null
+        }}
+      />
+      <Screen
+        name="SignUp"
+        component={SignUp}
+        options={{
+          tabBarStyle: { display: 'none' },
+          tabBarButton: () => null
+        }}
+      />
       <Screen
         name="Home"
         component={Home}
@@ -131,18 +141,5 @@ export function AppRoutes() {
         }}
       />
     </Navigator>
-  )
-}
-
-export function AppRoutesWithoutTab() {
-  return (
-    <Stack.Navigator
-      screenOptions={{
-        headerShown: false
-      }}
-    >
-      <Stack.Screen name="SignIn" component={SignIn} />
-      <Stack.Screen name="SignUp" component={SignUp} />
-    </Stack.Navigator>
   )
 }
