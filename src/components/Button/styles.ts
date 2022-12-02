@@ -35,7 +35,7 @@ export const ButtonContainer = styled.TouchableOpacity<TButton>`
     border: 1px solid ${({theme}) => theme.COLORS.BORDER3};
     border-radius: 4px;
     height: 60px;
-    margin: 40px 0 10px 0;
+    margin: 20px 0 10px 0;
     width: 100%;
   `}
     

@@ -3,14 +3,12 @@ import { Modal, TouchableOpacity } from 'react-native'
 import { useState } from 'react'
 //NAVIGATION
 import { useNavigation } from '@react-navigation/native'
-//STYLES
+//STYLES & PHOSPHOR ICONS & HOOK
 import { ModalContainer, Overlay, ModalView, ModalText, ModalTitle, BackButton, EmptyBox, Options, ItemMenu } from './styles'
-//PHOSPHOR ICONS
 import { CaretLeft } from 'phosphor-react-native'
+import { useHeader } from '../../hooks/useHeader'
 //COMPONENTE
 import { LogOut } from '../LogOut'
-//HOOK
-import { useHeader } from '../../hooks/useHeader'
 
 interface Props {
   visible: boolean

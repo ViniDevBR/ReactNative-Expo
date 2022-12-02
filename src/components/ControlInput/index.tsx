@@ -1,14 +1,14 @@
 //HOOK FORM
 import { Control, Controller, FieldError } from 'react-hook-form'
-//INTERFAC& COMPONENTS
+//INTERFACE && COMPONENTS
 import { IFormInputs } from '../../screens/SignIn'
 import { Input, InputProps } from '../Input'
 //STYLES
 import { Error } from './styles'
 
 interface Props extends InputProps {
-  control: Control<IFormInputs>
-  name: 'user' | 'password'
+  control: Control<IFormInputs | any>
+  name: 'user' | 'password' | 'email' | 'terms'
   error?: FieldError
 }
 

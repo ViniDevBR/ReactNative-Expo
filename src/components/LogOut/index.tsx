@@ -1,21 +1,9 @@
-//STYLES
-import {
-  BackButton,
-  ItemMenu,
-  ModalContainer,
-  ModalText,
-  ModalTitle,
-  ModalView,
-  Options,
-  Overlay
-} from './styles'
 //REACT
 import { TouchableOpacity, Modal } from 'react-native'
-//NAVIGATION
-import { useNavigation } from '@react-navigation/native'
-//PHOSPHOR
+//STYLES & PHOSPHOR
+import { BackButton, ItemMenu, ModalContainer, ModalText, ModalTitle, ModalView, Options, Overlay } from './styles'
 import { XCircle } from 'phosphor-react-native'
-import { useHeader } from '../../hooks/useHeader'
+
 
 interface Props {
   overlay: VoidFunction
@@ -25,10 +13,6 @@ interface Props {
 }
 
 export function LogOut(props: Props) {
-  const { navigate } = useNavigation()
-  const { isMenuOpen, setIsMenuOpen } = useHeader()
-
-  
 
   return (
     <Modal

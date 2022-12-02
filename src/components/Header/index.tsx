@@ -5,14 +5,11 @@ import { useNavigation } from '@react-navigation/native'
 //COMPONENTS
 import { Search } from '../Search'
 import { Menu } from '../Menu'
-//STYLES
+//STYLES && ICONS && HOOKS
 import { HeaderContainer, Logo, LogoBold } from './styles'
-//ICONS
 import { Ionicons } from '@expo/vector-icons'
 import { Bell, BellSlash } from 'phosphor-react-native'
-//STYLED-COMPONENTS
 import { useTheme } from 'styled-components'
-//HOOK
 import { useHeader } from '../../hooks/useHeader'
 
 

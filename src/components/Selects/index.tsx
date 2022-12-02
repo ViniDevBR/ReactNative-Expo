@@ -1,7 +1,9 @@
+//COMPONENTE
 import { Buttons } from '../Button'
+//STYLES & ICONS
 import { SelectContainer, ScrollView } from './styles'
-import { CaretCircleDown } from 'phosphor-react-native'
 import { useTheme } from 'styled-components'
+import { CaretCircleDown } from 'phosphor-react-native'
 
 interface Props {
   openData: VoidFunction
