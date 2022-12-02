@@ -35,7 +35,7 @@ export const ButtonContainer = styled.TouchableOpacity<TButton>`
     border: 1px solid ${({theme}) => theme.COLORS.BORDER3};
     border-radius: 4px;
     height: 60px;
-    margin: 0 0 10px 0;
+    margin: 40px 0 10px 0;
     width: 100%;
   `}
     
@@ -46,6 +46,7 @@ export const ButtonContainer = styled.TouchableOpacity<TButton>`
     height: 60px;
     margin: 10px 0 0 0;
     width: 100%;
+    justify-content: space-evenly;
   `}
 `
 
@@ -65,16 +66,13 @@ export const Title = styled.Text<TButton>`
   
   ${({types}) => types === 'signin' && css`
     color: ${({theme}) => theme.COLORS.BACKGROUND};
-    width: 80%;
     font-size: ${({theme}) => theme.FONT_SIZE.BIG2};
-    
   `}
     
-    ${({types}) => types === 'linkedin' && css`
+  ${({types}) => types === 'linkedin' && css`
     color: ${({theme}) => theme.COLORS.PRIMARY_900};
-    width: 80%;
+    //width: 80%;
     font-size: ${({theme}) => theme.FONT_SIZE.NORMAL2};
- 
   `}
 `
 
