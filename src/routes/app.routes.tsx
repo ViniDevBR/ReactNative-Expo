@@ -2,7 +2,6 @@
 import { Platform } from 'react-native'
 //REACT MAVIGATION
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
 //PHOSPHOR ICONS
 import { PlusCircle, House, MapPin, User, Suitcase } from 'phosphor-react-native'
 //SCREENS
