@@ -21,7 +21,13 @@ import { useNavigation } from '@react-navigation/native'
 export interface IFormInputs {
   user: string
   password: string
-  terms: string
+  terms: boolean
+}
+
+const defaultForm: IFormInputs = {
+  user: '',
+  password: '',
+  terms: false
 }
 
 const schema = yup.object({
@@ -34,17 +40,21 @@ const schema = yup.object({
   }).required()
 
 export function SignIn() {
-  const [isChecked, setChecked] = useState(false)
+  const [isChecked, setChecked] = useState<boolean>(false)
   const { COLORS } = useTheme()
   const { navigate } = useNavigation()
 
   const { control, handleSubmit, formState: { errors }} = useForm<IFormInputs>({
+    defaultValues: defaultForm,
     resolver: yupResolver(schema),
     mode: 'onTouched',
     reValidateMode: 'onChange'
   })
   
-  const onSubmit = (data: IFormInputs) => console.log(data)
+  function onSubmit(data: IFormInputs) {
+    console.log(data)
+    navigate('Home')
+  }
 
   function handleCheckBox() {
     setChecked(!isChecked)
@@ -85,7 +95,7 @@ export function SignIn() {
           <Controller
             name="terms"
             control={control}
-            render={({ field: { onChange, value } }) => (
+            render={({ field: { onChange, value }}) => (
               <Checkbox
                 style={styles.checkbox}
                 value={!!value && isChecked}
