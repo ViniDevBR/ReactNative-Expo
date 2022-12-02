@@ -4,17 +4,7 @@ import { useState } from 'react'
 //NAVIGATION
 import { useNavigation } from '@react-navigation/native'
 //STYLES
-import {
-  ModalContainer,
-  Overlay,
-  ModalView,
-  ModalText,
-  ModalTitle,
-  BackButton,
-  EmptyBox,
-  Options,
-  ItemMenu
-} from './styles'
+import { ModalContainer, Overlay, ModalView, ModalText, ModalTitle, BackButton, EmptyBox, Options, ItemMenu } from './styles'
 //PHOSPHOR ICONS
 import { CaretLeft } from 'phosphor-react-native'
 //COMPONENTE
@@ -55,6 +45,11 @@ export function Menu(props: Props) {
   }
   function handleLogOutConfirm() {
     setLogOut(!logOut)
+  }
+  function handleLogOut() {
+    navigate('SignIn')
+    setIsMenuOpen(!isMenuOpen)
+    setLogOut(!LogOut)
   }
 
   return (
@@ -109,6 +104,7 @@ export function Menu(props: Props) {
         backButton={handleLogOutConfirm}
         overlay={handleLogOutConfirm}
         visible={logOut}
+        yesConfirm={handleLogOut}
       />
     </Modal>
   )

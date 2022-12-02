@@ -21,16 +21,14 @@ interface Props {
   overlay: VoidFunction
   backButton: VoidFunction
   visible: boolean
+  yesConfirm: VoidFunction
 }
 
 export function LogOut(props: Props) {
   const { navigate } = useNavigation()
   const { isMenuOpen, setIsMenuOpen } = useHeader()
 
-  function handleLogOut() {
-    navigate('SignIn')
-    setIsMenuOpen(!isMenuOpen)
-  }
+  
 
   return (
     <Modal
@@ -50,7 +48,7 @@ export function LogOut(props: Props) {
             </ModalTitle>
 
             <Options>
-              <TouchableOpacity onPress={handleLogOut}>
+              <TouchableOpacity onPress={props.yesConfirm}>
                 <ItemMenu>SIM</ItemMenu>
               </TouchableOpacity>
               <TouchableOpacity onPress={props.backButton}>

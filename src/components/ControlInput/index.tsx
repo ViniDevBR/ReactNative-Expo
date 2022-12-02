@@ -1,7 +1,9 @@
-import React from 'react'
+//HOOK FORM
 import { Control, Controller, FieldError } from 'react-hook-form'
+//INTERFAC& COMPONENTS
 import { IFormInputs } from '../../screens/SignIn'
 import { Input, InputProps } from '../Input'
+//STYLES
 import { Error } from './styles'
 
 interface Props extends InputProps {
