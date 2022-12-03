@@ -7,6 +7,7 @@ import { Header } from '../../components/Header'
 import { Select } from '../../components/Selects'
 import { ModalVagas } from '../../components/ModalVagas'
 import { Buttons } from '../../components/Button'
+import { JobCard } from '../../components/JobCard'
 //STYLES & ICONS
 import { Content, DivContainer, Results, ContainerButtons } from './styles'
 import { Check, Plus } from 'phosphor-react-native'
@@ -246,10 +247,12 @@ export function Vagas() {
             </ContainerButtons>
           }
         />
-      </DivContainer>
 
+      </DivContainer>
       <Content>
         <Results>1.215 Resultados</Results>
+
+        <JobCard />
       </Content>
     </SafeAreaView>
   )
