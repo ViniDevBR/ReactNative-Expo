@@ -3,7 +3,13 @@ import { Platform } from 'react-native'
 //REACT MAVIGATION
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 //PHOSPHOR ICONS
-import { PlusCircle, House, MapPin, User, Suitcase } from 'phosphor-react-native'
+import {
+  PlusCircle,
+  House,
+  MapPin,
+  User,
+  Suitcase
+} from 'phosphor-react-native'
 //SCREENS
 import { Home } from '../screens/Home'
 import { Location } from '../screens/Location'
@@ -13,7 +19,7 @@ import { Vagas } from '../screens/Vagas'
 import { useTheme } from 'styled-components'
 import { SignIn } from '../screens/SignIn'
 import { SignUp } from '../screens/SignUp'
-
+import { DetailsVaga } from '../screens/DetailsVaga'
 
 const { Screen, Navigator } = createBottomTabNavigator()
 
@@ -137,6 +143,14 @@ export function AppRoutes() {
             )
           },
           tabBarLabel: 'Vagas'
+        }}
+      />
+      <Screen
+        name="DetailsVaga"
+        component={DetailsVaga}
+        options={{
+          tabBarStyle: { display: 'none' },
+          tabBarButton: () => null
         }}
       />
     </Navigator>

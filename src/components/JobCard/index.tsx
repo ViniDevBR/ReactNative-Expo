@@ -18,7 +18,7 @@ export function JobCard(props: IJobCard) {
   const { navigate } = useNavigation()
 
   function handleDetails() {
-    navigate('Details', { id: props.details })
+    navigate('DetailsVaga', { id: props.details })
   }
 
   return (
