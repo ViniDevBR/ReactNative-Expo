@@ -8,7 +8,7 @@ export declare global {
       Vagas: undefined;
       SignIn: undefined;
       SignUp: undefined;
-      Details: {
+      DetailsVaga: {
         id: string
       }
     }
