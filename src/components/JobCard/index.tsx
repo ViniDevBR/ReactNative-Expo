@@ -1,7 +1,11 @@
-import { Container, Img, Infos, Time, InfosDetailed } from './styles'
+import { Container, Img, Infos, InfosDetailed, Header } from './styles'
 import JobCardImg from '../../assets/JobCard.png'
+import { ImageSourcePropType } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 
- export interface Props {
+export interface IJobCard {
+  details?: any
+  id?: string
   time: string
   title: string
   subtitle: string
@@ -10,28 +14,26 @@ import JobCardImg from '../../assets/JobCard.png'
   img: string
 }
 
-export function JobCard(props: Props) {
+export function JobCard(props: IJobCard) {
+  const { navigate } = useNavigation()
+
+  function handleDetails() {
+    navigate('Details', { id: props.details })
+  }
+
   return (
-    <Container>
-      <Img source={JobCardImg}/>
+    <Container onPress={handleDetails}>
+      <Img source={{ uri: props.img }} />
 
       <Infos>
-        <InfosDetailed type='title'>
-          UX Designer Junior
-        </InfosDetailed>
-        <InfosDetailed type='subtitle'>
-          Empresa Verde
-        </InfosDetailed>
-        <InfosDetailed type='location'>
-          Bento Gonçalves, Rio Grande do Sul, Brasil
-        </InfosDetailed>
-        <InfosDetailed type='level'> 
-          REMOTO - JUNIOR - PJ
-        </InfosDetailed>
+        <Header>
+          <InfosDetailed>{props.title}</InfosDetailed>
+          <InfosDetailed type="time">{props.time}</InfosDetailed>
+        </Header>
+        <InfosDetailed type="subtitle">{props.subtitle}</InfosDetailed>
+        <InfosDetailed type="others">{props.location}</InfosDetailed>
+        <InfosDetailed type="level">{props.level}</InfosDetailed>
       </Infos>
-      <Time>
-        Há 6h
-      </Time>
     </Container>
   )
 }
