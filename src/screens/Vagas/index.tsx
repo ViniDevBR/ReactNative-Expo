@@ -1,5 +1,6 @@
 //REACT
-import { useState } from 'react'
+import { View } from 'react-native'
+import React, { useState } from 'react'
 //SAFE AREA CONTEXT
 import { SafeAreaView } from 'react-native-safe-area-context'
 //COMPONENTS
@@ -7,14 +8,73 @@ import { Header } from '../../components/Header'
 import { Select } from '../../components/Selects'
 import { ModalVagas } from '../../components/ModalVagas'
 import { Buttons } from '../../components/Button'
-import { JobCard } from '../../components/JobCard'
+import { IJobCard, JobCard } from '../../components/JobCard'
 //STYLES & ICONS
 import { Content, DivContainer, Results, ContainerButtons } from './styles'
 import { Check, Plus } from 'phosphor-react-native'
 import { useTheme } from 'styled-components'
 
+const JobInfosFromAPI = [
+  {
+    id: '1',
+    img: 'https://reactnative.dev/img/tiny_logo.png',
+    title: 'UX Designer Junior',
+    subtitle: 'empresa verde alegre',
+    location: 'Bento Gonçalves, Rio Grande do Sul, Brasil',
+    level: 'REMOTO - JUNIOR - PJ',
+    time: 'Há 6h'
+  },
+  {
+    id: '2',
+    img: 'https://logospng.org/download/javascript/logo-javascript-1024.png',
+    title: 'Front End Developer',
+    subtitle: 'Empresa Viva a Vida',
+    location: 'Bento Gonçalves, Rio Grande do Sul, Brasil',
+    level: 'REMOTO - JUNIOR - PJ',
+    time: 'Há 6h'
+  },
+  {
+    id: '3',
+    img: 'https://w7.pngwing.com/pngs/915/519/png-transparent-typescript-hd-logo-thumbnail.png',
+    title: 'Back End Developer',
+    subtitle: 'Empresa LifeGeneration',
+    location: 'Bento Gonçalves, Rio Grande do Sul, Brasil',
+    level: 'REMOTO - JUNIOR - PJ',
+    time: 'Há 6h'
+  },
+  {
+    id: '4',
+    img: 'https://www.styled-components.com/atom.png',
+    title: 'Full Stack Developer',
+    subtitle: 'Empresa DevOpsMaster',
+    location: 'Bento Gonçalves, Rio Grande do Sul, Brasil',
+    level: 'REMOTO - JUNIOR - PJ',
+    time: 'Há 6h'
+  },
+  {
+    id: '5',
+    img: 'https://www.pngitem.com/pimgs/m/441-4411342_react-native-svg-logo-hd-png-download.png',
+    title: 'Mobile Developer',
+    subtitle: 'Empresa MobilesStates',
+    location: 'Bento Gonçalves, Rio Grande do Sul, Brasil',
+    level: 'REMOTO - JUNIOR - PJ',
+    time: 'Há 6h'
+  },
+  {
+    id: '6',
+    img: 'https://ih1.redbubble.net/image.1800626835.5626/st,small,507x507-pad,600x600,f8f8f8.jpg',
+    title: 'TailWind Specialist',
+    subtitle: 'Empresa TailWind Tops',
+    location: 'Bento Gonçalves, Rio Grande do Sul, Brasil',
+    level: 'REMOTO - JUNIOR - PJ',
+    time: 'Há 6h'
+  }
+]
+
 export function Vagas() {
   const { COLORS } = useTheme()
+
+  const [jobInfos, setJobInfos] = useState<IJobCard[]>(JobInfosFromAPI)
 
   const [modalData, setModalData] = useState<boolean>(false)
   const [modalType, setModalType] = useState<boolean>(false)
@@ -33,7 +93,6 @@ export function Vagas() {
   const [clickPL, setClickPL] = useState<boolean>(false)
   const [clickSR, setClickSR] = useState<boolean>(false)
 
-
   function handleClickAny() {
     setClickAny(!clickAny)
   }
@@ -47,7 +106,6 @@ export function Vagas() {
     setClickWeek(!clickWeek)
   }
 
-
   function handleClickFull() {
     setClickFull(!clickFull)
   }
@@ -57,7 +115,6 @@ export function Vagas() {
   function handleClickStage() {
     setClickStage(!clickStage)
   }
-
 
   function handleClickJR() {
     setClickJR(!clickJR)
@@ -247,12 +304,26 @@ export function Vagas() {
             </ContainerButtons>
           }
         />
-
       </DivContainer>
+
       <Content>
         <Results>1.215 Resultados</Results>
-
-        <JobCard />
+        <View style={{ paddingHorizontal: 5 }}>
+          {jobInfos.map(job => {
+            return (
+              <JobCard
+                key={job.id}
+                details={job.id}
+                img={job.img}
+                title={job.title}
+                subtitle={job.subtitle}
+                location={job.location}
+                level={job.level}
+                time={job.time}
+              />
+            )
+          })}
+        </View>
       </Content>
     </SafeAreaView>
   )

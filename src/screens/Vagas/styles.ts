@@ -3,7 +3,11 @@ import styled from 'styled-components/native'
 
 export const DivContainer = styled.View``
 
-export const Content = styled.ScrollView`
+export const Content = styled.ScrollView.attrs({
+  contentContainerStyle: {
+    paddingBottom: 100
+  }
+})`
 
 `
 
