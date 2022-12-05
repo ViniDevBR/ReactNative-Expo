@@ -2,13 +2,23 @@
 import { StatusBar } from 'expo-status-bar'
 //COMPONENTS
 import { Loading } from './src/components/Loading'
-import { Background } from './src/components/Background'
 //GOOGLE FONTS
+// import {
+//   Roboto_400Regular,
+//   Roboto_700Bold
+// } from '@expo-google-fonts/roboto'
 import {
-  useFonts,
-  Roboto_400Regular,
-  Roboto_700Bold
-} from '@expo-google-fonts/roboto'
+  Inter_100Thin,
+  Inter_200ExtraLight,
+  Inter_300Light,
+  Inter_400Regular,
+  Inter_500Medium,
+  Inter_600SemiBold,
+  Inter_700Bold,
+  Inter_800ExtraBold,
+  Inter_900Black,
+  useFonts
+} from '@expo-google-fonts/inter'
 //SAFE AREA CONTEXT
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 //ROUTES
@@ -19,12 +29,18 @@ import light from './src/theme/light'
 import dark from './src/theme/dark'
 //CONTEXT
 import { MenuContextProvider } from './src/context'
-import { SignIn } from './src/screens/SignIn'
 
 export default function App() {
   const [fontsLoaded] = useFonts({
-    Roboto_400Regular,
-    Roboto_700Bold
+    Inter_100Thin,
+    Inter_200ExtraLight,
+    Inter_300Light,
+    Inter_400Regular,
+    Inter_500Medium,
+    Inter_600SemiBold,
+    Inter_700Bold,
+    Inter_800ExtraBold,
+    Inter_900Black
   })
 
   return (
