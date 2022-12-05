@@ -7,7 +7,10 @@ export declare global {
       Add: undefined;
       Vagas: undefined;
       SignIn: undefined;
-      SignUp: undefined
+      SignUp: undefined;
+      Details: {
+        id: string
+      }
     }
   }
 }
