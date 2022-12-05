@@ -47,6 +47,7 @@ export default {
     EXTRA_NORMAL: '17px',
 
     BIG: "20px",
-    BIG2: '24px'
+    BIG2: '24px',
+    EXTRA_BIG: '26px'
   }
 }
