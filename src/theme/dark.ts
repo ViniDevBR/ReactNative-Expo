@@ -10,11 +10,11 @@ export default {
 
     PLACEHOLDER: '#000',
     TEXT: '#FFFFFFDE',
-    TEXT2: '',
-    TEXT3: '',
+    TEXT2: '#A0A0A0',
+    TEXT3: '#515050',
 
     NOTIFICATION: '#FF4338',
-    ICON: '',
+    ICON: '#E6E6E6',
 
     RESULTS: '#C0C0C0',
 
