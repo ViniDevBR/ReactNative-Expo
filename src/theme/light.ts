@@ -5,7 +5,7 @@ export default {
     
     PRIMARY_900: '#1165BA',
     PRIMARY_700: '#C1DFFF',
-    //PRIMARY_600: '#E0EDFD',
+    PRIMARY_600: '#E0EDFD',
     PRIMARY_500: '#ECF5FF',
 
     PLACEHOLDER: '#777777',
