@@ -1,26 +1,38 @@
-import {
-  DetailsContainer,
-  InfosDetail,
-  Img,
-  HeaderInfos,
-  TypeOfVaga,
-  DetailsOfType,
-  ScrollContent,
-  Description,
-  DescriptionText,
-  GoBack
-} from './styles'
-//NAVIGATION
-import { useRoute } from '@react-navigation/native'
-import { Pressable, View } from 'react-native'
+//REACT
+import { useState, useEffect } from 'react'
+import { View } from 'react-native'
+//STYLES && ICONS
 import { Entypo } from '@expo/vector-icons'
-import { useNavigation } from '@react-navigation/native'
+import { DetailsContainer, InfosDetail, Img, HeaderInfos, TypeOfVaga, DetailsOfType, ScrollContent, Description, DescriptionText, GoBack, ButtonsContainer } from './styles'
+//NAVIGATION
+import { useRoute, useNavigation } from '@react-navigation/native'
+import { urlVini, urlRafa, urlThatto } from '../Vagas'
+//COMPONENTS
+import { IJobCard } from '../../components/JobCard'
+import { Buttons } from '../../components/Button'
 
 interface RouteParams {
   id: string
 }
 
+interface IJobDetails extends IJobCard {
+  type: string
+  numberOfEmployers: string
+  status: string
+  description: {
+    resume: string
+    tasksTitle: string
+    tasksDescription: string
+    stacksTitle: string
+    stacksDescription: string
+    benefitsTitle: string
+    benefitsDescription: string
+  }
+}
+
 export function DetailsVaga() {
+  const [jobDetail, setJobDetail] = useState<IJobDetails>({} as IJobDetails)
+
   const { params } = useRoute()
   const { id } = params as RouteParams
   const { navigate } = useNavigation()
@@ -28,6 +40,12 @@ export function DetailsVaga() {
   function handleGoBackVagas() {
     navigate('Vagas')
   }
+
+  useEffect(() => {
+    fetch(`${urlVini}/vagas/${id}`)
+      .then(response => response.json())
+      .then(data => setJobDetail(data))
+  }, [id])
 
   return (
     <DetailsContainer>
@@ -37,43 +55,46 @@ export function DetailsVaga() {
             <Entypo name="chevron-left" size={32} color="black" />
           </GoBack>
           <HeaderInfos>
-            <InfosDetail>ux designer junior</InfosDetail>
-            <Img
-              source={{ uri: 'https://reactnative.dev/img/tiny_logo.png' }}
-            />
+            <InfosDetail>{jobDetail.title}</InfosDetail>
+            <Img source={{ uri: jobDetail.img }} />
           </HeaderInfos>
 
-          <InfosDetail type="subtitle">empresa verde alegre</InfosDetail>
-          <InfosDetail type="location">
-            Bento Gonçalves, Rio Grande do Sul, Brasil
-          </InfosDetail>
-          <InfosDetail type="level">REMOTO - JUNIOR - PJ</InfosDetail>
+          <InfosDetail type="subtitle">{jobDetail.subtitle}</InfosDetail>
+          <InfosDetail type="location">{jobDetail.location}</InfosDetail>
+          <InfosDetail type="level">{jobDetail.level}</InfosDetail>
         </View>
 
         <TypeOfVaga>
-          <DetailsOfType>Tempo Integral</DetailsOfType>
-          <DetailsOfType>51-200 funcionários</DetailsOfType>
-          <DetailsOfType variation="blue">Recrutando agora</DetailsOfType>
+          <DetailsOfType>{jobDetail.type}</DetailsOfType>
+          <DetailsOfType>
+            {jobDetail.numberOfEmployers} funcionários
+          </DetailsOfType>
+          <DetailsOfType variation="blue">{jobDetail.status}</DetailsOfType>
         </TypeOfVaga>
 
         <Description>
           <DescriptionText>
-            Procuramos um profissional para ocupar a posição de UX Designer em
-            um cliente referência no setor de produção de imunobiológicos
-            (vacinas) e análises laboratoriais veterinários.{'\n\n'}
-            Culturalmente, procuramos uma pessoa que:{'\n'}- seja curiosa por
-            natureza{'\n'}- perfil mão na massa e ágil{'\n'}- sabe ouvir e se
-            comunicar{'\n'}- busca e tenha um histórico de aprendizado contínuo
-            {'\n'}- busca e fomenta a colaboração, mas também tenha as suas -
-            contribuições individuais inovadoras{'\n'}- entenda o objetivo e
-            propósito da empresa, e consiga atuar com - autonomia dentro de suas
-            responsabilidades{'\n\n'}
-            Responsabilidades e atribuições:{'\n\n'}- Contribuir com o time de
-            forma agil{'\n'}- Estar atento as mudanças solicitadas pelo cliente
-            {'\n'}- Realizar call morning todo dia{'\n'}- Disponivel para horas
-            extras{'\n'}
+            {jobDetail?.description?.resume}
+            {'\n\n'}
+            {jobDetail?.description?.tasksTitle}
+            {'\n'}
+            {jobDetail?.description?.tasksDescription}
+            {'\n\n'}
+            {jobDetail?.description?.stacksTitle}
+            {'\n'}
+            {jobDetail?.description?.stacksDescription}
+            {'\n\n'}
+            {jobDetail?.description?.benefitsTitle}
+            {'\n'}
+            {jobDetail?.description?.benefitsDescription}
+            {'\n'}
           </DescriptionText>
         </Description>
+
+        <ButtonsContainer>
+          <Buttons type="signin" title="Se inscrever" />
+          <Buttons onPress={handleGoBackVagas} type="linkedin" title="Voltar" />
+        </ButtonsContainer>
       </ScrollContent>
     </DetailsContainer>
   )

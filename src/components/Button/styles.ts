@@ -71,7 +71,6 @@ export const Title = styled.Text<TButton>`
     
   ${({types}) => types === 'linkedin' && css`
     color: ${({theme}) => theme.COLORS.PRIMARY_900};
-    //width: 80%;
     font-size: ${({theme}) => theme.FONT_SIZE.NORMAL2};
   `}
 `

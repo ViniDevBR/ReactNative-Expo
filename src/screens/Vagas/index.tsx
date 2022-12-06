@@ -1,6 +1,6 @@
 //REACT
 import { View } from 'react-native'
-import React, { useState } from 'react'
+import { useState, useCallback } from 'react'
 //SAFE AREA CONTEXT
 import { SafeAreaView } from 'react-native-safe-area-context'
 //COMPONENTS
@@ -13,68 +13,18 @@ import { IJobCard, JobCard } from '../../components/JobCard'
 import { Content, DivContainer, Results, ContainerButtons } from './styles'
 import { Check, Plus } from 'phosphor-react-native'
 import { useTheme } from 'styled-components'
+//NAVIGATION
+import { useFocusEffect } from '@react-navigation/native'
 
-const JobInfosFromAPI = [
-  {
-    id: '1',
-    img: 'https://reactnative.dev/img/tiny_logo.png',
-    title: 'UX Designer Junior',
-    subtitle: 'empresa verde alegre',
-    location: 'Bento Gonçalves, Rio Grande do Sul, Brasil',
-    level: 'REMOTO - JUNIOR - PJ',
-    time: 'Há 6h'
-  },
-  {
-    id: '2',
-    img: 'https://logospng.org/download/javascript/logo-javascript-1024.png',
-    title: 'Front End Developer',
-    subtitle: 'Empresa Viva a Vida',
-    location: 'Bento Gonçalves, Rio Grande do Sul, Brasil',
-    level: 'REMOTO - JUNIOR - PJ',
-    time: 'Há 6h'
-  },
-  {
-    id: '3',
-    img: 'https://w7.pngwing.com/pngs/915/519/png-transparent-typescript-hd-logo-thumbnail.png',
-    title: 'Back End Developer',
-    subtitle: 'Empresa LifeGeneration',
-    location: 'Bento Gonçalves, Rio Grande do Sul, Brasil',
-    level: 'REMOTO - JUNIOR - PJ',
-    time: 'Há 6h'
-  },
-  {
-    id: '4',
-    img: 'https://www.styled-components.com/atom.png',
-    title: 'Full Stack Developer',
-    subtitle: 'Empresa DevOpsMaster',
-    location: 'Bento Gonçalves, Rio Grande do Sul, Brasil',
-    level: 'REMOTO - JUNIOR - PJ',
-    time: 'Há 6h'
-  },
-  {
-    id: '5',
-    img: 'https://www.pngitem.com/pimgs/m/441-4411342_react-native-svg-logo-hd-png-download.png',
-    title: 'Mobile Developer',
-    subtitle: 'Empresa MobilesStates',
-    location: 'Bento Gonçalves, Rio Grande do Sul, Brasil',
-    level: 'REMOTO - JUNIOR - PJ',
-    time: 'Há 6h'
-  },
-  {
-    id: '6',
-    img: 'https://ih1.redbubble.net/image.1800626835.5626/st,small,507x507-pad,600x600,f8f8f8.jpg',
-    title: 'TailWind Specialist',
-    subtitle: 'Empresa TailWind Tops',
-    location: 'Bento Gonçalves, Rio Grande do Sul, Brasil',
-    level: 'REMOTO - JUNIOR - PJ',
-    time: 'Há 6h'
-  }
-]
+
+export const urlVini = 'http://192.168.0.9:4000'
+export const urlRafa = 'http://192.168.0.9:4000'
+export const urlThatto = 'http://192.168.0.9:4000'
 
 export function Vagas() {
   const { COLORS } = useTheme()
 
-  const [jobInfos, setJobInfos] = useState<IJobCard[]>(JobInfosFromAPI)
+  const [jobInfos, setJobInfos] = useState<IJobCard[]>([])
 
   const [modalData, setModalData] = useState<boolean>(false)
   const [modalType, setModalType] = useState<boolean>(false)
@@ -125,6 +75,14 @@ export function Vagas() {
   function handleClickSR() {
     setClickSR(!clickSR)
   }
+
+  useFocusEffect(
+    useCallback(() => {
+      fetch(`${urlVini}/vagas`)
+        .then(response => response.json())
+        .then(data => setJobInfos(data))
+    }, [])
+  )
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.BACKGROUND2 }}>

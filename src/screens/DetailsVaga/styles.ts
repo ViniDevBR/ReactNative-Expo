@@ -4,7 +4,7 @@ import styled, { css } from "styled-components/native";
 type TInfos = {
   type?: 'subtitle' | 'location' | 'level'
   variation?: 'blue'
-  description?: 'title' | 'stacks'
+  description?: 'title' 
 }
 
 export const GoBack = styled.TouchableOpacity`
@@ -17,9 +17,7 @@ export const DetailsContainer = styled.View`
   justify-content: center;
 `
 
-export const ScrollContent = styled.ScrollView`
-
-`
+export const ScrollContent = styled.ScrollView``
 
 export const HeaderInfos = styled.View`
   flex-direction: row;
@@ -81,8 +79,10 @@ export const Description = styled.View`
 
 export const DescriptionText = styled.Text<TInfos>`
   padding: 10px 0;
+`
 
-  ${props => props.description === 'title' && css`
-
-  `}
+export const ButtonsContainer = styled.View`
+  width: 90%;
+  align-self: center;
+  margin-bottom: 30px;
 `
