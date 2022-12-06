@@ -1,0 +1,140 @@
+{
+  "vagas": [{
+    "id": "1",
+    "date": "20-02-2023",
+    "img": "https://www.seekpng.com/png/detail/882-8823048_web-design-icon-ui-ux-designer-icon.png",
+    "title": "UX Designer Junior",
+    "subtitle": "empresa verde alegre",
+    "location": "Bento Gonçalves, Rio Grande do Sul, Brasil",
+    "level": "REMOTO - JUNIOR - PJ",
+    "time": "Há 6h",
+    "type": "Tempo Integral",
+    "status": "Recrutando agora",
+    "salary": "3000",
+    "numberOfEmployers": "250",
+    "description": {
+      "resume": "Procuramos um profissional para ocupar a posição de UX Designer em um cliente referência no setor de produção de imunobiológicos (vacinas) e análises laboratoriais veterinários",
+      "tasksTitle": "Culturalmente, procuramos uma pessoa que:",
+      "tasksDescription": "- seja curiosa por natureza; - perfil mão na massa e ágil; - sabe ouvir e se comunicar; - busca e tenha um histórico de aprendizado contínuo; - busca e fomenta a colaboração, mas também tenha as suas contribuições individuais inovadoras; - entenda o objetivo e propósito da empresa, e consiga atuar com autonomia dentro de suas responsabilidades",
+      "stacksTitle": "Suas obrigações:",
+      "stacksDescription": "- Contribuir com o time de forma agil; - Estar atento as mudanças solicitadas pelo cliente; - Realizar call morning todo dia; - Disponivel para horas extras",
+      "benefitsTitle": "Nossos beneficios",
+      "benefitsDescription": "- Convenio medico; - Gympass"
+    }
+  },
+  {
+    "id": "2",
+    "date": "20-02-2023",
+    "img": "https://reactnative.dev/img/tiny_logo.png",
+    "title": "Front End Developer",
+    "subtitle": "Empresa Viva a Vida",
+    "location": "Bento Gonçalves, Rio Grande do Sul, Brasil",
+    "level": "REMOTO - JUNIOR - PJ",
+    "time": "Há 6h",
+    "type": "Tempo Integral",
+    "status": "Recrutando agora",
+    "salary": "4500",
+    "numberOfEmployers": "300",
+    "description": {
+      "resume": "Procuramos um profissional para ocupar a posição de desenvolvedor front end em um cliente referência no setor de produção de imunobiológicos (vacinas) e análises laboratoriais veterinários",
+      "tasksTitle": "Culturalmente, procuramos uma pessoa que:",
+      "tasksDescription": "- seja curiosa por natureza; - perfil mão na massa e ágil; - sabe ouvir e se comunicar; - busca e tenha um histórico de aprendizado contínuo; - busca e fomenta a colaboração, mas também tenha as suas contribuições individuais inovadoras; - entenda o objetivo e propósito da empresa, e consiga atuar com autonomia dentro de suas responsabilidades",
+      "stacksTitle": "Suas obrigações:",
+      "stacksDescription": "- Contribuir com o time de forma agil; - Estar atento as mudanças solicitadas pelo cliente; - Realizar call morning todo dia; - Disponivel para horas extras",
+      "benefitsTitle": "Nossos beneficios",
+      "benefitsDescription": "- Convenio medico; - Gympass"
+    }
+  },
+  {
+    "id": "3",
+    "date": "20-02-2023",
+    "img": "https://cdn0.iconfinder.com/data/icons/designer-skills/128/node-js-512.png",
+    "title": "Back End Developer",
+    "subtitle": "Empresa LifeGeneration",
+    "location": "Bento Gonçalves, Rio Grande do Sul, Brasil",
+    "level": "REMOTO - JUNIOR - PJ",
+    "time": "Há 6h",
+    "type": "Tempo Integral",
+    "status": "Recrutando agora",
+    "salary": "4500",
+    "numberOfEmployers": "150",
+    "description": {
+      "resume": "Procuramos um profissional para ocupar a posição de desenvolvedor back end em um cliente referência no setor de produção de imunobiológicos (vacinas) e análises laboratoriais veterinários",
+      "tasksTitle": "Culturalmente, procuramos uma pessoa que:",
+      "tasksDescription": "- seja curiosa por natureza; - perfil mão na massa e ágil; - sabe ouvir e se comunicar; - busca e tenha um histórico de aprendizado contínuo; - busca e fomenta a colaboração, mas também tenha as suas contribuições individuais inovadoras; - entenda o objetivo e propósito da empresa, e consiga atuar com autonomia dentro de suas responsabilidades",
+      "stacksTitle": "Suas obrigações:",
+      "stacksDescription": "- Contribuir com o time de forma agil; - Estar atento as mudanças solicitadas pelo cliente; - Realizar call morning todo dia; - Disponivel para horas extras",
+      "benefitsTitle": "Nossos beneficios",
+      "benefitsDescription": "- Convenio medico; - Gympass"
+    }
+  },
+  {
+    "id": "4",
+    "date": "20-02-2023",
+    "img": "https://w7.pngwing.com/pngs/915/519/png-transparent-typescript-hd-logo-thumbnail.png",
+    "title": "Full Stack Developer",
+    "subtitle": "Empresa DevOpsMaster",
+    "location": "Bento Gonçalves, Rio Grande do Sul, Brasil",
+    "level": "REMOTO - JUNIOR - PJ",
+    "time": "Há 6h",
+    "type": "Tempo Integral",
+    "status": "Recrutando agora",
+    "salary": "7000",
+    "numberOfEmployers": "2000",
+    "description": {
+      "resume": "Procuramos um profissional para ocupar a posição de desenvolvedor full stack em um cliente referência no setor de produção de imunobiológicos (vacinas) e análises laboratoriais veterinários",
+      "tasksTitle": "Culturalmente, procuramos uma pessoa que:",
+      "tasksDescription": "- seja curiosa por natureza; - perfil mão na massa e ágil; - sabe ouvir e se comunicar; - busca e tenha um histórico de aprendizado contínuo; - busca e fomenta a colaboração, mas também tenha as suas contribuições individuais inovadoras; - entenda o objetivo e propósito da empresa, e consiga atuar com autonomia dentro de suas responsabilidades",
+      "stacksTitle": "Suas obrigações:",
+      "stacksDescription": "- Contribuir com o time de forma agil; - Estar atento as mudanças solicitadas pelo cliente; - Realizar call morning todo dia; - Disponivel para horas extras",
+      "benefitsTitle": "Nossos beneficios",
+      "benefitsDescription": "- Convenio medico; - Gympass"
+    }
+  },
+  {
+    "id": "5",
+    "date": "20-02-2023",
+    "img": "https://www.pngitem.com/pimgs/m/441-4411342_react-native-svg-logo-hd-png-download.png",
+    "title": "Mobile Developer",
+    "subtitle": "Empresa MobilesStates",
+    "location": "Bento Gonçalves, Rio Grande do Sul, Brasil",
+    "level": "REMOTO - JUNIOR - PJ",
+    "time": "Há 6h",
+    "type": "Tempo Integral",
+    "status": "Recrutando agora",
+    "salary": "4500",
+    "numberOfEmployers": "1487",
+    "description": {
+      "resume": "Procuramos um profissional para ocupar a posição de desenvolvedor mobile em um cliente referência no setor de produção de imunobiológicos (vacinas) e análises laboratoriais veterinários",
+      "tasksTitle": "Culturalmente, procuramos uma pessoa que:",
+      "tasksDescription": "- seja curiosa por natureza; - perfil mão na massa e ágil; - sabe ouvir e se comunicar; - busca e tenha um histórico de aprendizado contínuo; - busca e fomenta a colaboração, mas também tenha as suas contribuições individuais inovadoras; - entenda o objetivo e propósito da empresa, e consiga atuar com autonomia dentro de suas responsabilidades",
+      "stacksTitle": "Suas obrigações:",
+      "stacksDescription": "- Contribuir com o time de forma agil; - Estar atento as mudanças solicitadas pelo cliente; - Realizar call morning todo dia; - Disponivel para horas extras",
+      "benefitsTitle": "Nossos beneficios",
+      "benefitsDescription": "- Convenio medico; - Gympass"
+    }
+  },
+  {
+    "id": "6",
+    "date": "20-02-2023",
+    "img": "https://ih1.redbubble.net/image.1800626835.5626/st,small,507x507-pad,600x600,f8f8f8.jpg",
+    "title": "TailWind Specialist",
+    "subtitle": "Empresa TailWind Tops",
+    "location": "Bento Gonçalves, Rio Grande do Sul, Brasil",
+    "level": "REMOTO - JUNIOR - PJ",
+    "time": "Há 6h",
+    "type": "Tempo Integral",
+    "status": "Recrutando agora",
+    "salary": "5000",
+    "numberOfEmployers": "1596",
+    "description": {
+      "resume": "Procuramos um profissional para ocupar a posição de desenvolvedor front end especialista em tailwind em um cliente referência no setor de produção de imunobiológicos (vacinas) e análises laboratoriais veterinários",
+      "tasksTitle": "Culturalmente, procuramos uma pessoa que:",
+      "tasksDescription": "- seja curiosa por natureza; - perfil mão na massa e ágil; - sabe ouvir e se comunicar; - busca e tenha um histórico de aprendizado contínuo; - busca e fomenta a colaboração, mas também tenha as suas contribuições individuais inovadoras; - entenda o objetivo e propósito da empresa, e consiga atuar com autonomia dentro de suas responsabilidades",
+      "stacksTitle": "Suas obrigações:",
+      "stacksDescription": "- Contribuir com o time de forma agil; - Estar atento as mudanças solicitadas pelo cliente; - Realizar call morning todo dia; - Disponivel para horas extras",
+      "benefitsTitle": "Nossos beneficios",
+      "benefitsDescription": "- Convenio medico; - Gympass"
+    }
+  }]
+}
