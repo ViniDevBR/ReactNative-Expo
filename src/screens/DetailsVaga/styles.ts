@@ -7,6 +7,22 @@ type TInfos = {
   description?: 'title' 
 }
 
+
+export const Header = styled.View`
+  padding: 0 19px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`
+
+export const HeaderTitle = styled.Text`
+  color: ${props => props.theme.COLORS.TEXT3};
+`
+
+export const EmptyBox = styled.View`
+  width: 42px;
+`
+
 export const GoBack = styled.TouchableOpacity`
   padding: 10px 10px 10px 0;
 `

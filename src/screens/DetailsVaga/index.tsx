@@ -3,7 +3,22 @@ import { useState, useEffect } from 'react'
 import { View } from 'react-native'
 //STYLES && ICONS
 import { Entypo } from '@expo/vector-icons'
-import { DetailsContainer, InfosDetail, Img, HeaderInfos, TypeOfVaga, DetailsOfType, ScrollContent, Description, DescriptionText, GoBack, ButtonsContainer } from './styles'
+import {
+  DetailsContainer,
+  InfosDetail,
+  Img,
+  HeaderInfos,
+  TypeOfVaga,
+  DetailsOfType,
+  ScrollContent,
+  Description,
+  DescriptionText,
+  GoBack,
+  ButtonsContainer,
+  Header,
+  HeaderTitle,
+  EmptyBox
+} from './styles'
 //NAVIGATION
 import { useRoute, useNavigation } from '@react-navigation/native'
 import { urlVini, urlRafa, urlThatto } from '../Vagas'
@@ -50,10 +65,15 @@ export function DetailsVaga() {
   return (
     <DetailsContainer>
       <ScrollContent>
-        <View style={{ paddingHorizontal: 19 }}>
+        <Header>
           <GoBack onPress={handleGoBackVagas}>
             <Entypo name="chevron-left" size={32} color="black" />
           </GoBack>
+          <HeaderTitle>Detalhes da Vaga</HeaderTitle>
+          <EmptyBox />
+        </Header>
+
+        <View style={{ paddingHorizontal: 19 }}>
           <HeaderInfos>
             <InfosDetail>{jobDetail.title}</InfosDetail>
             <Img source={{ uri: jobDetail.img }} />

@@ -56,7 +56,7 @@ export function SignUp() {
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <SignUpContainer>
         <Title>
-          Sou <TitleBold>Junior</TitleBold>
+          Sou<TitleBold>Junior</TitleBold>
         </Title>
         <Title type="subtitle">Criar conta</Title>
 

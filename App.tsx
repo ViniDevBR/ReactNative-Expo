@@ -3,10 +3,6 @@ import { StatusBar } from 'expo-status-bar'
 //COMPONENTS
 import { Loading } from './src/components/Loading'
 //GOOGLE FONTS
-// import {
-//   Roboto_400Regular,
-//   Roboto_700Bold
-// } from '@expo-google-fonts/roboto'
 import {
   Inter_100Thin,
   Inter_200ExtraLight,
