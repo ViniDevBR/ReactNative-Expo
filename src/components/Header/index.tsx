@@ -12,8 +12,6 @@ import { Bell, BellSlash } from 'phosphor-react-native'
 import { useTheme } from 'styled-components'
 import { useHeader } from '../../hooks/useHeader'
 
-
-
 export function Header() {
   const { isMenuOpen, setIsMenuOpen, notification, setNotification } = useHeader()
   const { COLORS } = useTheme()
@@ -32,7 +30,7 @@ export function Header() {
   return (
     <HeaderContainer>
       <Logo onPress={handleNavigation}>
-        Sou <LogoBold>Junior</LogoBold>
+        Sou<LogoBold>Junior</LogoBold>
       </Logo>
       <Search />
 
@@ -48,11 +46,7 @@ export function Header() {
         <Ionicons name="menu" size={30} color={COLORS.PRIMARY_900} />
       </TouchableOpacity>
 
-      <Menu
-        visible={isMenuOpen}
-        backButton={handleMenu}
-        overlay={handleMenu}
-      />
+      <Menu visible={isMenuOpen} backButton={handleMenu} overlay={handleMenu} />
     </HeaderContainer>
   )
 }

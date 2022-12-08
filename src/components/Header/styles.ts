@@ -6,7 +6,6 @@ export const HeaderContainer = styled.View`
   align-items: center;
   justify-content: space-between;
   background-color: ${props => props.theme.COLORS.BACKGROUND};
-  width: 100%;
   padding: 11px;
   border-bottom-width: 1px;
   border-bottom-color: ${({theme}) => theme.COLORS.PRIMARY_600};
