@@ -1,11 +1,9 @@
 import { Container, Img, Infos, InfosDetailed, Header } from './styles'
-import JobCardImg from '../../assets/JobCard.png'
-import { ImageSourcePropType } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 
 export interface IJobCard {
-  details?: any
-  id?: string
+  screenDetails: string | any
+  id: string
   time: string
   title: string
   subtitle: string
@@ -18,7 +16,7 @@ export function JobCard(props: IJobCard) {
   const { navigate } = useNavigation()
 
   function handleDetails() {
-    navigate('DetailsVaga', { id: props.details })
+    navigate('DetailsVaga', { id: props.screenDetails })
   }
 
   return (
