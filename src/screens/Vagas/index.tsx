@@ -10,16 +10,16 @@ import { ModalVagas } from '../../components/ModalVagas'
 import { Buttons } from '../../components/Button'
 import { IJobCard, JobCard } from '../../components/JobCard'
 //STYLES & ICONS
-import { Content, DivContainer, Results, ContainerButtons } from './styles'
+import { ContentList, DivContainer, Results, ContainerButtons } from './styles'
 import { Check, Plus } from 'phosphor-react-native'
 import { useTheme } from 'styled-components'
 //NAVIGATION
 import { useFocusEffect } from '@react-navigation/native'
 
-
 export const urlVini = 'http://192.168.0.9:4000'
 export const urlRafa = 'http://192.168.0.9:4000'
 export const urlThatto = 'http://192.168.0.9:4000'
+//É necessario trocar na tela de Vagas dentro do useFocusEffect e na tela de DetailsVaga
 
 export function Vagas() {
   const { COLORS } = useTheme()
@@ -264,25 +264,25 @@ export function Vagas() {
         />
       </DivContainer>
 
-      <Content>
-        <Results>1.215 Resultados</Results>
-        <View style={{ paddingHorizontal: 5 }}>
-          {jobInfos.map(job => {
-            return (
-              <JobCard
-                key={job.id}
-                details={job.id}
-                img={job.img}
-                title={job.title}
-                subtitle={job.subtitle}
-                location={job.location}
-                level={job.level}
-                time={job.time}
-              />
-            )
-          })}
-        </View>
-      </Content>
+      <Results>1.215 Resultados</Results>
+      <ContentList
+        data={jobInfos}
+        renderItem={({ item }) => {
+          return (
+            <JobCard
+              id={item.id}
+              screenDetails={item.id}
+              img={item.img}
+              title={item.title}
+              subtitle={item.subtitle}
+              location={item.location}
+              level={item.level}
+              time={item.time}
+            />
+          )
+        }}
+        keyExtractor={item => item.id}
+      />
     </SafeAreaView>
   )
 }
