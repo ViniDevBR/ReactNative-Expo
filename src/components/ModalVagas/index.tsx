@@ -1,5 +1,5 @@
 //REACT
-import { ReactElement, ReactNode } from 'react'
+import { ReactElement } from 'react'
 import { Modal } from 'react-native'
 //COMPONENTE
 import { Buttons } from '../Button'
