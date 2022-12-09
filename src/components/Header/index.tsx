@@ -13,9 +13,9 @@ import { useTheme } from 'styled-components'
 import { useHeader } from '../../hooks/useHeader'
 
 export function Header() {
-  const { isMenuOpen, setIsMenuOpen, notification, setNotification } = useHeader()
   const { COLORS } = useTheme()
   const { navigate } = useNavigation()
+  const { isMenuOpen, setIsMenuOpen, notification, setNotification } = useHeader()
 
   function handleClickNotifications() {
     setNotification(!notification)

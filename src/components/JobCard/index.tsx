@@ -1,8 +1,10 @@
+//STYLED COMPONENTS
 import { Container, Img, Infos, InfosDetailed, Header } from './styles'
+//NAVIGATION
 import { useNavigation } from '@react-navigation/native'
 
 export interface IJobCard {
-  screenDetails: string | any
+  screenDetails: string
   id: string
   time: string
   title: string

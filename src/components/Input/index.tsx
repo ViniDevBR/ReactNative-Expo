@@ -14,8 +14,9 @@ export interface InputProps extends TextInputProps {
 
 export function Input({ ...props }: InputProps) {
   const { COLORS } = useTheme()
-  const [isFocused, setIsFocused] = useState(false)
-  const [isFilled, setIsFilled] = useState(false)
+
+  const [isFocused, setIsFocused] = useState<boolean>(false)
+  const [isFilled, setIsFilled] = useState<boolean>(false)
 
   function handleInputFocus() {
     setIsFocused(true)

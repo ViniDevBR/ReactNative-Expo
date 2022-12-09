@@ -1,4 +1,5 @@
 //REACT
+import { ReactElement, ReactNode } from 'react'
 import { Modal } from 'react-native'
 //COMPONENTE
 import { Buttons } from '../Button'
@@ -13,7 +14,7 @@ interface Props {
   title: string
   exit: VoidFunction
   exitTitle: string
-  buttons: any
+  buttons: ReactElement
 }
 
 export function ModalVagas(props: Props) {

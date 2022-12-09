@@ -19,6 +19,7 @@ interface Props {
 export function Menu(props: Props) {
   const { navigate } = useNavigation()
   const { isMenuOpen, setIsMenuOpen } = useHeader()
+  
   const [logOut, setLogOut] = useState<boolean>(false)
 
   function handleMenuHome() {
