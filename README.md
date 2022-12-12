@@ -5,3 +5,5 @@ Run:
 NPM INSTALL
 
 NPX EXPO START 
+
+JSON-SERVER --WATCH db.json

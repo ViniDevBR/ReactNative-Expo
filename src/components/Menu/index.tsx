@@ -50,6 +50,9 @@ export function Menu(props: Props) {
     setIsMenuOpen(!isMenuOpen)
     setLogOut(!LogOut)
   }
+  function handleTheme() {
+
+  }
 
   return (
     <Modal
@@ -90,6 +93,10 @@ export function Menu(props: Props) {
 
             <TouchableOpacity onPress={handleMenuVagas}>
               <ItemMenu>Vagas</ItemMenu>
+            </TouchableOpacity>
+            
+            <TouchableOpacity onPress={handleTheme}>
+              <ItemMenu>Mudar Tema</ItemMenu>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={handleLogOutConfirm}>
