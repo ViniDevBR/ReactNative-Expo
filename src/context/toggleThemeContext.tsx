@@ -9,8 +9,6 @@ export interface ITheme {
   themeMode: DefaultTheme
   setThemeMode: Dispatch<SetStateAction<DefaultTheme>>
 }
-
-//
 interface IThemeProviderProps {
   children: ReactNode
 }
@@ -21,13 +19,13 @@ export function ToggleThemeContextProvider({ children }: IThemeProviderProps) {
   const deviceTheme = useColorScheme()
   const firstThemeChoice = themesSchema[deviceTheme ? deviceTheme : 'light']
   
-  const [themeMode, setThemeMode] = useState(firstThemeChoice)
-  
+  const [themeMode, setThemeMode] = useState<DefaultTheme>(firstThemeChoice)
+ 
   const value = {
-    themeMode,
+    themeMode, 
     setThemeMode
   }
-  
+
   return (
     <ToggleThemeContext.Provider value={value}>
       {children}
