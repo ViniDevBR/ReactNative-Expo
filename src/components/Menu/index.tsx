@@ -1,5 +1,5 @@
 //REACT
-import { Modal, TouchableOpacity } from 'react-native'
+import { Modal, TouchableOpacity, useColorScheme } from 'react-native'
 import { useState } from 'react'
 //NAVIGATION
 import { useNavigation } from '@react-navigation/native'
@@ -9,6 +9,8 @@ import { CaretLeft } from 'phosphor-react-native'
 import { useHeader } from '../../hooks/useHeader'
 //COMPONENTE
 import { LogOut } from '../LogOut'
+import { useToggleTheme } from '../../hooks/useToggleTheme'
+import themeSchema from '../../theme'
 
 interface Props {
   visible: boolean
@@ -17,10 +19,11 @@ interface Props {
 }
 
 export function Menu(props: Props) {
+  const [logOut, setLogOut] = useState<boolean>(false)
   const { navigate } = useNavigation()
   const { isMenuOpen, setIsMenuOpen } = useHeader()
+  const { setThemeMode } = useToggleTheme()
   
-  const [logOut, setLogOut] = useState<boolean>(false)
 
   function handleMenuHome() {
     navigate('Home')
@@ -49,9 +52,12 @@ export function Menu(props: Props) {
     navigate('SignIn')
     setIsMenuOpen(!isMenuOpen)
     setLogOut(!LogOut)
+  }  
+  function handleThemeDark() {
+    setThemeMode(themeSchema['dark'])
   }
-  function handleTheme() {
-
+  function handleThemeLight() {
+    setThemeMode(themeSchema['light'])
   }
 
   return (
@@ -95,8 +101,12 @@ export function Menu(props: Props) {
               <ItemMenu>Vagas</ItemMenu>
             </TouchableOpacity>
             
-            <TouchableOpacity onPress={handleTheme}>
-              <ItemMenu>Mudar Tema</ItemMenu>
+            <TouchableOpacity onPress={handleThemeDark}>
+              <ItemMenu>Tema Dark</ItemMenu>
+            </TouchableOpacity>
+            
+            <TouchableOpacity onPress={handleThemeLight}>
+              <ItemMenu>Tema Light</ItemMenu>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={handleLogOutConfirm}>
