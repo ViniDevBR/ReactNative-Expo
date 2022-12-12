@@ -1,5 +1,3 @@
-//REACT
-import { useColorScheme } from 'react-native'
 //EXPO
 import { StatusBar } from 'expo-status-bar'
 //COMPONENTS
@@ -23,12 +21,9 @@ import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { Routes } from './src/routes'
 //STYLED-COMPONENTS
 import { ThemeProvider } from 'styled-components/native'
-import themesSchema from './src/theme'
 //CONTEXT
 import { HeaderContextProvider } from './src/context/headerContext'
-import { ToggleThemeContextProvider } from './src/context/toggleThemeContext' 
-//HOOKS
-import { useToggleTheme } from './src/hooks/useToggleTheme'
+import { ToggleThemeContext, ToggleThemeContextProvider } from './src/context/toggleThemeContext' 
 
 
 export default function App() {
@@ -43,24 +38,21 @@ export default function App() {
     Inter_800ExtraBold,
     Inter_900Black
   })
-  //TESTES DE PEGAR TEMA DEFINIDO NO APARELHO DO USUARIO
-  const deviceTheme = useColorScheme()
-  const firstThemeChoice = themesSchema[deviceTheme ? deviceTheme : 'light']
-
-  //LOGANDO O HOOK PARA DEBUGAR E ACHAR O MOTIVO DE ESTAR VINDO UNDEFINED 
-  //PQ QUANDO APLICO A MESMA ESTRATEGIA AQUI ELE RETORNA CORRETO
-  const { themeMode } = useToggleTheme()
-  console.log(themeMode)
-  
+ 
   return (
     <HeaderContextProvider>
       <ToggleThemeContextProvider>
-        <ThemeProvider theme={firstThemeChoice}>
-          <SafeAreaProvider>
-            {fontsLoaded ? <Routes /> : <Loading />}
-            <StatusBar style="auto" backgroundColor="transparent" translucent />
-          </SafeAreaProvider>
-        </ThemeProvider>
+        <ToggleThemeContext.Consumer>
+          {({themeMode}) => {
+            return(
+              <ThemeProvider theme={themeMode}>
+                <SafeAreaProvider>
+                  {fontsLoaded ? <Routes /> : <Loading />}
+                  <StatusBar style="auto" backgroundColor="transparent" translucent />
+                </SafeAreaProvider>
+              </ThemeProvider>
+            )}}
+        </ToggleThemeContext.Consumer>
       </ToggleThemeContextProvider>
     </HeaderContextProvider>
   )
