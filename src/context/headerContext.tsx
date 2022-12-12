@@ -13,13 +13,20 @@ interface IHeaderProviderProps {
 
 export const HeaderContext = createContext<IHeader>({} as IHeader)
 
-export function MenuContextProvider(props: IHeaderProviderProps) {
+export function HeaderContextProvider({ children }: IHeaderProviderProps) {
   const [notification, setNotification] = useState<boolean>(false)
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
   
+  const value = {
+    notification, 
+    setNotification, 
+    isMenuOpen, 
+    setIsMenuOpen
+  }
+  
   return(
-    <HeaderContext.Provider value={{ notification, setNotification, isMenuOpen, setIsMenuOpen}}>
-      {props.children}
+    <HeaderContext.Provider value={value}>
+      {children}
     </HeaderContext.Provider>
   )
 }
