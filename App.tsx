@@ -1,3 +1,5 @@
+//REACT
+import { useColorScheme } from 'react-native'
 //EXPO
 import { StatusBar } from 'expo-status-bar'
 //COMPONENTS
@@ -21,10 +23,13 @@ import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { Routes } from './src/routes'
 //STYLED-COMPONENTS
 import { ThemeProvider } from 'styled-components/native'
-import light from './src/theme/light'
-import dark from './src/theme/dark'
+import themesSchema from './src/theme'
 //CONTEXT
-import { MenuContextProvider } from './src/context'
+import { HeaderContextProvider } from './src/context/headerContext'
+import { ToggleThemeContextProvider } from './src/context/toggleThemeContext' 
+//HOOKS
+import { useToggleTheme } from './src/hooks/useToggleTheme'
+
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -38,15 +43,25 @@ export default function App() {
     Inter_800ExtraBold,
     Inter_900Black
   })
+  //TESTES DE PEGAR TEMA DEFINIDO NO APARELHO DO USUARIO
+  const deviceTheme = useColorScheme()
+  const firstThemeChoice = themesSchema[deviceTheme ? deviceTheme : 'light']
 
+  //LOGANDO O HOOK PARA DEBUGAR E ACHAR O MOTIVO DE ESTAR VINDO UNDEFINED 
+  //PQ QUANDO APLICO A MESMA ESTRATEGIA AQUI ELE RETORNA CORRETO
+  const { themeMode } = useToggleTheme()
+  console.log(themeMode)
+  
   return (
-    <MenuContextProvider>
-      <ThemeProvider theme={light}>
-        <SafeAreaProvider>
-          {fontsLoaded ? <Routes /> : <Loading />}
-          <StatusBar style="auto" backgroundColor="transparent" translucent />
-        </SafeAreaProvider>
-      </ThemeProvider>
-    </MenuContextProvider>
+    <HeaderContextProvider>
+      <ToggleThemeContextProvider>
+        <ThemeProvider theme={firstThemeChoice}>
+          <SafeAreaProvider>
+            {fontsLoaded ? <Routes /> : <Loading />}
+            <StatusBar style="auto" backgroundColor="transparent" translucent />
+          </SafeAreaProvider>
+        </ThemeProvider>
+      </ToggleThemeContextProvider>
+    </HeaderContextProvider>
   )
 }
