@@ -51,7 +51,7 @@ export default function App() {
                   <StatusBar style="auto" backgroundColor="transparent" translucent />
                 </SafeAreaProvider>
               </ThemeProvider>
-            )}}
+          )}}
         </ToggleThemeContext.Consumer>
       </ToggleThemeContextProvider>
     </HeaderContextProvider>

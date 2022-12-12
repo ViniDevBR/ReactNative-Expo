@@ -1,5 +1,5 @@
 //REACT
-import { Modal, TouchableOpacity, useColorScheme } from 'react-native'
+import { Modal, TouchableOpacity } from 'react-native'
 import { useState } from 'react'
 //NAVIGATION
 import { useNavigation } from '@react-navigation/native'
@@ -7,10 +7,11 @@ import { useNavigation } from '@react-navigation/native'
 import { ModalContainer, Overlay, ModalView, ModalText, ModalTitle, BackButton, EmptyBox, Options, ItemMenu } from './styles'
 import { CaretLeft } from 'phosphor-react-native'
 import { useHeader } from '../../hooks/useHeader'
+import themeSchema from '../../theme'
 //COMPONENTE
 import { LogOut } from '../LogOut'
+//HOOKS
 import { useToggleTheme } from '../../hooks/useToggleTheme'
-import themeSchema from '../../theme'
 
 interface Props {
   visible: boolean

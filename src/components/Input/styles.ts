@@ -28,12 +28,13 @@ export const IconContainer = styled.View`
   justify-content: center;
   align-items: center;
   margin-right: 2px;
-  background-color: #FFFFFF;
+  background-color: transparent;
 `;
 
 
 export const InputText = styled(TextInput) <Props>`
   flex: 1;
   background-color: #FFFFFF;
-  color: ${props => props.theme.COLORS.PLACEHOLDER}
+  color: ${props => props.theme.COLORS.PLACEHOLDER};
+  background-color: transparent;
 `;

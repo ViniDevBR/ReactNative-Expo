@@ -31,6 +31,7 @@ export const DetailsContainer = styled.View`
   margin-top: 20px;
   padding-top: 30px;
   justify-content: center;
+  background-color: ${props => props.theme.COLORS.BACKGROUND};
 `
 
 export const ScrollContent = styled.ScrollView``
