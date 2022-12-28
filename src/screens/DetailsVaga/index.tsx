@@ -6,7 +6,7 @@ import { Entypo } from '@expo/vector-icons'
 import { DetailsContainer, InfosDetail, Img, HeaderInfos, TypeOfVaga, DetailsOfType, ScrollContent, Description, DescriptionText, GoBack, ButtonsContainer, Header, HeaderTitle, EmptyBox } from './styles'
 //NAVIGATION
 import { useRoute, useNavigation, useFocusEffect } from '@react-navigation/native'
-import { urlVini, urlRafa, urlThatto } from '../Vagas'
+import { urlVini, urlRafa, urlThatto } from '../../localServer'
 //COMPONENTS
 import { IJobCard } from '../../components/JobCard'
 import { Buttons } from '../../components/Button'
@@ -36,7 +36,7 @@ export function DetailsVaga() {
   const { params } = useRoute()
   const { navigate } = useNavigation()
   const { id } = params as RouteParams
-  
+
   const scrollViewRef = useRef<ScrollView>(null)
 
   function handleGoBackVagas() {

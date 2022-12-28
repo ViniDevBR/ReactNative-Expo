@@ -23,8 +23,10 @@ import { Routes } from './src/routes'
 import { ThemeProvider } from 'styled-components/native'
 //CONTEXT
 import { HeaderContextProvider } from './src/context/headerContext'
-import { ToggleThemeContext, ToggleThemeContextProvider } from './src/context/toggleThemeContext' 
-
+import {
+  ToggleThemeContext,
+  ToggleThemeContextProvider
+} from './src/context/toggleThemeContext'
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -38,20 +40,25 @@ export default function App() {
     Inter_800ExtraBold,
     Inter_900Black
   })
- 
+
   return (
     <HeaderContextProvider>
       <ToggleThemeContextProvider>
         <ToggleThemeContext.Consumer>
-          {({themeMode}) => {
-            return(
+          {({ themeMode }) => {
+            return (
               <ThemeProvider theme={themeMode}>
                 <SafeAreaProvider>
                   {fontsLoaded ? <Routes /> : <Loading />}
-                  <StatusBar style="auto" backgroundColor="transparent" translucent />
+                  <StatusBar
+                    style='auto'
+                    backgroundColor='transparent'
+                    translucent
+                  />
                 </SafeAreaProvider>
               </ThemeProvider>
-          )}}
+            )
+          }}
         </ToggleThemeContext.Consumer>
       </ToggleThemeContextProvider>
     </HeaderContextProvider>

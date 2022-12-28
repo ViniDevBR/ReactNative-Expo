@@ -16,14 +16,14 @@ export const HeaderContext = createContext<IHeader>({} as IHeader)
 export function HeaderContextProvider({ children }: IHeaderProviderProps) {
   const [notification, setNotification] = useState<boolean>(false)
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
-  
+
   const value = {
-    notification, 
-    setNotification, 
-    isMenuOpen, 
+    notification,
+    setNotification,
+    isMenuOpen,
     setIsMenuOpen
   }
-  
+
   return(
     <HeaderContext.Provider value={value}>
       {children}

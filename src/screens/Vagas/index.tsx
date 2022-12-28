@@ -15,10 +15,9 @@ import { Check, Plus } from 'phosphor-react-native'
 import { useTheme } from 'styled-components'
 //NAVIGATION
 import { useFocusEffect } from '@react-navigation/native'
+import { urlRafa, urlThatto, urlVini } from '../../localServer'
 
-export const urlVini = 'http://192.168.0.4:4000'
-export const urlRafa = 'http://192.168.0.9:4000'
-export const urlThatto = 'http://192.168.0.9:4000'
+
 //É necessario trocar na tela de Vagas dentro do useFocusEffect e na tela de DetailsVaga
 
 export function Vagas() {
