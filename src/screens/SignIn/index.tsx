@@ -29,7 +29,6 @@ import * as yup from 'yup'
 import { useNavigation } from '@react-navigation/native'
 import { api } from '../../localServer'
 
-
 export interface IFormInputs {
   user?: string
   password: string
@@ -79,18 +78,21 @@ export function SignIn() {
 
   async function onSubmit(formData: IFormInputs): Promise<void> {
     try {
-      const { data } = await api.get(`/users?email=${formData.email}&password=${formData.password}`)
-      console.log(data)
-      console.log(formData)
-      reset()
+      const { data } = await api.get(
+        `/users?email=${formData.email}&password=${formData.password}`
+      )
 
       if (data.length && data[0].id) {
         navigate('Home')
         return
       }
+
     } catch (error) {
       console.log(error)
       Alert.alert('Erro')
+
+    } finally {
+      reset()
     }
   }
 

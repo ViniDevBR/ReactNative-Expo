@@ -70,16 +70,12 @@ export function SignUp() {
   })
 
   async function onSubmit( formData: IFormInputs ) {
-    console.log(formData)
-
     try {
       const { data } = await api.post('/users', {
         user: formData.user!.trim(),
         email: formData.email.trim(),
         password: formData.password.trim()
       })
-      reset()
-      console.log(data)
 
       if (data.id) {
         Alert.alert('Usuario criado com sucesso!', 'Bem vindo ao aplicativo desenvolvido  por juniors, onde você ira achar o seu futuro emprego')
@@ -88,9 +84,13 @@ export function SignUp() {
       } else {
         Alert.alert('Não foi possivel criar usuario')
       }
+
     } catch (error) {
       console.log('errors ===>', error)
       Alert.alert('Não foi possivel criar usuario')
+
+    } finally {
+      reset()
     }
   }
 
