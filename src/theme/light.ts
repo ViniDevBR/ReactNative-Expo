@@ -2,14 +2,14 @@ export default {
   COLORS: {
     BACKGROUND: '#F0F0F0',
     BACKGROUND2: '#FFFFFF',
-    
+
     PRIMARY_900: '#1165BA',
     PRIMARY_700: '#C1DFFF',
     PRIMARY_600: '#E0EDFD',
     PRIMARY_500: '#ECF5FF',
 
-    PLACEHOLDER: '#777777',
-    TEXT: '#434343',
+    PLACEHOLDER: '#373737',
+    TEXT: '#373737',
     TEXT2: '#A0A0A0',
     TEXT3: '#515050',
 
@@ -42,12 +42,14 @@ export default {
     SMALL: '12px',
 
     SEMI_NORMAL: '14px',
-    NORMAL: "15px",
+    NORMAL: '15px',
     NORMAL2: '16px',
     EXTRA_NORMAL: '17px',
 
-    BIG: "20px",
+    BIG: '20px',
     BIG2: '24px',
-    EXTRA_BIG: '26px'
+    EXTRA_BIG: '26px',
+
+    GIANT: '29px'
   }
 }
