@@ -2,27 +2,33 @@
   "users": [
     {
       "id": 1,
-      "name": "Pablo",
+      "user": "Pablo",
       "email": "pablo@email.com",
-      "senha": "123456"
+      "password": "123456"
     },
     {
       "id": 2,
-      "name": "José",
+      "user": "José",
       "email": "jose@email.com",
-      "senha": "123456"
+      "password": "123456"
     },
     {
       "id": 3,
-      "name": "Vinicius",
+      "user": "Vinicius",
       "email": "vincius@email.com",
-      "senha": "123456"
+      "password": "123456"
     },
     {
-      "name": "vinicius",
+      "user": "vinicius",
       "email": "vini@gmail.com",
-      "senha": "123456",
+      "password": "123456",
       "id": 4
+    },
+    {
+      "user": "Roberto",
+      "email": "roberto@gmail.com",
+      "password": "Jciccivivog9",
+      "id": 5
     }
   ],
   "vagas": [
