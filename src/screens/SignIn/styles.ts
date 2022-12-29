@@ -1,16 +1,16 @@
-import styled, { css } from "styled-components/native";
+import styled, { css } from 'styled-components/native'
 
 type TTitle = {
   type?: 'logo' | 'subtitle' | 'signup'
 }
 
-export const SignInContainer = styled.View`
+export const SignInContainer = styled.KeyboardAvoidingView`
   flex: 1;
   align-items: center;
   justify-content: center;
   background-color: ${props => props.theme.COLORS.BACKGROUND};
   width: 100%;
-  padding: 0 20px;
+  padding: 120px 20px 90px;
 `
 
 export const Title = styled.Text<TTitle>`
@@ -18,20 +18,23 @@ export const Title = styled.Text<TTitle>`
   font-size: 45px;
   font-weight: ${props => props.theme.FONT_FAMILY.REGULAR};
 
-  
-  ${({type}) => type === 'subtitle' && css`
-    margin-top: 8px;
-    margin-bottom: 28px;
-    font-size: 26px;
-    color: ${props => props.theme.COLORS.TEXT};
-  `}
-  
-  ${({type}) => type === 'signup' && css`
-    text-decoration: underline;
-    margin-top: 27px;
-    font-size: ${props => props.theme.FONT_SIZE.NORMAL2};
-    color: ${props => props.theme.COLORS.TEXT2};
-  `}
+  ${({ type }) =>
+    type === 'subtitle' &&
+    css`
+      margin-top: 8px;
+      margin-bottom: 28px;
+      font-size: 26px;
+      color: ${props => props.theme.COLORS.TEXT};
+    `}
+
+  ${({ type }) =>
+    type === 'signup' &&
+    css`
+      text-decoration: underline;
+      margin-top: 27px;
+      font-size: ${props => props.theme.FONT_SIZE.NORMAL2};
+      color: ${props => props.theme.COLORS.TEXT2};
+    `}
 `
 
 export const TitleBold = styled.Text`
@@ -67,7 +70,6 @@ export const Line1 = styled.View`
   height: 1px;
   background-color: ${props => props.theme.COLORS.BORDER4};
   width: 40%;
-  
 `
 
 export const TextOU = styled.Text`

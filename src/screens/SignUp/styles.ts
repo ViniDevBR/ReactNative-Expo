@@ -1,16 +1,18 @@
-import styled, { css } from "styled-components/native";
+import styled, { css } from 'styled-components/native'
+import Checkbox, { CheckboxProps } from 'expo-checkbox'
+
 
 type TTitle = {
   type?: 'logo' | 'subtitle' | 'signup'
 }
 
-export const SignUpContainer = styled.View`
+export const SignUpContainer = styled.KeyboardAvoidingView`
   flex: 1;
   align-items: center;
   justify-content: center;
   background-color: ${props => props.theme.COLORS.BACKGROUND};
   width: 100%;
-  padding: 0 20px;
+  padding: 120px 20px 100px;
 `
 
 export const Title = styled.Text<TTitle>`
@@ -18,15 +20,14 @@ export const Title = styled.Text<TTitle>`
   font-size: 45px;
   font-weight: ${props => props.theme.FONT_FAMILY.REGULAR};
 
-  
-  ${({type}) => type === 'subtitle' && css`
+  ${({ type }) => type === 'subtitle' && css`
     margin-top: 8px;
     margin-bottom: 28px;
-    font-size: 26px;
+    font-size: ${props => props.theme.FONT_SIZE.GIANT};
     color: ${props => props.theme.COLORS.TEXT};
   `}
-  
-  ${({type}) => type === 'signup' && css`
+
+  ${({ type }) => type === 'signup' && css`
     text-decoration: underline;
     margin-top: 27px;
     font-size: ${props => props.theme.FONT_SIZE.NORMAL2};
@@ -60,4 +61,8 @@ export const Line1 = styled.View`
   height: 1px;
   background-color: ${props => props.theme.COLORS.BORDER4};
   width: 100%;
+`
+
+export const CheckBox = styled(Checkbox)<CheckboxProps>`
+  margin-right: 8px;
 `

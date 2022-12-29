@@ -1,5 +1,4 @@
 //REACT
-import { View } from 'react-native'
 import { useState, useCallback } from 'react'
 //SAFE AREA CONTEXT
 import { SafeAreaView } from 'react-native-safe-area-context'
@@ -15,10 +14,8 @@ import { Check, Plus } from 'phosphor-react-native'
 import { useTheme } from 'styled-components'
 //NAVIGATION
 import { useFocusEffect } from '@react-navigation/native'
-import { urlRafa, urlThatto, urlVini } from '../../localServer'
+import { globalUrl } from '../../localServer'
 
-
-//É necessario trocar na tela de Vagas dentro do useFocusEffect e na tela de DetailsVaga
 
 export function Vagas() {
   const { COLORS } = useTheme()
@@ -77,7 +74,7 @@ export function Vagas() {
 
   useFocusEffect(
     useCallback(() => {
-      fetch(`${urlVini}/vagas`)
+      fetch(`${globalUrl}/vagas`)
         .then(response => response.json())
         .then(data => setJobInfos(data))
     }, [])
@@ -266,6 +263,7 @@ export function Vagas() {
       <Results>1.215 Resultados</Results>
       <ContentList
         data={jobInfos}
+        keyExtractor={item => item.id}
         renderItem={({ item }) => {
           return (
             <JobCard
@@ -280,7 +278,6 @@ export function Vagas() {
             />
           )
         }}
-        keyExtractor={item => item.id}
       />
     </SafeAreaView>
   )
