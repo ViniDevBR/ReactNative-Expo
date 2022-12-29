@@ -7,8 +7,8 @@ import { Input, InputProps } from '../Input'
 import { Error } from './styles'
 
 interface Props extends InputProps {
-  control: Control<IFormInputs | any>
-  name: 'user' | 'password' | 'email' | 'terms'
+  control: Control<IFormInputs>
+  name: 'user' | 'password' | 'email'
   error?: FieldError
 }
 
