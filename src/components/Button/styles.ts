@@ -29,7 +29,7 @@ export const ButtonContainer = styled.TouchableOpacity<TButton>`
     background-color: ${({theme}) => theme.COLORS.BUTTON_100};
     border: 1px solid ${({theme}) => theme.COLORS.BUTTON_100};
   `}
-  
+
   ${({types}) => types === 'signin' && css`
     background-color: ${({theme}) => theme.COLORS.PRIMARY_900};
     border: 1px solid ${({theme}) => theme.COLORS.BORDER3};
@@ -38,7 +38,7 @@ export const ButtonContainer = styled.TouchableOpacity<TButton>`
     margin: 20px 0 10px 0;
     width: 100%;
   `}
-    
+
     ${({types}) => types === 'linkedin' && css`
     background-color: transparent;
     border: 1px solid ${({theme}) => theme.COLORS.PRIMARY_900};
@@ -48,30 +48,41 @@ export const ButtonContainer = styled.TouchableOpacity<TButton>`
     width: 100%;
     justify-content: space-evenly;
   `}
+
+  ${({disabled}) => disabled && css`
+    background-color: ${({theme}) => theme.COLORS.ICON};
+    border: 1px solid ${({theme}) => theme.COLORS.ICON};
+
+  `}
 `
 
 export const Title = styled.Text<TButton>`
   color: ${({theme}) => theme.COLORS.TEXT};
   text-align: center;
   justify-self: center;
-  
+
   ${({types}) => types === 'close' && css`
     color: ${({theme}) => theme.COLORS.TEXT};
     font-size: ${({theme}) => theme.FONT_SIZE.BIG};
   `}
-  
+
   ${({types}) => types === 'selected' && css`
     color: ${({theme}) => theme.COLORS.BACKGROUND};
   `}
-  
+
   ${({types}) => types === 'signin' && css`
     color: ${({theme}) => theme.COLORS.BACKGROUND};
     font-size: ${({theme}) => theme.FONT_SIZE.BIG2};
   `}
-    
+
   ${({types}) => types === 'linkedin' && css`
     color: ${({theme}) => theme.COLORS.PRIMARY_900};
-    font-size: ${({theme}) => theme.FONT_SIZE.NORMAL2};
+    font-size: ${({theme}) => theme.FONT_SIZE.BIG};
+  `}
+
+  ${({disabled}) => disabled && css`
+    color: ${({theme}) => theme.COLORS.PLACEHOLDER};
+
   `}
 `
 

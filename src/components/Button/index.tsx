@@ -9,23 +9,25 @@ interface Props extends TouchableOpacityProps {
   iconLeft?: ReactNode
   iconRight?: ReactNode
   type?: 'close' | 'selected' | 'linkedin' | 'signin'
-  emptyBox?: Boolean
+  emptyBox?: boolean
+  disabled?: boolean
 }
 
-export function Buttons({ title, emptyBox = true, ...props }: Props) {
+export function Buttons({ emptyBox = true, ...props }: Props) {
   return (
-    <ButtonContainer types={props.type} {...props}>
+    <ButtonContainer types={props.type} disabled={props.disabled} {...props}>
       {props.iconLeft}
       {emptyBox ? props.iconRight && <EmptyBox /> : null}
 
       <Title
+        disabled={props.disabled}
         types={props.type}
         style={{
           marginRight: props.iconRight ? 10 : 0,
           marginLeft: props.iconLeft ? 0 : 0
         }}
       >
-        {title}
+        {props.title}
       </Title>
 
       {props.iconRight}
