@@ -42,12 +42,14 @@ export default {
     SMALL: '12px',
 
     SEMI_NORMAL: '14px',
-    NORMAL: "15px",
+    NORMAL: '15px',
     NORMAL2: '16px',
     EXTRA_NORMAL: '17px',
 
-    BIG: "20px",
+    BIG: '20px',
     BIG2: '24px',
-    EXTRA_BIG: '26px'
+    EXTRA_BIG: '26px',
+
+    GIANT: '29px'
   }
 }

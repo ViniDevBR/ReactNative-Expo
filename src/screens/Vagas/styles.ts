@@ -1,8 +1,8 @@
 //REACT
-import { FlatList, FlatListProps } from 'react-native';
+import { FlatList, FlatListProps } from 'react-native'
 //STYLED COMPONENTS && INTERFACES
 import styled from 'styled-components/native'
-import { IJobCard } from '../../components/JobCard';
+import { IJobCard } from '../../components/JobCard'
 
 export const DivContainer = styled.View``
 

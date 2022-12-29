@@ -19,37 +19,37 @@ export function Select(props: Props) {
       <SelectContainer>
         <Buttons
           onPress={props.openData}
-          title="Data"
+          title='Data'
           emptyBox={false}
           iconRight={
             <CaretCircleDown
               size={15}
               color={COLORS.PLACEHOLDER}
-              weight="bold"
+              weight='bold'
             />
           }
         />
         <Buttons
           onPress={props.openType}
-          title="Tipo"
+          title='Tipo'
           emptyBox={false}
           iconRight={
             <CaretCircleDown
               size={15}
               color={COLORS.PLACEHOLDER}
-              weight="bold"
+              weight='bold'
             />
           }
         />
         <Buttons
           onPress={props.openEXP}
-          title="Nivel de experiencia"
+          title='Nivel de experiencia'
           emptyBox={false}
           iconRight={
             <CaretCircleDown
               size={15}
               color={COLORS.PLACEHOLDER}
-              weight="bold"
+              weight='bold'
             />
           }
         />

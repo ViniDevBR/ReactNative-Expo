@@ -1,4 +1,4 @@
-import styled from "styled-components/native";
+import styled from 'styled-components/native'
 
 export const ModalContainer = styled.View`
   flex: 1;
@@ -14,14 +14,14 @@ export const Overlay = styled.Pressable`
 
 export const ModalView = styled.View`
   width: 80%;
-  background-color: ${({theme}) => theme.COLORS.BACKGROUND};
+  background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
 `
 
 export const ModalText = styled.Text`
   color: ${props => props.theme.COLORS.TEXT};
   text-align: center;
-  font-weight: ${({theme}) => theme.FONT_FAMILY.BOLD};
-  font-size: ${({theme}) => theme.FONT_SIZE.BIG};
+  font-weight: ${({ theme }) => theme.FONT_FAMILY.BOLD};
+  font-size: ${({ theme }) => theme.FONT_SIZE.BIG};
   padding: 15.5px 0;
 `
 
@@ -30,7 +30,7 @@ export const ModalTitle = styled.View`
   justify-content: space-between;
   align-items: center;
   border-bottom-width: 1px;
-  border-bottom-color: ${({theme}) => theme.COLORS.PRIMARY_700};
+  border-bottom-color: ${({ theme }) => theme.COLORS.PRIMARY_700};
 `
 
 export const BackButton = styled.TouchableOpacity`
@@ -41,9 +41,7 @@ export const EmptyBox = styled.View`
   width: 72px;
 `
 
-export const Options = styled.View`
-
-`
+export const Options = styled.View``
 
 export const ItemMenu = styled.Text`
   font-size: ${props => props.theme.FONT_SIZE.BIG};

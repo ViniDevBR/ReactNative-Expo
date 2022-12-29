@@ -1,17 +1,14 @@
 //STYLE
-import { BgContainer } from './styles';
+import { BgContainer } from './styles'
 //OUTROS
 import backgroundImg from '../../assets/background.png'
-interface Props{
-  children: React.ReactNode;
+interface Props {
+  children: React.ReactNode
 }
 
-export function Background({ children }: Props){
+export function Background({ children }: Props) {
   return (
-    <BgContainer 
-      source = { backgroundImg }
-      defaultSource = { backgroundImg }
-    >
+    <BgContainer source={backgroundImg} defaultSource={backgroundImg}>
       {children}
     </BgContainer>
   )

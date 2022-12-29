@@ -36,14 +36,14 @@ export function Header() {
 
       <TouchableOpacity onPress={handleClickNotifications}>
         {notification === true ? (
-          <Bell size={24} color={COLORS.PRIMARY_900} weight="duotone" />
+          <Bell size={24} color={COLORS.PRIMARY_900} weight='duotone' />
         ) : (
-          <BellSlash size={24} color={COLORS.NOTIFICATION} weight="duotone" />
+          <BellSlash size={24} color={COLORS.NOTIFICATION} weight='duotone' />
         )}
       </TouchableOpacity>
 
       <TouchableOpacity onPress={handleMenu}>
-        <Ionicons name="menu" size={30} color={COLORS.PRIMARY_900} />
+        <Ionicons name='menu' size={30} color={COLORS.PRIMARY_900} />
       </TouchableOpacity>
 
       <Menu visible={isMenuOpen} backButton={handleMenu} overlay={handleMenu} />

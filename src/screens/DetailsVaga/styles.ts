@@ -1,12 +1,10 @@
-import styled, { css } from "styled-components/native";
-
+import styled, { css } from 'styled-components/native'
 
 type TInfos = {
   type?: 'subtitle' | 'location' | 'level'
   variation?: 'blue'
-  description?: 'title' 
+  description?: 'title'
 }
-
 
 export const Header = styled.View`
   padding: 0 19px;

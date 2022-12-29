@@ -4,11 +4,11 @@ export const SelectContainer = styled.View`
   flex-direction: row;
   align-items: center;
   padding: 10px 0 0 0;
-  `
+`
 export const ScrollView = styled.ScrollView.attrs({
   contentContainerStyle: {
     paddingHorizontal: 10
-  }})`
+  }
+})`
   background-color: ${props => props.theme.COLORS.BACKGROUND};
-
 `

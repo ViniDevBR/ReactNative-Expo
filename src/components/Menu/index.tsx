@@ -4,7 +4,17 @@ import { useState } from 'react'
 //NAVIGATION
 import { useNavigation } from '@react-navigation/native'
 //STYLES & PHOSPHOR ICONS & HOOK
-import { ModalContainer, Overlay, ModalView, ModalText, ModalTitle, BackButton, EmptyBox, Options, ItemMenu } from './styles'
+import {
+  ModalContainer,
+  Overlay,
+  ModalView,
+  ModalText,
+  ModalTitle,
+  BackButton,
+  EmptyBox,
+  Options,
+  ItemMenu
+} from './styles'
 import { CaretLeft } from 'phosphor-react-native'
 import { useHeader } from '../../hooks/useHeader'
 import themeSchema from '../../theme'
@@ -24,7 +34,6 @@ export function Menu(props: Props) {
   const { navigate } = useNavigation()
   const { isMenuOpen, setIsMenuOpen } = useHeader()
   const { setThemeMode } = useToggleTheme()
-  
 
   function handleMenuHome() {
     navigate('Home')
@@ -53,7 +62,7 @@ export function Menu(props: Props) {
     navigate('SignIn')
     setIsMenuOpen(!isMenuOpen)
     setLogOut(!LogOut)
-  }  
+  }
   function handleThemeDark() {
     setThemeMode(themeSchema['dark'])
   }
@@ -63,7 +72,7 @@ export function Menu(props: Props) {
 
   return (
     <Modal
-      animationType="fade"
+      animationType='fade'
       transparent={true}
       visible={props.visible}
       onRequestClose={props.backButton}
@@ -74,7 +83,7 @@ export function Menu(props: Props) {
         <ModalView>
           <ModalTitle>
             <BackButton onPress={props.backButton}>
-              <CaretLeft size={32} color="#000" weight="regular" />
+              <CaretLeft size={32} color='#000' weight='regular' />
             </BackButton>
 
             <ModalText>Menu</ModalText>
@@ -101,11 +110,11 @@ export function Menu(props: Props) {
             <TouchableOpacity onPress={handleMenuVagas}>
               <ItemMenu>Vagas</ItemMenu>
             </TouchableOpacity>
-            
+
             <TouchableOpacity onPress={handleThemeDark}>
               <ItemMenu>Tema Dark</ItemMenu>
             </TouchableOpacity>
-            
+
             <TouchableOpacity onPress={handleThemeLight}>
               <ItemMenu>Tema Light</ItemMenu>
             </TouchableOpacity>

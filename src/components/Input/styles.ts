@@ -1,15 +1,14 @@
-import { TextInput } from 'react-native';
-import styled, { css } from 'styled-components/native';
+import { TextInput } from 'react-native'
+import styled, { css } from 'styled-components/native'
 
 interface Props {
-  isFocused: boolean;
+  isFocused: boolean
 }
-
 
 export const InputContainer = styled.View<Props>`
   background-color: ${props => props.theme.COLORS.BACKGROUND2};
   width: 100%;
-  padding: 17px 20px ;
+  padding: 17px 20px;
   margin-bottom: 10px;
   border-width: 1px;
   border-radius: 4px;
@@ -20,7 +19,7 @@ export const InputContainer = styled.View<Props>`
 
   ${({ isFocused }) => isFocused && css`
     border-width: 2px;
-    border-color: ${props => props.theme.COLORS.PRIMARY_900};    
+    border-color: ${props => props.theme.COLORS.PRIMARY_900};
   `};
 `
 
@@ -29,12 +28,11 @@ export const IconContainer = styled.View`
   align-items: center;
   margin-right: 2px;
   background-color: transparent;
-`;
+`
 
-
-export const InputText = styled(TextInput) <Props>`
+export const InputText = styled(TextInput)<Props>`
   flex: 1;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   color: ${props => props.theme.COLORS.PLACEHOLDER};
   background-color: transparent;
-`;
+`

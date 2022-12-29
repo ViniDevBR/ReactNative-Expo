@@ -1,6 +1,6 @@
 import { createContext, Dispatch, ReactNode, SetStateAction, useState } from 'react'
 
- export interface IHeader {
+export interface IHeader {
   notification: boolean
   setNotification: Dispatch<SetStateAction<boolean>>
   isMenuOpen: boolean

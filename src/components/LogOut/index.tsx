@@ -1,9 +1,17 @@
 //REACT
 import { TouchableOpacity, Modal } from 'react-native'
 //STYLES & PHOSPHOR
-import { BackButton, ItemMenu, ModalContainer, ModalText, ModalTitle, ModalView, Options, Overlay } from './styles'
+import {
+  BackButton,
+  ItemMenu,
+  ModalContainer,
+  ModalText,
+  ModalTitle,
+  ModalView,
+  Options,
+  Overlay
+} from './styles'
 import { XCircle } from 'phosphor-react-native'
-
 
 interface Props {
   overlay: VoidFunction
@@ -13,10 +21,9 @@ interface Props {
 }
 
 export function LogOut(props: Props) {
-
   return (
     <Modal
-      animationType="fade"
+      animationType='fade'
       transparent={true}
       visible={props.visible}
       onRequestClose={props.backButton}
@@ -27,7 +34,7 @@ export function LogOut(props: Props) {
             <ModalTitle>
               <ModalText>Deseja realmente sair?</ModalText>
               <BackButton onPress={props.backButton}>
-                <XCircle size={32} color="#000" weight="regular" />
+                <XCircle size={32} color='#000' weight='regular' />
               </BackButton>
             </ModalTitle>
 

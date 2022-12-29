@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components/native";
+import styled, { css } from 'styled-components/native'
 
 type TInfos = {
   type?: 'subtitle' | 'others' | 'level' | 'time'
@@ -33,7 +33,7 @@ export const InfosDetailed = styled.Text<TInfos>`
   padding-bottom: 4px;
   text-transform: capitalize;
   align-items: center;
-  
+
   ${props => props.type === 'subtitle' && css`
     font-size: ${props => props.theme.FONT_SIZE.SEMI_NORMAL};
     font-weight: ${props => props.theme.FONT_FAMILY.MEDIUM};
