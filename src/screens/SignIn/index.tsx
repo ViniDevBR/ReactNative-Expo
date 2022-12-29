@@ -4,7 +4,8 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   ScrollView,
-  Platform
+  Platform,
+  Alert
 } from 'react-native'
 //STYLES && ICONS
 import {
@@ -21,34 +22,38 @@ import { Fontisto } from '@expo/vector-icons'
 import { ControlledInput } from '../../components/ControlInput'
 import { Buttons } from '../../components/Button'
 //HOOK FORM
-import { SubmitHandler, useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 //NAVIGATION
 import { useNavigation } from '@react-navigation/native'
 import { api } from '../../localServer'
 
+
 export interface IFormInputs {
-  user: string
+  user?: string
   password: string
-  email?: string
+  email: string
 }
 
 const defaultForm: IFormInputs = {
-  user: '',
+  email: '',
   password: ''
 }
 
 const schema = yup
   .object({
-    user: yup
+    email: yup
       .string()
       .email('Este e-mail esta correto?')
-      .required('Campo Obrigatório'),
+      .required('Campo Obrigatório')
+      .lowercase()
+      .trim(),
     password: yup
       .string()
       .min(6, 'Não esta faltando alguma coisa?')
       .required('Campo Obrigatório')
+      .trim()
   })
   .required()
 
@@ -59,7 +64,8 @@ export function SignIn() {
   const {
     control,
     handleSubmit,
-    formState: { errors }
+    formState: { errors },
+    reset
   } = useForm<IFormInputs>({
     defaultValues: defaultForm,
     resolver: yupResolver(schema),
@@ -71,9 +77,21 @@ export function SignIn() {
     navigate('SignUp')
   }
 
-  function onSubmit(data: IFormInputs) {
-    console.log(data)
-    navigate('Home')
+  async function onSubmit(formData: IFormInputs): Promise<void> {
+    try {
+      const { data } = await api.get(`/users?email=${formData.email}&password=${formData.password}`)
+      console.log(data)
+      console.log(formData)
+      reset()
+
+      if (data.length && data[0].id) {
+        navigate('Home')
+        return
+      }
+    } catch (error) {
+      console.log(error)
+      Alert.alert('Erro')
+    }
   }
 
   return (
@@ -89,7 +107,7 @@ export function SignIn() {
 
           <ControlledInput
             control={control}
-            name='user'
+            name='email'
             placeholder='User'
             keyboardType='email-address'
             icon='user'

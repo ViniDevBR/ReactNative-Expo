@@ -3,7 +3,8 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   ScrollView,
-  Platform
+  Platform,
+  Alert
 } from 'react-native'
 import { useState } from 'react'
 //STYLES
@@ -23,7 +24,7 @@ import { ControlledInput } from '../../components/ControlInput'
 import { Buttons } from '../../components/Button'
 import { IFormInputs } from '../SignIn'
 //HOOK FORM
-import { SubmitHandler, useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 //NAVIGATION
@@ -38,17 +39,21 @@ const defaultForm: IFormInputs = {
 
 const schema = yup
   .object({
-    user: yup.string().required('Campo Obrigatório'),
+    user: yup
+      .string()
+      .required('Campo Obrigatório')
+      .trim(),
     password: yup
       .string()
       .min(6, 'Não esta faltando alguma coisa?')
-      .required('Campo Obrigatório'),
+      .required('Campo Obrigatório')
+      .trim(),
     email: yup
       .string()
       .email('Este e-mail esta correto?')
       .required('Campo Obrigatório')
-      .lowercase(),
-    terms: yup.boolean().required('Não esqueça de ler os termos')
+      .lowercase()
+      .trim()
   })
   .required()
 
@@ -57,32 +62,35 @@ export function SignUp() {
   const { COLORS } = useTheme()
   const { navigate, goBack } = useNavigation()
 
-  const { control, handleSubmit, formState: { errors } } = useForm<IFormInputs>({
+  const { control, handleSubmit, formState: { errors }, reset } = useForm<IFormInputs>({
     defaultValues: defaultForm,
     resolver: yupResolver(schema),
     mode: 'onTouched',
     reValidateMode: 'onChange'
   })
 
-  const onSubmit: SubmitHandler<IFormInputs> = async ( formData: IFormInputs ) => {
+  async function onSubmit( formData: IFormInputs ) {
     console.log(formData)
 
     try {
       const { data } = await api.post('/users', {
-        name: formData.user.trim(),
-        email: formData.email!.trim(),
-        senha: formData.password.trim()
+        user: formData.user!.trim(),
+        email: formData.email.trim(),
+        password: formData.password.trim()
       })
+      reset()
+      console.log(data)
 
       if (data.id) {
-        alert('Usuario criado com sucesso!')
+        Alert.alert('Usuario criado com sucesso!', 'Bem vindo ao aplicativo desenvolvido  por juniors, onde você ira achar o seu futuro emprego')
         navigate('Home')
+
       } else {
-        alert('Não foi possivel criar usuario')
+        Alert.alert('Não foi possivel criar usuario')
       }
     } catch (error) {
       console.log('errors ===>', error)
-      alert('Não foi possivel criar usuario')
+      Alert.alert('Não foi possivel criar usuario')
     }
   }
 

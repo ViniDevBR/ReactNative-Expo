@@ -18,14 +18,12 @@ export const Title = styled.Text<TTitle>`
   font-size: 45px;
   font-weight: ${props => props.theme.FONT_FAMILY.REGULAR};
 
-  ${({ type }) =>
-    type === 'subtitle' &&
-    css`
-      margin-top: 8px;
-      margin-bottom: 28px;
-      font-size: 26px;
-      color: ${props => props.theme.COLORS.TEXT};
-    `}
+  ${({ type }) => type === 'subtitle' && css`
+    margin-top: 8px;
+    margin-bottom: 28px;
+    font-size: ${props => props.theme.FONT_SIZE.GIANT};
+    color: ${props => props.theme.COLORS.TEXT};
+  `}
 
   ${({ type }) =>
     type === 'signup' &&
