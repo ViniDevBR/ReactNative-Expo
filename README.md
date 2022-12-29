@@ -17,7 +17,7 @@ NPM INSTALL
 
 NPX EXPO START 
 
-JSON-SERVER --WATCH db.json
+NPM RUN SERVER
   
   
 <a id="stack_utilizada"></a>
@@ -34,6 +34,26 @@ JSON-SERVER --WATCH db.json
 
 **Ferramentas:**
 <img align="center" src="https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white" alt="Visual Studio">
+
+---
+  
+## Devs 👨‍💻👨‍💻
+
+| [<img src="https://avatars.githubusercontent.com/u/106121034?v=4" width=115><br><sub>Vini</sub>](https://github.com/vinidevbr)| [<img src="https://avatars.githubusercontent.com/u/97485399?v=4" width=115><br><sub>Thatto</sub>](https://github.com/ThattoDev)
+| :-----------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------: |
+ 
+## Mentores 🙎🏻‍♂️🙎🏻
+
+| [<img src="https://avatars.githubusercontent.com/u/97065934?v=4" width=115><br><sub>Rafael</sub>](https://github.com/365rafael) | 
+| :-----------------------------------------------------------------------------------------------------------------------------: |
+
+  
+## Idealizador do projeto 🙎🏻‍♂️
+
+| [<img src="https://avatars.githubusercontent.com/u/287287?v=4" width=115><br><sub>Wouerner</sub>](https://github.com/wouerner) |
+| :----------------------------------------------------------------------------------------------------------------------------: |
+
+
   
 ---
 
