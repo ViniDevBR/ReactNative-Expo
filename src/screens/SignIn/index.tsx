@@ -63,7 +63,7 @@ export function SignIn() {
   const {
     control,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
     reset
   } = useForm<IFormInputs>({
     defaultValues: defaultForm,
@@ -113,7 +113,7 @@ export function SignIn() {
             placeholder='User'
             keyboardType='email-address'
             icon='user'
-            error={errors.user}
+            error={errors.email}
           />
 
           <ControlledInput
@@ -129,6 +129,8 @@ export function SignIn() {
 
           <Buttons
             onPress={handleSubmit(onSubmit)}
+            disabled={isSubmitting}
+            isLoading={isSubmitting}
             type='signin'
             title='Entrar'
           />

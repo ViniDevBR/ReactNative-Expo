@@ -1,4 +1,5 @@
 //REACT
+import { useState } from 'react'
 import {
   TouchableWithoutFeedback,
   Keyboard,
@@ -6,7 +7,6 @@ import {
   Platform,
   Alert
 } from 'react-native'
-import { useState } from 'react'
 //STYLES
 import {
   SignUpContainer,
@@ -39,10 +39,7 @@ const defaultForm: IFormInputs = {
 
 const schema = yup
   .object({
-    user: yup
-      .string()
-      .required('Campo Obrigatório')
-      .trim(),
+    user: yup.string().required('Campo Obrigatório').trim(),
     password: yup
       .string()
       .min(6, 'Não esta faltando alguma coisa?')
@@ -62,14 +59,19 @@ export function SignUp() {
   const { COLORS } = useTheme()
   const { navigate, goBack } = useNavigation()
 
-  const { control, handleSubmit, formState: { errors }, reset } = useForm<IFormInputs>({
+  const {
+    control,
+    handleSubmit,
+    formState: { errors, isValid, isSubmitting },
+    reset
+  } = useForm<IFormInputs>({
     defaultValues: defaultForm,
     resolver: yupResolver(schema),
     mode: 'onTouched',
     reValidateMode: 'onChange'
   })
 
-  async function onSubmit( formData: IFormInputs ) {
+  async function onSubmit(formData: IFormInputs) {
     try {
       const { data } = await api.post('/users', {
         user: formData.user!.trim(),
@@ -78,9 +80,11 @@ export function SignUp() {
       })
 
       if (data.id) {
-        Alert.alert('Usuario criado com sucesso!', 'Bem vindo ao aplicativo desenvolvido  por juniors, onde você ira achar o seu futuro emprego')
+        Alert.alert(
+          'Usuario criado com sucesso!',
+          'Bem vindo ao aplicativo desenvolvido  por juniors, onde você ira achar o seu futuro emprego'
+        )
         navigate('Home')
-
       } else {
         Alert.alert('Não foi possivel criar usuario')
       }
@@ -91,6 +95,7 @@ export function SignUp() {
 
     } finally {
       reset()
+      setChecked(false)
     }
   }
 
@@ -154,9 +159,10 @@ export function SignUp() {
 
           <Buttons
             onPress={handleSubmit(onSubmit)}
+            isLoading={isSubmitting}
             type='signin'
             title='Criar conta'
-            disabled={!isChecked}
+            disabled={!isChecked || !isValid || isSubmitting}
           />
           <Buttons onPress={goBack} type='linkedin' title='Fazer login' />
         </SignUpContainer>
