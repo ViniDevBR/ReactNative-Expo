@@ -1,11 +1,30 @@
 //REACT
 import { useState, useEffect, useCallback, useRef } from 'react'
-import { View, ScrollView } from 'react-native'
+import { View, ScrollView, BackHandler } from 'react-native'
 //STYLES && ICONS
 import { Entypo } from '@expo/vector-icons'
-import { DetailsContainer, InfosDetail, Img, HeaderInfos, TypeOfVaga, DetailsOfType, ScrollContent, Description, DescriptionText, GoBack, ButtonsContainer, Header, HeaderTitle, EmptyBox } from './styles'
+import {
+  DetailsContainer,
+  InfosDetail,
+  Img,
+  HeaderInfos,
+  TypeOfVaga,
+  DetailsOfType,
+  ScrollContent,
+  Description,
+  DescriptionText,
+  GoBack,
+  ButtonsContainer,
+  Header,
+  HeaderTitle,
+  EmptyBox
+} from './styles'
 //NAVIGATION
-import { useRoute, useNavigation, useFocusEffect } from '@react-navigation/native'
+import {
+  useRoute,
+  useNavigation,
+  useFocusEffect
+} from '@react-navigation/native'
 import { globalUrl } from '../../localServer'
 //COMPONENTS
 import { IJobCard } from '../../components/JobCard'
@@ -55,12 +74,27 @@ export function DetailsVaga() {
     }, [scrollViewRef])
   )
 
+  useFocusEffect(
+    useCallback(() => {
+      const onBackPress = () => {
+        navigate('Vagas')
+        return true
+      }
+
+      const subscription = BackHandler.addEventListener(
+        'hardwareBackPress',
+        onBackPress
+      )
+      return () => subscription.remove()
+    }, [])
+  )
+
   return (
     <DetailsContainer>
       <ScrollContent ref={scrollViewRef}>
         <Header>
           <GoBack onPress={handleGoBackVagas}>
-            <Entypo name="chevron-left" size={32} color="black" />
+            <Entypo name='chevron-left' size={32} color='black' />
           </GoBack>
           <HeaderTitle>Detalhes da Vaga</HeaderTitle>
           <EmptyBox />
@@ -72,9 +106,9 @@ export function DetailsVaga() {
             <Img source={{ uri: jobDetail.img }} />
           </HeaderInfos>
 
-          <InfosDetail type="subtitle">{jobDetail.subtitle}</InfosDetail>
-          <InfosDetail type="location">{jobDetail.location}</InfosDetail>
-          <InfosDetail type="level">{jobDetail.level}</InfosDetail>
+          <InfosDetail type='subtitle'>{jobDetail.subtitle}</InfosDetail>
+          <InfosDetail type='location'>{jobDetail.location}</InfosDetail>
+          <InfosDetail type='level'>{jobDetail.level}</InfosDetail>
         </View>
 
         <TypeOfVaga>
@@ -82,7 +116,7 @@ export function DetailsVaga() {
           <DetailsOfType>
             {jobDetail.numberOfEmployers} funcionários
           </DetailsOfType>
-          <DetailsOfType variation="blue">{jobDetail.status}</DetailsOfType>
+          <DetailsOfType variation='blue'>{jobDetail.status}</DetailsOfType>
         </TypeOfVaga>
 
         <Description>
@@ -105,8 +139,8 @@ export function DetailsVaga() {
         </Description>
 
         <ButtonsContainer>
-          <Buttons type="signin" title="Se inscrever" />
-          <Buttons onPress={handleGoBackVagas} type="linkedin" title="Voltar" />
+          <Buttons type='signin' title='Se inscrever' />
+          <Buttons onPress={handleGoBackVagas} type='linkedin' title='Voltar' />
         </ButtonsContainer>
       </ScrollContent>
     </DetailsContainer>

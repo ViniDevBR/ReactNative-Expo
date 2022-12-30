@@ -1,5 +1,6 @@
 //REACT
 import { useState, useCallback } from 'react'
+import { BackHandler } from 'react-native'
 //SAFE AREA CONTEXT
 import { SafeAreaView } from 'react-native-safe-area-context'
 //COMPONENTS
@@ -13,12 +14,13 @@ import { ContentList, DivContainer, Results, ContainerButtons } from './styles'
 import { Check, Plus } from 'phosphor-react-native'
 import { useTheme } from 'styled-components'
 //NAVIGATION
-import { useFocusEffect } from '@react-navigation/native'
+import { useFocusEffect, useNavigation } from '@react-navigation/native'
 import { globalUrl } from '../../localServer'
 
 
 export function Vagas() {
   const { COLORS } = useTheme()
+  const { navigate } = useNavigation()
 
   const [jobInfos, setJobInfos] = useState<IJobCard[]>([])
 
@@ -77,6 +79,21 @@ export function Vagas() {
       fetch(`${globalUrl}/vagas`)
         .then(response => response.json())
         .then(data => setJobInfos(data))
+    }, [])
+  )
+
+  useFocusEffect(
+    useCallback(() => {
+      const onBackPress = () => {
+        navigate('Home')
+        return true
+      }
+
+      const subscription = BackHandler.addEventListener(
+        'hardwareBackPress',
+        onBackPress
+      )
+      return () => subscription.remove()
     }, [])
   )
 

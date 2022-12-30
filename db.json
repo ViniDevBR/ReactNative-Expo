@@ -29,6 +29,12 @@
       "email": "roberto@gmail.com",
       "password": "Jciccivivog9",
       "id": 5
+    },
+    {
+      "user": "Rogerio",
+      "email": "rogerio@teste.com",
+      "password": "123456",
+      "id": 6
     }
   ],
   "vagas": [
