@@ -1,12 +1,5 @@
 //REACT
-import {
-  Pressable,
-  TouchableWithoutFeedback,
-  Keyboard,
-  ScrollView,
-  Platform,
-  Alert
-} from 'react-native'
+import { Pressable, Keyboard, Platform, Alert } from 'react-native'
 //STYLES && ICONS
 import {
   SignInContainer,
@@ -14,9 +7,10 @@ import {
   TitleBold,
   Line1,
   LinesContainer,
-  TextOU
+  TextOU,
+  TouchableWithoutFeedback,
+  ScrollView,
 } from './styles'
-import { useTheme } from 'styled-components'
 import { Fontisto } from '@expo/vector-icons'
 //COMPONENTS
 import { ControlledInput } from '../../components/ControlInput'
@@ -28,6 +22,7 @@ import * as yup from 'yup'
 //NAVIGATION
 import { useNavigation } from '@react-navigation/native'
 import { api } from '../../localServer'
+import { useTheme } from 'styled-components'
 
 export interface IFormInputs {
   user?: string
@@ -37,7 +32,7 @@ export interface IFormInputs {
 
 const defaultForm: IFormInputs = {
   email: '',
-  password: ''
+  password: '',
 }
 
 const schema = yup
@@ -52,24 +47,24 @@ const schema = yup
       .string()
       .min(6, 'Não esta faltando alguma coisa?')
       .required('Campo Obrigatório')
-      .trim()
+      .trim(),
   })
   .required()
 
 export function SignIn() {
-  const { COLORS } = useTheme()
   const { navigate } = useNavigation()
+  const { COLORS } = useTheme()
 
   const {
     control,
     handleSubmit,
     formState: { errors, isSubmitting },
-    reset
+    reset,
   } = useForm<IFormInputs>({
     defaultValues: defaultForm,
     resolver: yupResolver(schema),
     mode: 'onTouched',
-    reValidateMode: 'onChange'
+    reValidateMode: 'onChange',
   })
 
   function handleSignUp() {
@@ -86,11 +81,9 @@ export function SignIn() {
         navigate('Home')
         return
       }
-
     } catch (error) {
       console.log(error)
       Alert.alert('Erro')
-
     } finally {
       reset()
     }
@@ -105,22 +98,26 @@ export function SignIn() {
           <Title>
             Sou<TitleBold>Junior</TitleBold>
           </Title>
-          <Title type='subtitle'>Entrar</Title>
+          <Title type="subtitle">Entrar</Title>
 
           <ControlledInput
             control={control}
-            name='email'
-            placeholder='User'
-            keyboardType='email-address'
-            icon='user'
+            name="email"
+            placeholder="E-mail"
+            placeholderTextColor={COLORS.TEXT}
+            style={{ color: COLORS.TEXT }}
+            keyboardType="email-address"
+            icon="user"
             error={errors.email}
           />
 
           <ControlledInput
             control={control}
-            name='password'
-            placeholder='Password'
-            icon='lock'
+            name="password"
+            placeholder="Senha"
+            placeholderTextColor={COLORS.TEXT}
+            style={{ color: COLORS.TEXT }}
+            icon="lock"
             secureTextEntry
             autoCorrect={false}
             clearTextOnFocus
@@ -131,8 +128,8 @@ export function SignIn() {
             onPress={handleSubmit(onSubmit)}
             disabled={isSubmitting}
             isLoading={isSubmitting}
-            type='signin'
-            title='Entrar'
+            type="signin"
+            title="Entrar"
           />
 
           <LinesContainer>
@@ -143,15 +140,15 @@ export function SignIn() {
 
           <Buttons
             onPress={handleSubmit(onSubmit)}
-            type='linkedin'
-            title='Entrar com Linkedin'
+            type="linkedin"
+            title="Entrar com Linkedin"
             iconLeft={
-              <Fontisto name='linkedin' size={24} color={COLORS.PRIMARY_900} />
+              <Fontisto name="linkedin" size={24} color={COLORS.PRIMARY_900} />
             }
           />
 
           <Pressable onPress={handleSignUp}>
-            <Title type='signup'>Criar conta</Title>
+            <Title type="signup">Criar conta</Title>
           </Pressable>
         </SignInContainer>
       </ScrollView>

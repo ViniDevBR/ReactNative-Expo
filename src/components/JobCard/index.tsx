@@ -28,11 +28,11 @@ export function JobCard(props: IJobCard) {
       <Infos>
         <Header>
           <InfosDetailed>{props.title}</InfosDetailed>
-          <InfosDetailed type='time'>{props.time}</InfosDetailed>
+          <InfosDetailed type="time">{props.time}</InfosDetailed>
         </Header>
-        <InfosDetailed type='subtitle'>{props.subtitle}</InfosDetailed>
-        <InfosDetailed type='others'>{props.location}</InfosDetailed>
-        <InfosDetailed type='level'>{props.level}</InfosDetailed>
+        <InfosDetailed type="subtitle">{props.subtitle}</InfosDetailed>
+        <InfosDetailed type="others">{props.location}</InfosDetailed>
+        <InfosDetailed type="level">{props.level}</InfosDetailed>
       </Infos>
     </Container>
   )

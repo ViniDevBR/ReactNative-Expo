@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import axios from 'axios'
 
+const urlMateus = 'http://10.0.0.180:4000'
 const urlVini = 'http://192.168.0.117:4000'
 const urlRafa = 'http://192.168.0.9:4000'
 const urlThatto = 'http://192.168.0.9:4000'
@@ -11,9 +12,8 @@ const urlThatto = 'http://192.168.0.9:4000'
 //NPX EXPO START
 //NPM RUN SERVER
 
-
-export const globalUrl = urlVini
+export const globalUrl = urlMateus
 
 export const api = axios.create({
-  baseURL: globalUrl
+  baseURL: globalUrl,
 })

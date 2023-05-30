@@ -1,4 +1,10 @@
-import { createContext, Dispatch, ReactNode, SetStateAction, useState } from 'react'
+import {
+  createContext,
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  useState,
+} from 'react'
 
 export interface IHeader {
   notification: boolean
@@ -21,12 +27,10 @@ export function HeaderContextProvider({ children }: IHeaderProviderProps) {
     notification,
     setNotification,
     isMenuOpen,
-    setIsMenuOpen
+    setIsMenuOpen,
   }
 
-  return(
-    <HeaderContext.Provider value={value}>
-      {children}
-    </HeaderContext.Provider>
+  return (
+    <HeaderContext.Provider value={value}>{children}</HeaderContext.Provider>
   )
 }

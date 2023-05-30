@@ -21,7 +21,7 @@ export const ModalView = styled.View`
 `
 
 export const ModalText = styled.Text`
-  color: ${props => props.theme.COLORS.TEXT};
+  color: ${(props) => props.theme.COLORS.TEXT};
   width: 100%;
   margin-bottom: 30px;
   text-align: center;

@@ -6,7 +6,7 @@ interface Props {
 }
 
 export const InputContainer = styled.View<Props>`
-  background-color: ${props => props.theme.COLORS.BACKGROUND2};
+  background-color: ${(props) => props.theme.COLORS.BACKGROUND2};
   width: 100%;
   padding: 17px 20px;
   margin-bottom: 10px;
@@ -15,12 +15,14 @@ export const InputContainer = styled.View<Props>`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  border-color: ${props => props.theme.COLORS.BORDER2};
+  border-color: ${(props) => props.theme.COLORS.BORDER2};
 
-  ${({ isFocused }) => isFocused && css`
-    border-width: 2px;
-    border-color: ${props => props.theme.COLORS.PRIMARY_900};
-  `};
+  ${({ isFocused }) =>
+    isFocused &&
+    css`
+      border-width: 2px;
+      border-color: ${(props) => props.theme.COLORS.PRIMARY_900};
+    `};
 `
 
 export const IconContainer = styled.View`
@@ -33,6 +35,6 @@ export const IconContainer = styled.View`
 export const InputText = styled(TextInput)<Props>`
   flex: 1;
   background-color: #ffffff;
-  color: ${props => props.theme.COLORS.PLACEHOLDER};
+  color: ${(props) => props.theme.COLORS.PLACEHOLDER};
   background-color: transparent;
 `

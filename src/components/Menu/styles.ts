@@ -18,7 +18,7 @@ export const ModalView = styled.View`
 `
 
 export const ModalText = styled.Text`
-  color: ${props => props.theme.COLORS.TEXT};
+  color: ${(props) => props.theme.COLORS.TEXT};
   text-align: center;
   font-weight: ${({ theme }) => theme.FONT_FAMILY.BOLD};
   font-size: ${({ theme }) => theme.FONT_SIZE.BIG};
@@ -44,7 +44,7 @@ export const EmptyBox = styled.View`
 export const Options = styled.View``
 
 export const ItemMenu = styled.Text`
-  font-size: ${props => props.theme.FONT_SIZE.BIG};
+  font-size: ${(props) => props.theme.FONT_SIZE.BIG};
   padding: 10px 0 10px 10px;
   border-bottom-width: 1px;
   border-bottom-color: #000;

@@ -8,7 +8,7 @@ import {
   House,
   MapPin,
   User,
-  Suitcase
+  Suitcase,
 } from 'phosphor-react-native'
 //SCREENS
 import { Home } from '../screens/Home'
@@ -38,35 +38,35 @@ export function AppRoutes() {
           backgroundColor: COLORS.BACKGROUND,
           position: 'absolute',
           borderTopWidth: 0,
-          height: 60
+          height: 60,
         },
         tabBarItemStyle: {
           position: 'relative',
-          top: Platform.OS === 'android' ? 0 : -10
+          top: Platform.OS === 'android' ? 0 : -10,
         },
         tabBarLabelStyle: {
-          fontSize: 15
-        }
+          fontSize: 15,
+        },
       }}
     >
       <Screen
-        name='SignIn'
+        name="SignIn"
         component={SignIn}
         options={{
           tabBarStyle: { display: 'none' },
-          tabBarButton: () => null
+          tabBarButton: () => null,
         }}
       />
       <Screen
-        name='SignUp'
+        name="SignUp"
         component={SignUp}
         options={{
           tabBarStyle: { display: 'none' },
-          tabBarButton: () => null
+          tabBarButton: () => null,
         }}
       />
       <Screen
-        name='Home'
+        name="Home"
         component={Home}
         options={{
           tabBarIcon: ({ color, focused }) => {
@@ -78,11 +78,11 @@ export function AppRoutes() {
               />
             )
           },
-          tabBarLabel: 'Inicio'
+          tabBarLabel: 'Inicio',
         }}
       />
       <Screen
-        name='Location'
+        name="Location"
         component={Location}
         options={{
           tabBarIcon: ({ color, focused }) => {
@@ -94,11 +94,11 @@ export function AppRoutes() {
               />
             )
           },
-          tabBarLabel: 'Local'
+          tabBarLabel: 'Local',
         }}
       />
       <Screen
-        name='Add'
+        name="Add"
         component={Add}
         options={{
           tabBarIcon: ({ color, focused }) => {
@@ -110,11 +110,11 @@ export function AppRoutes() {
               />
             )
           },
-          tabBarLabel: 'Adicionar'
+          tabBarLabel: 'Adicionar',
         }}
       />
       <Screen
-        name='User'
+        name="User"
         component={UserInfo}
         options={{
           tabBarIcon: ({ color, focused }) => {
@@ -126,11 +126,11 @@ export function AppRoutes() {
               />
             )
           },
-          tabBarLabel: 'Perfil'
+          tabBarLabel: 'Perfil',
         }}
       />
       <Screen
-        name='Vagas'
+        name="Vagas"
         component={Vagas}
         options={{
           tabBarIcon: ({ color, focused }) => {
@@ -142,15 +142,15 @@ export function AppRoutes() {
               />
             )
           },
-          tabBarLabel: 'Vagas'
+          tabBarLabel: 'Vagas',
         }}
       />
       <Screen
-        name='DetailsVaga'
+        name="DetailsVaga"
         component={DetailsVaga}
         options={{
           tabBarStyle: { display: 'none' },
-          tabBarButton: () => null
+          tabBarButton: () => null,
         }}
       />
     </Navigator>

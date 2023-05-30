@@ -21,7 +21,7 @@ export function Buttons({ emptyBox = true, ...props }: Props) {
   return (
     <ButtonContainer types={props.type} disabled={props.disabled} {...props}>
       {props.isLoading ? (
-        <ActivityIndicator color={COLORS.PLACEHOLDER} size='large' />
+        <ActivityIndicator color={COLORS.PLACEHOLDER} size="large" />
       ) : (
         <>
           {props.iconLeft}
@@ -32,7 +32,7 @@ export function Buttons({ emptyBox = true, ...props }: Props) {
             types={props.type}
             style={{
               marginRight: props.iconRight ? 10 : 0,
-              marginLeft: props.iconLeft ? 0 : 0
+              marginLeft: props.iconLeft ? 0 : 0,
             }}
           >
             {props.title}

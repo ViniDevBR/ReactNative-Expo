@@ -14,9 +14,8 @@ import { ContentList, DivContainer, Results, ContainerButtons } from './styles'
 import { Check, Plus } from 'phosphor-react-native'
 import { useTheme } from 'styled-components'
 //NAVIGATION
-import { useFocusEffect, useNavigation } from '@react-navigation/native'
+import { useNavigation, useFocusEffect } from '@react-navigation/native'
 import { globalUrl } from '../../localServer'
-
 
 export function Vagas() {
   const { COLORS } = useTheme()
@@ -77,8 +76,8 @@ export function Vagas() {
   useFocusEffect(
     useCallback(() => {
       fetch(`${globalUrl}/vagas`)
-        .then(response => response.json())
-        .then(data => setJobInfos(data))
+        .then((response) => response.json())
+        .then((data) => setJobInfos(data))
     }, [])
   )
 
@@ -280,7 +279,7 @@ export function Vagas() {
       <Results>1.215 Resultados</Results>
       <ContentList
         data={jobInfos}
-        keyExtractor={item => item.id}
+        keyExtractor={(item) => item.id}
         renderItem={({ item }) => {
           return (
             <JobCard

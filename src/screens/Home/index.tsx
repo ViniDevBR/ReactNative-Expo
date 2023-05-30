@@ -10,7 +10,6 @@ import { useTheme } from 'styled-components'
 //NAVIGATION
 import { useFocusEffect, useNavigation } from '@react-navigation/native'
 
-
 export function Home() {
   const { COLORS } = useTheme()
   const { navigate } = useNavigation()

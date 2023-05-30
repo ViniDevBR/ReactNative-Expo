@@ -7,8 +7,8 @@ export const SelectContainer = styled.View`
 `
 export const ScrollView = styled.ScrollView.attrs({
   contentContainerStyle: {
-    paddingHorizontal: 10
-  }
+    paddingHorizontal: 10,
+  },
 })`
-  background-color: ${props => props.theme.COLORS.BACKGROUND};
+  background-color: ${(props) => props.theme.COLORS.BACKGROUND};
 `

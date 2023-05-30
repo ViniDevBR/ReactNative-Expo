@@ -5,7 +5,7 @@ import {
   Keyboard,
   ScrollView,
   Platform,
-  Alert
+  Alert,
 } from 'react-native'
 //STYLES
 import {
@@ -16,7 +16,7 @@ import {
   TermsAcept,
   TermsLine,
   TermsText,
-  CheckBox
+  CheckBox,
 } from './styles'
 import { useTheme } from 'styled-components'
 //COMPONENTS
@@ -34,7 +34,7 @@ import { api } from '../../localServer'
 const defaultForm: IFormInputs = {
   email: '',
   user: '',
-  password: ''
+  password: '',
 }
 
 const schema = yup
@@ -50,7 +50,7 @@ const schema = yup
       .email('Este e-mail esta correto?')
       .required('Campo Obrigatório')
       .lowercase()
-      .trim()
+      .trim(),
   })
   .required()
 
@@ -63,12 +63,12 @@ export function SignUp() {
     control,
     handleSubmit,
     formState: { errors, isValid, isSubmitting },
-    reset
+    reset,
   } = useForm<IFormInputs>({
     defaultValues: defaultForm,
     resolver: yupResolver(schema),
     mode: 'onTouched',
-    reValidateMode: 'onChange'
+    reValidateMode: 'onChange',
   })
 
   async function onSubmit(formData: IFormInputs) {
@@ -76,7 +76,7 @@ export function SignUp() {
       const { data } = await api.post('/users', {
         user: formData.user!.trim(),
         email: formData.email.trim(),
-        password: formData.password.trim()
+        password: formData.password.trim(),
       })
 
       if (data.id) {
@@ -88,11 +88,9 @@ export function SignUp() {
       } else {
         Alert.alert('Não foi possivel criar usuario')
       }
-
     } catch (error) {
       console.log('errors ===>', error)
       Alert.alert('Não foi possivel criar usuario')
-
     } finally {
       reset()
       setChecked(false)
@@ -112,29 +110,29 @@ export function SignUp() {
           <Title>
             Sou<TitleBold>Junior</TitleBold>
           </Title>
-          <Title type='subtitle'>Criar conta</Title>
+          <Title type="subtitle">Criar conta</Title>
 
           <ControlledInput
             control={control}
-            name='user'
-            placeholder='Nome'
-            keyboardType='email-address'
-            icon='user'
+            name="user"
+            placeholder="Nome"
+            keyboardType="email-address"
+            icon="user"
             error={errors.user}
           />
           <ControlledInput
             control={control}
-            name='email'
-            placeholder='E-mail'
-            keyboardType='email-address'
-            icon='mail'
+            name="email"
+            placeholder="E-mail"
+            keyboardType="email-address"
+            icon="mail"
             error={errors.email}
           />
           <ControlledInput
             control={control}
-            name='password'
-            placeholder='Senha'
-            icon='lock'
+            name="password"
+            placeholder="Senha"
+            icon="lock"
             secureTextEntry
             autoCorrect={false}
             clearTextOnFocus
@@ -160,11 +158,11 @@ export function SignUp() {
           <Buttons
             onPress={handleSubmit(onSubmit)}
             isLoading={isSubmitting}
-            type='signin'
-            title='Criar conta'
+            type="signin"
+            title="Criar conta"
             disabled={!isChecked || !isValid || isSubmitting}
           />
-          <Buttons onPress={goBack} type='linkedin' title='Fazer login' />
+          <Buttons onPress={goBack} type="linkedin" title="Fazer login" />
         </SignUpContainer>
       </ScrollView>
     </TouchableWithoutFeedback>
