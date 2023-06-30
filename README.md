@@ -50,8 +50,8 @@ dentro do arquivo na raiz do projeto existe um arquivo chamado json-server.json.
 
 ## Mentores 🙎🏻‍♂️🙎🏻
 
-| [<img src="https://avatars.githubusercontent.com/u/97065934?v=4" width=115><br><sub>Rafael</sub>](https://github.com/365rafael) |
-| :-----------------------------------------------------------------------------------------------------------------------------: |
+| [<img src="https://avatars.githubusercontent.com/u/73812069?v=4" width=115><br><sub>Mateus</sub>](https://github.com/mateusmatosleonardo)  | [<img src="https://avatars.githubusercontent.com/u/97065934?v=4" width=115><br><sub>Rafael</sub>](https://github.com/365rafael) |
+| :----------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------: |
 
 ## Agilista 🙎🏻‍♂️🙎🏻
 
