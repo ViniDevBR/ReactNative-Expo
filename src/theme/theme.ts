@@ -21,7 +21,7 @@ export const theme = {
 
     RESULTS: '#EAE2D9',
 
-    BORDER: '#DCD6CF',
+    BORDER: '#E8E8E8',
     BORDER2: '#D2D2D2',
     BORDER3: '#004892',
     BORDER4: '#DEDEDE',

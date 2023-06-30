@@ -12,6 +12,7 @@ export const ScrollView = styled.ScrollView`
   flex: 1;
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
 `
+
 export const SignInContainer = styled.KeyboardAvoidingView`
   flex: 1;
   align-items: center;
@@ -75,9 +76,9 @@ export const LinesContainer = styled.View`
 `
 
 export const Line1 = styled.View`
+  flex: 1;
   height: 1px;
   background-color: ${(props) => props.theme.COLORS.BORDER4};
-  width: 40%;
 `
 
 export const TextOU = styled.Text`

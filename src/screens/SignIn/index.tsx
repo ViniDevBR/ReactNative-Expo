@@ -1,5 +1,5 @@
 //REACT
-import { Pressable, Keyboard, Platform, Alert } from 'react-native'
+import { Pressable, Keyboard, Platform } from 'react-native'
 //STYLES && ICONS
 import {
   SignInContainer,
@@ -18,76 +18,36 @@ import { Buttons } from '../../components/Button'
 //HOOK FORM
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import * as yup from 'yup'
-//NAVIGATION
-import { useNavigation } from '@react-navigation/native'
-import { api } from '../../localServer'
+//THEME
 import { useTheme } from 'styled-components'
+//SCHEMA
+import { schema } from './schema/schema'
+//TYPES
+import { UserSignInForm } from './interfaces/interfaces'
+//CONTROLLER
+import { useSignInController } from './controllers/signInController'
 
-export interface IFormInputs {
-  user?: string
-  password: string
-  email: string
-}
-
-const defaultForm: IFormInputs = {
+const defaultForm: UserSignInForm = {
   email: '',
   password: '',
 }
 
-const schema = yup
-  .object({
-    email: yup
-      .string()
-      .email('Este e-mail esta correto?')
-      .required('Campo Obrigatório')
-      .lowercase()
-      .trim(),
-    password: yup
-      .string()
-      .min(6, 'Não esta faltando alguma coisa?')
-      .required('Campo Obrigatório')
-      .trim(),
-  })
-  .required()
-
 export function SignIn() {
-  const { navigate } = useNavigation()
+
   const { COLORS } = useTheme()
+
+  const { handleSignIn, handleSignUp } = useSignInController()
 
   const {
     control,
     handleSubmit,
     formState: { errors, isSubmitting },
-    reset,
-  } = useForm<IFormInputs>({
+  } = useForm<UserSignInForm>({
     defaultValues: defaultForm,
     resolver: yupResolver(schema),
     mode: 'onTouched',
     reValidateMode: 'onChange',
   })
-
-  function handleSignUp() {
-    navigate('SignUp')
-  }
-
-  async function onSubmit(formData: IFormInputs): Promise<void> {
-    try {
-      const { data } = await api.get(
-        `/users?email=${formData.email}&password=${formData.password}`
-      )
-
-      if (data.length && data[0].id) {
-        navigate('Home')
-        return
-      }
-    } catch (error) {
-      console.log(error)
-      Alert.alert('Erro')
-    } finally {
-      reset()
-    }
-  }
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -125,7 +85,7 @@ export function SignIn() {
           />
 
           <Buttons
-            onPress={handleSubmit(onSubmit)}
+            onPress={handleSubmit(handleSignIn)}
             disabled={isSubmitting}
             isLoading={isSubmitting}
             type="signin"
@@ -139,7 +99,7 @@ export function SignIn() {
           </LinesContainer>
 
           <Buttons
-            onPress={handleSubmit(onSubmit)}
+            onPress={handleSubmit(handleSignIn)}
             type="linkedin"
             title="Entrar com Linkedin"
             iconLeft={

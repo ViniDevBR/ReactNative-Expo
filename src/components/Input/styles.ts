@@ -8,8 +8,8 @@ interface Props {
 export const InputContainer = styled.View<Props>`
   background-color: ${(props) => props.theme.COLORS.BACKGROUND2};
   width: 100%;
-  padding: 17px 20px;
-  margin-bottom: 10px;
+  padding: 14px 10px;
+  margin: 10px 0px;
   border-width: 1px;
   border-radius: 4px;
   flex-direction: row;
@@ -36,5 +36,6 @@ export const InputText = styled(TextInput)<Props>`
   flex: 1;
   background-color: #ffffff;
   color: ${(props) => props.theme.COLORS.PLACEHOLDER};
+  font-size: ${({ theme }) => theme.FONT_SIZE.NORMAL2};
   background-color: transparent;
 `
