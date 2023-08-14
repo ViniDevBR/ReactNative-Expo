@@ -25,8 +25,7 @@ export const SignInContainer = styled.KeyboardAvoidingView`
 export const Title = styled.Text<TTitle>`
   color: ${(props) => props.theme.COLORS.PRIMARY_900};
   font-size: 45px;
-  font-weight: ${(props) => props.theme.FONT_FAMILY.REGULAR};
-
+  font-family: ${({ theme }) => theme.FONT_FAMILY.INTER_REGULAR};
   ${({ type }) =>
     type === 'subtitle' &&
     css`
