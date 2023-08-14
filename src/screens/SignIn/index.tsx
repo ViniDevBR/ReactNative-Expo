@@ -13,21 +13,22 @@ import {
 } from './styles'
 import { Fontisto } from '@expo/vector-icons'
 //COMPONENTS
-import { ControlledInput } from '../../components/ControlInput'
-import { Buttons } from '../../components/Button'
+import { ControlledInput } from '@/components/ControlInput'
+
 //HOOK FORM
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 //THEME
 import { useTheme } from 'styled-components'
 //SCHEMA
-import { schema } from './schema/schema'
+import { schema } from './validators/schema'
 //TYPES
-import { UserSignInForm } from './interfaces/interfaces'
+import { UserSignInput } from './interfaces/interfaces'
 //CONTROLLER
-import { useSignInController } from './controllers/signInController'
+import { useSignInController } from './controllers/signin.controller'
+import { Buttons } from '@/components/Button'
 
-const defaultForm: UserSignInForm = {
+const defaultForm: UserSignInput = {
   email: '',
   password: '',
 }
@@ -42,7 +43,7 @@ export function SignIn() {
     control,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm<UserSignInForm>({
+  } = useForm<UserSignInput>({
     defaultValues: defaultForm,
     resolver: yupResolver(schema),
     mode: 'onTouched',

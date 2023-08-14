@@ -1,6 +1,6 @@
 import { api } from '../../../localServer'
 import { useNavigation } from '@react-navigation/native'
-import { UserSignInForm } from '../interfaces/interfaces'
+import { UserSignInput } from '../interfaces/interfaces'
 
 export const useSignInController = () => {
   const { navigate } = useNavigation()
@@ -9,11 +9,13 @@ export const useSignInController = () => {
     navigate('SignUp')
   }
 
-  async function handleSignIn(user: UserSignInForm): Promise<void> {
+  async function handleSignIn(user: UserSignInput): Promise<void> {
     try {
       const { data } = await api.get(
         `/users?email=${user.email}&password=${user.password}`
       )
+      console.log(data)
+
       if (data.length && data[0].id) {
         navigate('Home')
         return

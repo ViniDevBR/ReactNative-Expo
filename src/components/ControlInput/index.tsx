@@ -9,7 +9,7 @@ import { Error } from './styles'
 interface Props extends InputProps {
   control: Control<IFormInputs>
   name: 'user' | 'password' | 'email'
-  error?: FieldError
+  error?: any
 }
 
 export function ControlledInput({ ...props }: Props) {

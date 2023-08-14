@@ -31,15 +31,7 @@ export const theme = {
     BUTTON_100: '#008000',
   },
   FONT_FAMILY: {
-    THIN: '100',
-    EXTRA_LIGHT: '200',
-    LIGHT: '300',
-    REGULAR: '400',
-    MEDIUM: '500',
-    SEMI_BOLD: '600',
-    BOLD: '700',
-    EXTRA_BOLD: '800',
-    BLACK: '900',
+    INTER_REGULAR: 'Inter_400Regular,',
   },
   FONT_SIZE: {
     SMALL: '12px',
