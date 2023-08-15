@@ -22,7 +22,7 @@ import { useTheme } from 'styled-components'
 //COMPONENTS
 import { ControlledInput } from '../../components/ControlInput'
 import { Buttons } from '../../components/Button'
-import { IFormInputs } from '../SignIn'
+import { SignUpInterface } from '@/screens/SignUp/interfaces/interfaces'
 //HOOK FORM
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -31,7 +31,7 @@ import * as yup from 'yup'
 import { useNavigation } from '@react-navigation/native'
 import { api } from '../../localServer'
 
-const defaultForm: IFormInputs = {
+const defaultForm: SignUpInterface = {
   email: '',
   user: '',
   password: '',
@@ -64,14 +64,14 @@ export function SignUp() {
     handleSubmit,
     formState: { errors, isValid, isSubmitting },
     reset,
-  } = useForm<IFormInputs>({
+  } = useForm<SignUpInterface>({
     defaultValues: defaultForm,
     resolver: yupResolver(schema),
     mode: 'onTouched',
     reValidateMode: 'onChange',
   })
 
-  async function onSubmit(formData: IFormInputs) {
+  async function onSubmit(formData: SignUpInterface) {
     try {
       const { data } = await api.post('/users', {
         user: formData.user!.trim(),
