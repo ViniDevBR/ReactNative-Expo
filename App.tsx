@@ -24,6 +24,7 @@ import { ThemeProvider } from 'styled-components/native'
 //CONTEXT
 import { HeaderContextProvider } from './src/context/headerContext'
 import { theme } from './src/theme/theme'
+import React from 'react'
 
 
 export default function App() {

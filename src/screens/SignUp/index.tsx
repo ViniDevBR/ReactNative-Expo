@@ -24,12 +24,13 @@ import { ControlledInput } from '../../components/ControlInput'
 import { Buttons } from '../../components/Button'
 import { SignUpInterface } from '@/screens/SignUp/interfaces/interfaces'
 //HOOK FORM
-import { useForm } from 'react-hook-form'
+import { FieldValues, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 //NAVIGATION
 import { useNavigation } from '@react-navigation/native'
 import { api } from '../../localServer'
+import React from 'react'
 
 const defaultForm: SignUpInterface = {
   email: '',
@@ -64,7 +65,7 @@ export function SignUp() {
     handleSubmit,
     formState: { errors, isValid, isSubmitting },
     reset,
-  } = useForm<SignUpInterface>({
+  } = useForm<FieldValues>({
     defaultValues: defaultForm,
     resolver: yupResolver(schema),
     mode: 'onTouched',
@@ -156,7 +157,7 @@ export function SignUp() {
           </TermsAcept>
 
           <Buttons
-            onPress={handleSubmit(onSubmit)}
+            onPress={handleSubmit(onSubmit as any)}
             isLoading={isSubmitting}
             type="signin"
             title="Criar conta"

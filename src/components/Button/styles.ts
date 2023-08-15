@@ -41,20 +41,29 @@ export const ButtonContainer = styled.TouchableOpacity<TButton>`
       border-radius: 4px;
       height: 60px;
       margin: 20px 0 10px 0;
-      width: 100%;
+      width: 40%;
     `}
 
   ${({ types }) =>
-    types === 'linkedin' &&
+    types === 'signup' &&
     css`
-      background-color: transparent;
+      background-color: ${({ theme }) => theme.COLORS.PRIMARY_900};
       border: 1px solid ${({ theme }) => theme.COLORS.PRIMARY_900};
       border-radius: 4px;
       height: 60px;
-      margin: 10px 0 0 0;
-      width: 100%;
-      justify-content: space-evenly;
-    `}
+      margin: 20px 0 10px 0;
+      width: 40%;
+  `}
+  ${({ types }) =>
+    types === 'anonymous' &&
+    css`
+      background-color: ${({ theme }) => theme.COLORS.PRIMARY_900};
+      border: 1px solid ${({ theme }) => theme.COLORS.PRIMARY_900};
+      border-radius: 4px;
+      height: 60px;
+      margin: 20px 0 10px 0;
+      width: 40%;
+  `}
 
   ${({ disabled }) =>
     disabled &&

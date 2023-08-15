@@ -1,13 +1,21 @@
 //HOOK FORM
-import { Control, Controller, FieldError } from 'react-hook-form'
+import { Control, Controller, FieldError, FieldValues } from 'react-hook-form'
 //INTERFACE && COMPONENTS
 import { SignUpInterface } from "@/screens/SignUp/interfaces/interfaces"
 import { Input, InputProps } from '../Input'
 //STYLES
 import { Error } from './styles'
+import { UserSignInput } from '@/screens/SignIn/interfaces/interfaces'
+
+type FormValues = {
+  email: string
+  password: string
+  user: string
+}
+
 
 interface Props extends InputProps {
-  control: Control<SignUpInterface>
+  control: Control<FieldValues>;
   name: 'user' | 'password' | 'email'
   error?: any
 }
