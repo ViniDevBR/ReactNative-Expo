@@ -37,7 +37,7 @@ export const ButtonContainer = styled.TouchableOpacity<TButton>`
     types === 'signin' &&
     css`
       background-color: ${({ theme }) => theme.COLORS.PRIMARY_900};
-      border: 1px solid ${({ theme }) => theme.COLORS.BORDER3};
+      border: 1px solid ${({ theme }) => theme.COLORS.PRIMARY_900};
       border-radius: 4px;
       height: 60px;
       margin: 20px 0 10px 0;

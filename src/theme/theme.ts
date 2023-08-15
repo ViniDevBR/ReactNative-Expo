@@ -16,14 +16,13 @@ export const theme = {
     TEXT2: '#A0A0A0',
     TEXT3: '#515050',
 
-    NOTIFICATION: '#F00000',
+    NOTIFICATION: '#b3261e',
     ICON: '#E6E6E6',
 
     RESULTS: '#EAE2D9',
 
     BORDER: '#E8E8E8',
-    BORDER2: '#D2D2D2',
-    BORDER3: '#004892',
+    BORDER_INPUT: '#79747e',
     BORDER4: '#DEDEDE',
     BORDER5: '#A3CCFA',
 
@@ -32,6 +31,17 @@ export const theme = {
   },
   FONT_FAMILY: {
     INTER_REGULAR: 'Inter_400Regular,',
+  },
+  FONT_WEIGHT: {
+    THIN: '100',
+    EXTRA_LIGHT: '200',
+    LIGHT: '300',
+    REGULAR: '400',
+    MEDIUM: '500',
+    SEMI_BOLD: '600',
+    BOLD: '700',
+    EXTRA_BOLD: '800',
+    BLACK: '900',
   },
   FONT_SIZE: {
     SMALL: '12px',

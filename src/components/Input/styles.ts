@@ -15,7 +15,7 @@ export const InputContainer = styled.View<Props>`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  border-color: ${(props) => props.theme.COLORS.BORDER2};
+  border-color: ${(props) => props.theme.COLORS.BORDER_INPUT};
 
   ${({ isFocused }) =>
     isFocused &&

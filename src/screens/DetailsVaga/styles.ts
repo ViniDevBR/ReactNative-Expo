@@ -42,7 +42,7 @@ export const HeaderInfos = styled.View`
 
 export const InfosDetail = styled.Text<TInfos>`
   font-size: ${(props) => props.theme.FONT_SIZE.EXTRA_BIG};
-  font-weight: ${(props) => props.theme.FONT_FAMILY.SEMI_BOLD};
+  font-weight: ${(props) => props.theme.FONT_WEIGHT.SEMI_BOLD};
   text-transform: capitalize;
   padding-bottom: 7px;
 
@@ -50,14 +50,14 @@ export const InfosDetail = styled.Text<TInfos>`
     props.type === 'subtitle' &&
     css`
       font-size: ${(props) => props.theme.FONT_SIZE.NORMAL2};
-      font-weight: ${(props) => props.theme.FONT_FAMILY.MEDIUM};
+      font-weight: ${(props) => props.theme.FONT_WEIGHT.MEDIUM};
     `}
 
   ${(props) =>
     props.type === 'location' &&
     css`
       font-size: ${(props) => props.theme.FONT_SIZE.SEMI_NORMAL};
-      font-weight: ${(props) => props.theme.FONT_FAMILY.REGULAR};
+      font-weight: ${(props) => props.theme.FONT_WEIGHT.REGULAR};
       padding-bottom: 30px;
     `}
 
@@ -65,7 +65,7 @@ export const InfosDetail = styled.Text<TInfos>`
     props.type === 'level' &&
     css`
       font-size: ${(props) => props.theme.FONT_SIZE.SEMI_NORMAL};
-      font-weight: ${(props) => props.theme.FONT_FAMILY.MEDIUM};
+      font-weight: ${(props) => props.theme.FONT_WEIGHT.MEDIUM};
       text-transform: uppercase;
     `}
 `
@@ -85,7 +85,7 @@ export const TypeOfVaga = styled.View`
 
 export const DetailsOfType = styled.Text<TInfos>`
   font-size: ${(props) => props.theme.FONT_SIZE.SEMI_NORMAL};
-  font-weight: ${(props) => props.theme.FONT_FAMILY.REGULAR};
+  font-weight: ${(props) => props.theme.FONT_WEIGHT.REGULAR};
   padding-bottom: 7px;
 
   ${(props) =>
