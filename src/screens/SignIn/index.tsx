@@ -102,11 +102,8 @@ export function SignIn() {
 
           <Buttons
             onPress={handleSubmit(handleSignIn as any)}
-            type="linkedin"
-            title="Entrar com Linkedin"
-            iconLeft={
-              <Fontisto name="linkedin" size={24} color={COLORS.PRIMARY_900} />
-            }
+            type="anonymous"
+            title="Criar conta"
           />
 
           <Pressable onPress={handleSignUp}>
