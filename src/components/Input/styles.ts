@@ -25,7 +25,7 @@ export const InputContainer = styled.View<Props>`
     `};
 `
 
-export const IconContainer = styled.View`
+export const IconContainer = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;
   margin-right: 2px;

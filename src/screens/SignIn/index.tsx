@@ -11,7 +11,7 @@ import {
   TouchableWithoutFeedback,
   ScrollView,
 } from './styles'
-import { Fontisto } from '@expo/vector-icons'
+import { Fontisto, Feather } from '@expo/vector-icons'
 //COMPONENTS
 import { ControlledInput } from '../../components/ControlInput'
 
@@ -27,7 +27,8 @@ import { UserSignInput } from './interfaces/interfaces'
 //CONTROLLER
 import { useSignInController } from './controllers/signin.controller'
 import { Buttons } from '../../components/Button'
-import React from 'react'
+import React, {useState} from 'react'
+
 
 const defaultForm: UserSignInput = {
   email: '',
@@ -69,7 +70,6 @@ export function SignIn() {
             placeholderTextColor={COLORS.TEXT}
             style={{ color: COLORS.TEXT }}
             keyboardType="email-address"
-            icon="user"
             error={errors.email}
           />
 
@@ -79,11 +79,11 @@ export function SignIn() {
             placeholder="Senha"
             placeholderTextColor={COLORS.TEXT}
             style={{ color: COLORS.TEXT }}
-            icon="lock"
+            icon="eye"
             secureTextEntry
             autoCorrect={false}
             clearTextOnFocus
-            error={errors.password}
+            error={errors.password}  
           />
 
           <Buttons
@@ -104,6 +104,7 @@ export function SignIn() {
             onPress={handleSubmit(handleSignIn as any)}
             type="anonymous"
             title="Criar conta"
+            
           />
 
           <Pressable onPress={handleSignUp}>

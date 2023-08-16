@@ -10,6 +10,7 @@ export interface InputProps extends TextInputProps {
   icon?: ComponentProps<typeof Feather>['name']
   name: string
   value?: string
+  changeIcon?: () => void
 }
 
 export function Input({ ...props }: InputProps) {
@@ -36,13 +37,23 @@ export function Input({ ...props }: InputProps) {
         {...props}
       />
 
-      <IconContainer>
-        <Feather
-          name={props.icon}
-          size={24}
-          color={isFocused || isFilled ? COLORS.PRIMARY_900 : COLORS.ICON}
-        />
-      </IconContainer>
+      {props.icon == 'eye' || props.icon == 'eye-off' ? (
+        <IconContainer onPress={props.changeIcon}>
+          <Feather
+            name={props.icon}
+            size={24}
+            color={isFocused || isFilled ? COLORS.PRIMARY_900 : COLORS.ICON}
+          />
+        </IconContainer>
+      ) : (
+        <IconContainer>
+          <Feather
+            name={props.icon}
+            size={24}
+            color={isFocused || isFilled ? COLORS.PRIMARY_900 : COLORS.ICON}
+          />
+        </IconContainer>
+      )}
     </InputContainer>
   )
 }
