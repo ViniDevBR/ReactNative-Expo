@@ -1,18 +1,10 @@
 import { useState } from 'react'
 //HOOK FORM
-import { Control, Controller, FieldError, FieldValues } from 'react-hook-form'
+import { Control, Controller, FieldValues } from 'react-hook-form'
 //INTERFACE && COMPONENTS
-import { SignUpInterface } from '@/screens/SignUp/interfaces/interfaces'
 import { Input, InputProps } from '../Input'
 //STYLES
 import { Error } from './styles'
-import { UserSignInput } from '@/screens/SignIn/interfaces/interfaces'
-
-type FormValues = {
-  email: string
-  password: string
-  user: string
-}
 
 interface Props extends InputProps {
   control: Control<FieldValues>
@@ -23,6 +15,15 @@ interface Props extends InputProps {
 
 export function ControlledInput({ ...props }: Props) {
   const [passwordVisible, setPasswordVisible] = useState<boolean>(false)
+  const [inputValue, setInputValue] = useState<string>('')
+
+  const handleInputChange = (text: string) => {
+    setInputValue(text)
+  }
+
+  const clearInput = () => {
+    setInputValue('')
+  }
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible)
@@ -49,16 +50,23 @@ export function ControlledInput({ ...props }: Props) {
         <Controller
           name={props.name}
           control={props.control}
-          render={({ field: { onChange, value } }) => (
+          render={({ field: { onChange, value, onBlur } }) => (
             <Input
-              onChangeText={onChange}
+              onChangeText={(text) => {
+                handleInputChange(text)
+                onChange(text)
+              }}
               value={value}
+              onClear={() => {
+                clearInput()
+                onChange('')
+              }}
               {...props}
+              icon={inputValue ? 'x-circle' : props.icon}
             />
           )}
         />
-        )
-      }
+      )}
 
       {props.error && <Error>{props.error?.message}</Error>}
     </>

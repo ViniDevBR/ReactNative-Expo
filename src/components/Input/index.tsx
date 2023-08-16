@@ -11,6 +11,7 @@ export interface InputProps extends TextInputProps {
   name: string
   value?: string
   changeIcon?: () => void
+  onClear?: () => void
 }
 
 export function Input({ ...props }: InputProps) {
@@ -46,7 +47,7 @@ export function Input({ ...props }: InputProps) {
           />
         </IconContainer>
       ) : (
-        <IconContainer>
+        <IconContainer onPress={props.onClear}>
           <Feather
             name={props.icon}
             size={24}
