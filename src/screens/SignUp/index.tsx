@@ -30,7 +30,6 @@ import * as yup from 'yup'
 //NAVIGATION
 import { useNavigation } from '@react-navigation/native'
 import { api } from '../../localServer'
-import React from 'react'
 
 const defaultForm: SignUpInterface = {
   email: '',
@@ -116,7 +115,6 @@ export function SignUp() {
           <ControlledInput
             control={control}
             name="user"
-            placeholder="Nome"
             keyboardType="email-address"
             icon="user"
             error={errors.user}
@@ -124,7 +122,6 @@ export function SignUp() {
           <ControlledInput
             control={control}
             name="email"
-            placeholder="E-mail"
             keyboardType="email-address"
             icon="mail"
             error={errors.email}
@@ -132,8 +129,8 @@ export function SignUp() {
           <ControlledInput
             control={control}
             name="password"
-            placeholder="Senha"
-            icon="lock"
+            icon="eye"
+            type="signup"
             secureTextEntry
             autoCorrect={false}
             clearTextOnFocus

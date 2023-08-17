@@ -27,7 +27,6 @@ import { UserSignInput } from './interfaces/interfaces'
 //CONTROLLER
 import { useSignInController } from './controllers/signin.controller'
 import { Buttons } from '../../components/Button'
-import React, {useState} from 'react'
 
 
 const defaultForm: UserSignInput = {
@@ -66,7 +65,6 @@ export function SignIn() {
           <ControlledInput
             control={control}
             name="email"
-            placeholder="E-mail"
             placeholderTextColor={COLORS.TEXT}
             style={{ color: COLORS.TEXT }}
             keyboardType="email-address"
@@ -76,14 +74,13 @@ export function SignIn() {
           <ControlledInput
             control={control}
             name="password"
-            placeholder="Senha"
             placeholderTextColor={COLORS.TEXT}
             style={{ color: COLORS.TEXT }}
             icon="eye"
             secureTextEntry
             autoCorrect={false}
             clearTextOnFocus
-            error={errors.password}  
+            error={errors.password}
           />
 
           <Buttons

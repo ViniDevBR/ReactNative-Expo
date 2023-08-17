@@ -30,7 +30,7 @@ export function UserInfo() {
   )
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.BACKGROUND2 }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.BACKGROUND }}>
       <Header />
       <Text>USER</Text>
     </SafeAreaView>
