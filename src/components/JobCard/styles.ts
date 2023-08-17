@@ -28,7 +28,7 @@ export const Header = styled.View`
 export const InfosDetailed = styled.Text<TInfos>`
   color: ${(props) => props.theme.COLORS.TEXT3};
   font-size: ${(props) => props.theme.FONT_SIZE.NORMAL2};
-  font-weight: ${(props) => props.theme.FONT_FAMILY.SEMI_BOLD};
+  font-weight: ${(props) => props.theme.FONT_WEIGHT.SEMI_BOLD};
   padding-left: 10px;
   padding-bottom: 4px;
   text-transform: capitalize;
@@ -38,21 +38,21 @@ export const InfosDetailed = styled.Text<TInfos>`
     props.type === 'subtitle' &&
     css`
       font-size: ${(props) => props.theme.FONT_SIZE.SEMI_NORMAL};
-      font-weight: ${(props) => props.theme.FONT_FAMILY.MEDIUM};
+      font-weight: ${(props) => props.theme.FONT_WEIGHT.MEDIUM};
     `}
 
   ${(props) =>
     props.type === 'others' &&
     css`
       font-size: ${(props) => props.theme.FONT_SIZE.SEMI_NORMAL};
-      font-weight: ${(props) => props.theme.FONT_FAMILY.REGULAR};
+      font-weight: ${(props) => props.theme.FONT_WEIGHT.REGULAR};
     `}
 
   ${(props) =>
     props.type === 'level' &&
     css`
       font-size: ${(props) => props.theme.FONT_SIZE.SEMI_NORMAL};
-      font-weight: ${(props) => props.theme.FONT_FAMILY.REGULAR};
+      font-weight: ${(props) => props.theme.FONT_WEIGHT.REGULAR};
       text-transform: uppercase;
     `}
 

@@ -30,7 +30,7 @@ export function Home() {
   )
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.BACKGROUND2 }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.BACKGROUND }}>
       <Header />
       <Text>HOME</Text>
     </SafeAreaView>

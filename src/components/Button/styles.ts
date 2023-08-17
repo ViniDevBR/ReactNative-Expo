@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components/native'
+import { RFValue } from 'react-native-responsive-fontsize'
 
 type TButton = {
   types?: string
@@ -13,7 +14,10 @@ export const ButtonContainer = styled.TouchableOpacity<TButton>`
   border-radius: 10px;
   margin-right: 10px;
   margin: 0 10px 10px 0;
-  padding: 4.5px 13px;
+  padding: 10px 0;
+  width:  60%;
+  height: 50px;
+  margin: 20px 0 10px 0;
 
   ${({ types }) =>
     types === 'close' &&
@@ -37,24 +41,25 @@ export const ButtonContainer = styled.TouchableOpacity<TButton>`
     types === 'signin' &&
     css`
       background-color: ${({ theme }) => theme.COLORS.PRIMARY_900};
-      border: 1px solid ${({ theme }) => theme.COLORS.BORDER3};
-      border-radius: 4px;
-      height: 60px;
-      margin: 20px 0 10px 0;
-      width: 100%;
+      border: 1px solid ${({ theme }) => theme.COLORS.PRIMARY_900};
+      border-radius: 100px;
     `}
 
   ${({ types }) =>
-    types === 'linkedin' &&
+    types === 'signup' &&
+    css`
+      background-color: ${({ theme }) => theme.COLORS.WHITE};
+      border: 1px solid ${({ theme }) => theme.COLORS.BORDER_INPUT};
+      border-color: ${({ theme }) => theme.COLORS.BORDER_INPUT}; 
+      border-radius: 100px;
+
+  `}
+  ${({ types }) =>
+    types === 'anonymous' &&
     css`
       background-color: transparent;
-      border: 1px solid ${({ theme }) => theme.COLORS.PRIMARY_900};
-      border-radius: 4px;
-      height: 60px;
-      margin: 10px 0 0 0;
-      width: 100%;
-      justify-content: space-evenly;
-    `}
+      border: 0px;
+  `}
 
   ${({ disabled }) =>
     disabled &&
@@ -85,8 +90,8 @@ export const Title = styled.Text<TButton>`
   ${({ types }) =>
     types === 'signin' &&
     css`
-      color: ${({ theme }) => theme.COLORS.BACKGROUND};
-      font-size: ${({ theme }) => theme.FONT_SIZE.BIG2};
+      color: ${({ theme }) => theme.COLORS.WHITE}; 
+      font-size: ${RFValue(20)}px;
     `}
 
   ${({ types }) =>
@@ -101,6 +106,20 @@ export const Title = styled.Text<TButton>`
     css`
       color: ${({ theme }) => theme.COLORS.PLACEHOLDER};
     `}
+
+  ${({ types }) =>
+    types === 'signup' &&
+    css`
+      color: ${({ theme }) => theme.COLORS.PRIMARY_900}; 
+      font-size: ${RFValue(20)}px;
+  `}
+  ${({ types }) =>
+    types === 'anonymous' &&
+    css`
+      color: ${({ theme }) => theme.COLORS.PRIMARY_900}; 
+      font-size: ${RFValue(20)}px;
+      font-weight: ${({ theme }) => theme.FONT_WEIGHT.MEDIUM};
+  `}
 `
 
 export const EmptyBox = styled.View`

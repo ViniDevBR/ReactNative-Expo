@@ -30,7 +30,7 @@ export function Add() {
   )
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.BACKGROUND2 }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.BACKGROUND }}>
       <Header />
       <Text>ADICIONAR</Text>
     </SafeAreaView>

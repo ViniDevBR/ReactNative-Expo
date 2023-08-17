@@ -14,5 +14,5 @@ export const Logo = styled.Text`
 `
 
 export const LogoBold = styled.Text`
-  font-weight: ${({ theme }) => theme.FONT_FAMILY.BOLD};
+  font-weight: ${({ theme }) => theme.FONT_WEIGHT.BOLD};
 `

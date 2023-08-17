@@ -22,16 +22,16 @@ import { useTheme } from 'styled-components'
 //COMPONENTS
 import { ControlledInput } from '../../components/ControlInput'
 import { Buttons } from '../../components/Button'
-import { IFormInputs } from '../SignIn'
+import { SignUpInterface } from '@/screens/SignUp/interfaces/interfaces'
 //HOOK FORM
-import { useForm } from 'react-hook-form'
+import { FieldValues, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 //NAVIGATION
 import { useNavigation } from '@react-navigation/native'
 import { api } from '../../localServer'
 
-const defaultForm: IFormInputs = {
+const defaultForm: SignUpInterface = {
   email: '',
   user: '',
   password: '',
@@ -64,14 +64,14 @@ export function SignUp() {
     handleSubmit,
     formState: { errors, isValid, isSubmitting },
     reset,
-  } = useForm<IFormInputs>({
+  } = useForm<FieldValues>({
     defaultValues: defaultForm,
     resolver: yupResolver(schema),
     mode: 'onTouched',
     reValidateMode: 'onChange',
   })
 
-  async function onSubmit(formData: IFormInputs) {
+  async function onSubmit(formData: SignUpInterface) {
     try {
       const { data } = await api.post('/users', {
         user: formData.user!.trim(),
@@ -115,7 +115,6 @@ export function SignUp() {
           <ControlledInput
             control={control}
             name="user"
-            placeholder="Nome"
             keyboardType="email-address"
             icon="user"
             error={errors.user}
@@ -123,7 +122,6 @@ export function SignUp() {
           <ControlledInput
             control={control}
             name="email"
-            placeholder="E-mail"
             keyboardType="email-address"
             icon="mail"
             error={errors.email}
@@ -131,8 +129,8 @@ export function SignUp() {
           <ControlledInput
             control={control}
             name="password"
-            placeholder="Senha"
-            icon="lock"
+            icon="eye"
+            type="signup"
             secureTextEntry
             autoCorrect={false}
             clearTextOnFocus
@@ -156,7 +154,7 @@ export function SignUp() {
           </TermsAcept>
 
           <Buttons
-            onPress={handleSubmit(onSubmit)}
+            onPress={handleSubmit(onSubmit as any)}
             isLoading={isSubmitting}
             type="signin"
             title="Criar conta"

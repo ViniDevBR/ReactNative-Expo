@@ -9,7 +9,7 @@ interface Props extends TouchableOpacityProps {
   title: string
   iconLeft?: ReactNode
   iconRight?: ReactNode
-  type?: 'close' | 'selected' | 'linkedin' | 'signin'
+  type?: 'close' | 'selected' | 'linkedin' | 'signin' | 'signup' | 'anonymous'
   emptyBox?: boolean
   disabled?: boolean
   isLoading?: boolean

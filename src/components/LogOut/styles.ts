@@ -31,7 +31,7 @@ export const ModalTitle = styled.View`
 export const ModalText = styled.Text`
   color: ${(props) => props.theme.COLORS.TEXT};
   text-align: center;
-  font-weight: ${({ theme }) => theme.FONT_FAMILY.BOLD};
+  font-weight: ${({ theme }) => theme.FONT_WEIGHT.BOLD};
   font-size: ${({ theme }) => theme.FONT_SIZE.BIG};
   padding: 15.5px 0;
 `

@@ -48,7 +48,7 @@ export const Title = styled.Text<TTitle>`
 export const TitleBold = styled.Text`
   color: ${(props) => props.theme.COLORS.PRIMARY_900};
   font-size: 45px;
-  font-weight: ${(props) => props.theme.FONT_FAMILY.BOLD};
+  font-weight: ${(props) => props.theme.FONT_WEIGHT};
 `
 
 export const TermsAcept = styled.Pressable`

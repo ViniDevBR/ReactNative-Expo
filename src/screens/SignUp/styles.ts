@@ -17,7 +17,7 @@ export const SignUpContainer = styled.KeyboardAvoidingView`
 export const Title = styled.Text<TTitle>`
   color: ${(props) => props.theme.COLORS.PRIMARY_900};
   font-size: 45px;
-  font-weight: ${(props) => props.theme.FONT_FAMILY.REGULAR};
+  font-weight: ${(props) => props.theme.FONT_WEIGHT.REGULAR};
 
   ${({ type }) =>
     type === 'subtitle' &&
@@ -41,7 +41,7 @@ export const Title = styled.Text<TTitle>`
 export const TitleBold = styled.Text`
   color: ${(props) => props.theme.COLORS.PRIMARY_900};
   font-size: 45px;
-  font-weight: ${(props) => props.theme.FONT_FAMILY.BOLD};
+  font-weight: ${(props) => props.theme.FONT_WEIGHT.BOLD};
 `
 
 export const TermsAcept = styled.Pressable`

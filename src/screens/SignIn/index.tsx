@@ -11,12 +11,12 @@ import {
   TouchableWithoutFeedback,
   ScrollView,
 } from './styles'
-import { Fontisto } from '@expo/vector-icons'
+import { Fontisto, Feather } from '@expo/vector-icons'
 //COMPONENTS
-import { ControlledInput } from '@/components/ControlInput'
+import { ControlledInput } from '../../components/ControlInput'
 
 //HOOK FORM
-import { useForm } from 'react-hook-form'
+import { FieldValues, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 //THEME
 import { useTheme } from 'styled-components'
@@ -26,7 +26,8 @@ import { schema } from './validators/schema'
 import { UserSignInput } from './interfaces/interfaces'
 //CONTROLLER
 import { useSignInController } from './controllers/signin.controller'
-import { Buttons } from '@/components/Button'
+import { Buttons } from '../../components/Button'
+
 
 const defaultForm: UserSignInput = {
   email: '',
@@ -43,7 +44,7 @@ export function SignIn() {
     control,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm<UserSignInput>({
+  } = useForm<FieldValues>({
     defaultValues: defaultForm,
     resolver: yupResolver(schema),
     mode: 'onTouched',
@@ -64,21 +65,18 @@ export function SignIn() {
           <ControlledInput
             control={control}
             name="email"
-            placeholder="E-mail"
             placeholderTextColor={COLORS.TEXT}
             style={{ color: COLORS.TEXT }}
             keyboardType="email-address"
-            icon="user"
             error={errors.email}
           />
 
           <ControlledInput
             control={control}
             name="password"
-            placeholder="Senha"
             placeholderTextColor={COLORS.TEXT}
             style={{ color: COLORS.TEXT }}
-            icon="lock"
+            icon="eye"
             secureTextEntry
             autoCorrect={false}
             clearTextOnFocus
@@ -86,7 +84,7 @@ export function SignIn() {
           />
 
           <Buttons
-            onPress={handleSubmit(handleSignIn)}
+            onPress={handleSubmit(handleSignIn as any)}
             disabled={isSubmitting}
             isLoading={isSubmitting}
             type="signin"
@@ -100,12 +98,10 @@ export function SignIn() {
           </LinesContainer>
 
           <Buttons
-            onPress={handleSubmit(handleSignIn)}
-            type="linkedin"
-            title="Entrar com Linkedin"
-            iconLeft={
-              <Fontisto name="linkedin" size={24} color={COLORS.PRIMARY_900} />
-            }
+            onPress={handleSubmit(handleSignIn as any)}
+            type="anonymous"
+            title="Criar conta"
+            
           />
 
           <Pressable onPress={handleSignUp}>
