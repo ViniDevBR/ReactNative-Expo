@@ -20,6 +20,7 @@ import { useTheme } from 'styled-components'
 import { SignIn } from '../screens/SignIn'
 import { SignUp } from '../screens/SignUp'
 import { DetailsVaga } from '../screens/DetailsVaga'
+import { Access } from '../screens/Access'
 
 const { Screen, Navigator } = createBottomTabNavigator()
 
@@ -49,6 +50,14 @@ export function AppRoutes() {
         },
       }}
     >
+      <Screen
+      name="accessScreen"
+      component={Access}
+      options={{
+        tabBarStyle: { display: 'none' },
+        tabBarButton: () => null,
+      }}
+      />
       <Screen
         name="SignIn"
         component={SignIn}

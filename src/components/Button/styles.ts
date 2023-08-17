@@ -117,7 +117,7 @@ export const Title = styled.Text<TButton>`
     types === 'anonymous' &&
     css`
       color: ${({ theme }) => theme.COLORS.PRIMARY_900}; 
-      font-size: ${RFValue(20)}px;
+      font-size: ${RFValue(17)}px;
       font-weight: ${({ theme }) => theme.FONT_WEIGHT.MEDIUM};
   `}
 `
