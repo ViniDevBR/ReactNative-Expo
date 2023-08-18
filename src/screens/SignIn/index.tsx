@@ -1,12 +1,5 @@
 //REACT
-import {
-  Pressable,
-  TouchableWithoutFeedback,
-  Keyboard,
-  ScrollView,
-  Platform,
-  Alert
-} from 'react-native'
+import { Pressable, Keyboard, Platform } from 'react-native'
 //STYLES && ICONS
 import {
   SignInContainer,
@@ -14,87 +7,49 @@ import {
   TitleBold,
   Line1,
   LinesContainer,
-  TextOU
+  TextOU,
+  TouchableWithoutFeedback,
+  ScrollView,
 } from './styles'
-import { useTheme } from 'styled-components'
-import { Fontisto } from '@expo/vector-icons'
+import { Fontisto, Feather } from '@expo/vector-icons'
 //COMPONENTS
 import { ControlledInput } from '../../components/ControlInput'
-import { Buttons } from '../../components/Button'
+
 //HOOK FORM
-import { useForm } from 'react-hook-form'
+import { FieldValues, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import * as yup from 'yup'
-//NAVIGATION
-import { useNavigation } from '@react-navigation/native'
-import { api } from '../../localServer'
+//THEME
+import { useTheme } from 'styled-components'
+//SCHEMA
+import { schema } from './validators/schema'
+//TYPES
+import { UserSignInput } from './interfaces/interfaces'
+//CONTROLLER
+import { useSignInController } from './controllers/signin.controller'
+import { Buttons } from '../../components/Button'
 
-export interface IFormInputs {
-  user?: string
-  password: string
-  email: string
-}
 
-const defaultForm: IFormInputs = {
+const defaultForm: UserSignInput = {
   email: '',
-  password: ''
+  password: '',
 }
-
-const schema = yup
-  .object({
-    email: yup
-      .string()
-      .email('Este e-mail esta correto?')
-      .required('Campo Obrigatório')
-      .lowercase()
-      .trim(),
-    password: yup
-      .string()
-      .min(6, 'Não esta faltando alguma coisa?')
-      .required('Campo Obrigatório')
-      .trim()
-  })
-  .required()
 
 export function SignIn() {
+
   const { COLORS } = useTheme()
-  const { navigate } = useNavigation()
+
+  const { handleSignIn, handleSignUp } = useSignInController()
 
   const {
     control,
     handleSubmit,
     formState: { errors, isSubmitting },
-    reset
-  } = useForm<IFormInputs>({
+  } = useForm<FieldValues>({
     defaultValues: defaultForm,
     resolver: yupResolver(schema),
     mode: 'onTouched',
-    reValidateMode: 'onChange'
+    reValidateMode: 'onChange',
   })
-
-  function handleSignUp() {
-    navigate('SignUp')
-  }
-
-  async function onSubmit(formData: IFormInputs): Promise<void> {
-    try {
-      const { data } = await api.get(
-        `/users?email=${formData.email}&password=${formData.password}`
-      )
-
-      if (data.length && data[0].id) {
-        navigate('Home')
-        return
-      }
-
-    } catch (error) {
-      console.log(error)
-      Alert.alert('Erro')
-
-    } finally {
-      reset()
-    }
-  }
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -105,22 +60,23 @@ export function SignIn() {
           <Title>
             Sou<TitleBold>Junior</TitleBold>
           </Title>
-          <Title type='subtitle'>Entrar</Title>
+          <Title type="subtitle">Entrar</Title>
 
           <ControlledInput
             control={control}
-            name='email'
-            placeholder='User'
-            keyboardType='email-address'
-            icon='user'
+            name="email"
+            placeholderTextColor={COLORS.TEXT}
+            style={{ color: COLORS.TEXT }}
+            keyboardType="email-address"
             error={errors.email}
           />
 
           <ControlledInput
             control={control}
-            name='password'
-            placeholder='Password'
-            icon='lock'
+            name="password"
+            placeholderTextColor={COLORS.TEXT}
+            style={{ color: COLORS.TEXT }}
+            icon="eye"
             secureTextEntry
             autoCorrect={false}
             clearTextOnFocus
@@ -128,11 +84,11 @@ export function SignIn() {
           />
 
           <Buttons
-            onPress={handleSubmit(onSubmit)}
+            onPress={handleSubmit(handleSignIn as any)}
             disabled={isSubmitting}
             isLoading={isSubmitting}
-            type='signin'
-            title='Entrar'
+            type="signin"
+            title="Entrar"
           />
 
           <LinesContainer>
@@ -142,16 +98,14 @@ export function SignIn() {
           </LinesContainer>
 
           <Buttons
-            onPress={handleSubmit(onSubmit)}
-            type='linkedin'
-            title='Entrar com Linkedin'
-            iconLeft={
-              <Fontisto name='linkedin' size={24} color={COLORS.PRIMARY_900} />
-            }
+            onPress={handleSubmit(handleSignIn as any)}
+            type="anonymous"
+            title="Criar conta"
+            
           />
 
           <Pressable onPress={handleSignUp}>
-            <Title type='signup'>Criar conta</Title>
+            <Title type="signup">Criar conta</Title>
           </Pressable>
         </SignInContainer>
       </ScrollView>

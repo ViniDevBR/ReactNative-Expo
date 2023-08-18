@@ -13,7 +13,7 @@ import {
   Inter_700Bold,
   Inter_800ExtraBold,
   Inter_900Black,
-  useFonts
+  useFonts,
 } from '@expo-google-fonts/inter'
 //SAFE AREA CONTEXT
 import { SafeAreaProvider } from 'react-native-safe-area-context'
@@ -23,10 +23,7 @@ import { Routes } from './src/routes'
 import { ThemeProvider } from 'styled-components/native'
 //CONTEXT
 import { HeaderContextProvider } from './src/context/headerContext'
-import {
-  ToggleThemeContext,
-  ToggleThemeContextProvider
-} from './src/context/toggleThemeContext'
+import { theme } from './src/theme/theme'
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -38,29 +35,21 @@ export default function App() {
     Inter_600SemiBold,
     Inter_700Bold,
     Inter_800ExtraBold,
-    Inter_900Black
+    Inter_900Black,
   })
 
   return (
     <HeaderContextProvider>
-      <ToggleThemeContextProvider>
-        <ToggleThemeContext.Consumer>
-          {({ themeMode }) => {
-            return (
-              <ThemeProvider theme={themeMode}>
-                <SafeAreaProvider>
-                  {fontsLoaded ? <Routes /> : <Loading />}
-                  <StatusBar
-                    style='auto'
-                    backgroundColor='transparent'
-                    translucent
-                  />
-                </SafeAreaProvider>
-              </ThemeProvider>
-            )
-          }}
-        </ToggleThemeContext.Consumer>
-      </ToggleThemeContextProvider>
+      <ThemeProvider theme={theme}>
+        <SafeAreaProvider>
+          {fontsLoaded ? <Routes /> : <Loading />}
+          <StatusBar
+            style="auto"
+            backgroundColor="transparent"
+            translucent
+          />
+        </SafeAreaProvider>
+      </ThemeProvider>
     </HeaderContextProvider>
   )
 }

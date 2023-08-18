@@ -14,9 +14,8 @@ import { ContentList, DivContainer, Results, ContainerButtons } from './styles'
 import { Check, Plus } from 'phosphor-react-native'
 import { useTheme } from 'styled-components'
 //NAVIGATION
-import { useFocusEffect, useNavigation } from '@react-navigation/native'
+import { useNavigation, useFocusEffect } from '@react-navigation/native'
 import { globalUrl } from '../../localServer'
-
 
 export function Vagas() {
   const { COLORS } = useTheme()
@@ -77,8 +76,8 @@ export function Vagas() {
   useFocusEffect(
     useCallback(() => {
       fetch(`${globalUrl}/vagas`)
-        .then(response => response.json())
-        .then(data => setJobInfos(data))
+        .then((response) => response.json())
+        .then((data) => setJobInfos(data))
     }, [])
   )
 
@@ -98,7 +97,7 @@ export function Vagas() {
   )
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.BACKGROUND2 }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.BACKGROUND }}>
       <DivContainer>
         <Header />
         <Select
@@ -125,7 +124,7 @@ export function Vagas() {
                   clickAny === false ? (
                     <Plus size={14} color={COLORS.PLACEHOLDER} weight="bold" />
                   ) : (
-                    <Check size={14} color={COLORS.BACKGROUND2} weight="bold" />
+                    <Check size={14} color={COLORS.BACKGROUND} weight="bold" />
                   )
                 }
                 type={clickAny === true ? 'selected' : undefined}
@@ -138,7 +137,7 @@ export function Vagas() {
                   clickMonth === false ? (
                     <Plus size={14} color={COLORS.PLACEHOLDER} weight="bold" />
                   ) : (
-                    <Check size={14} color={COLORS.BACKGROUND2} weight="bold" />
+                    <Check size={14} color={COLORS.BACKGROUND} weight="bold" />
                   )
                 }
                 type={clickMonth === true ? 'selected' : undefined}
@@ -151,7 +150,7 @@ export function Vagas() {
                   click24h === false ? (
                     <Plus size={14} color={COLORS.PLACEHOLDER} weight="bold" />
                   ) : (
-                    <Check size={14} color={COLORS.BACKGROUND2} weight="bold" />
+                    <Check size={14} color={COLORS.BACKGROUND} weight="bold" />
                   )
                 }
                 type={click24h === true ? 'selected' : undefined}
@@ -164,7 +163,7 @@ export function Vagas() {
                   clickWeek === false ? (
                     <Plus size={14} color={COLORS.PLACEHOLDER} weight="bold" />
                   ) : (
-                    <Check size={14} color={COLORS.BACKGROUND2} weight="bold" />
+                    <Check size={14} color={COLORS.BACKGROUND} weight="bold" />
                   )
                 }
                 type={clickWeek === true ? 'selected' : undefined}
@@ -189,7 +188,7 @@ export function Vagas() {
                   clickFull === false ? (
                     <Plus size={14} color={COLORS.PLACEHOLDER} weight="bold" />
                   ) : (
-                    <Check size={14} color={COLORS.BACKGROUND2} weight="bold" />
+                    <Check size={14} color={COLORS.BACKGROUND} weight="bold" />
                   )
                 }
                 type={clickFull === true ? 'selected' : undefined}
@@ -202,7 +201,7 @@ export function Vagas() {
                   clickTemp === false ? (
                     <Plus size={14} color={COLORS.PLACEHOLDER} weight="bold" />
                   ) : (
-                    <Check size={14} color={COLORS.BACKGROUND2} weight="bold" />
+                    <Check size={14} color={COLORS.BACKGROUND} weight="bold" />
                   )
                 }
                 type={clickTemp === true ? 'selected' : undefined}
@@ -215,7 +214,7 @@ export function Vagas() {
                   clickStage === false ? (
                     <Plus size={14} color={COLORS.PLACEHOLDER} weight="bold" />
                   ) : (
-                    <Check size={14} color={COLORS.BACKGROUND2} weight="bold" />
+                    <Check size={14} color={COLORS.BACKGROUND} weight="bold" />
                   )
                 }
                 type={clickStage === true ? 'selected' : undefined}
@@ -240,7 +239,7 @@ export function Vagas() {
                   clickJR === false ? (
                     <Plus size={14} color={COLORS.PLACEHOLDER} weight="bold" />
                   ) : (
-                    <Check size={14} color={COLORS.BACKGROUND2} weight="bold" />
+                    <Check size={14} color={COLORS.BACKGROUND} weight="bold" />
                   )
                 }
                 type={clickJR === true ? 'selected' : undefined}
@@ -253,7 +252,7 @@ export function Vagas() {
                   clickPL === false ? (
                     <Plus size={14} color={COLORS.PLACEHOLDER} weight="bold" />
                   ) : (
-                    <Check size={14} color={COLORS.BACKGROUND2} weight="bold" />
+                    <Check size={14} color={COLORS.BACKGROUND} weight="bold" />
                   )
                 }
                 type={clickPL === true ? 'selected' : undefined}
@@ -266,7 +265,7 @@ export function Vagas() {
                   clickSR === false ? (
                     <Plus size={14} color={COLORS.PLACEHOLDER} weight="bold" />
                   ) : (
-                    <Check size={14} color={COLORS.BACKGROUND2} weight="bold" />
+                    <Check size={14} color={COLORS.BACKGROUND} weight="bold" />
                   )
                 }
                 type={clickSR === true ? 'selected' : undefined}
@@ -280,7 +279,7 @@ export function Vagas() {
       <Results>1.215 Resultados</Results>
       <ContentList
         data={jobInfos}
-        keyExtractor={item => item.id}
+        keyExtractor={(item) => item.id}
         renderItem={({ item }) => {
           return (
             <JobCard

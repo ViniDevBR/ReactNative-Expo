@@ -21,11 +21,11 @@ export const ModalView = styled.View`
 `
 
 export const ModalText = styled.Text`
-  color: ${props => props.theme.COLORS.TEXT};
+  color: ${(props) => props.theme.COLORS.TEXT};
   width: 100%;
   margin-bottom: 30px;
   text-align: center;
-  font-weight: ${({ theme }) => theme.FONT_FAMILY.BOLD};
+  font-weight: ${({ theme }) => theme.FONT_WEIGHT.BOLD};
   font-size: ${({ theme }) => theme.FONT_SIZE.BIG};
   border-bottom-width: 1px;
   border-bottom-color: ${({ theme }) => theme.COLORS.PRIMARY_700};

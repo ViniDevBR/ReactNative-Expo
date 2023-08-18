@@ -19,7 +19,7 @@ interface Props {
 export function ModalVagas(props: Props) {
   return (
     <Modal
-      animationType='fade'
+      animationType="fade"
       transparent={true}
       visible={props.visible}
       onRequestClose={props.backButton}
@@ -31,7 +31,7 @@ export function ModalVagas(props: Props) {
 
           {props.buttons}
 
-          <Buttons type='close' title={props.exitTitle} onPress={props.exit} />
+          <Buttons type="close" title={props.exitTitle} onPress={props.exit} />
         </ModalView>
       </ModalContainer>
     </Modal>

@@ -10,10 +10,10 @@ export function Search() {
   return (
     <ContainerInput>
       <TextInput
-        placeholder='O quê, cargo, área...'
+        placeholder="O quê, cargo, área..."
         placeholderTextColor={COLORS.PLACEHOLDER}
       ></TextInput>
-      <Ionicons name='search-outline' size={24} color={COLORS.PLACEHOLDER} />
+      <Ionicons name="search-outline" size={24} color={COLORS.PLACEHOLDER} />
     </ContainerInput>
   )
 }

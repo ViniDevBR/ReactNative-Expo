@@ -10,7 +10,6 @@ import { useTheme } from 'styled-components'
 //NAVIGATION
 import { useFocusEffect, useNavigation } from '@react-navigation/native'
 
-
 export function UserInfo() {
   const { COLORS } = useTheme()
   const { navigate } = useNavigation()
@@ -31,7 +30,7 @@ export function UserInfo() {
   )
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.BACKGROUND2 }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.BACKGROUND }}>
       <Header />
       <Text>USER</Text>
     </SafeAreaView>

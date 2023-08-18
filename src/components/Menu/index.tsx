@@ -13,15 +13,12 @@ import {
   BackButton,
   EmptyBox,
   Options,
-  ItemMenu
+  ItemMenu,
 } from './styles'
 import { CaretLeft } from 'phosphor-react-native'
 import { useHeader } from '../../hooks/useHeader'
-import themeSchema from '../../theme'
 //COMPONENTE
 import { LogOut } from '../LogOut'
-//HOOKS
-import { useToggleTheme } from '../../hooks/useToggleTheme'
 
 interface Props {
   visible: boolean
@@ -33,7 +30,6 @@ export function Menu(props: Props) {
   const [logOut, setLogOut] = useState<boolean>(false)
   const { navigate } = useNavigation()
   const { isMenuOpen, setIsMenuOpen } = useHeader()
-  const { setThemeMode } = useToggleTheme()
 
   function handleMenuHome() {
     navigate('Home')
@@ -63,16 +59,11 @@ export function Menu(props: Props) {
     setIsMenuOpen(!isMenuOpen)
     setLogOut(!LogOut)
   }
-  function handleThemeDark() {
-    setThemeMode(themeSchema['dark'])
-  }
-  function handleThemeLight() {
-    setThemeMode(themeSchema['light'])
-  }
+
 
   return (
     <Modal
-      animationType='fade'
+      animationType="fade"
       transparent={true}
       visible={props.visible}
       onRequestClose={props.backButton}
@@ -83,7 +74,7 @@ export function Menu(props: Props) {
         <ModalView>
           <ModalTitle>
             <BackButton onPress={props.backButton}>
-              <CaretLeft size={32} color='#000' weight='regular' />
+              <CaretLeft size={32} color="#000" weight="regular" />
             </BackButton>
 
             <ModalText>Menu</ModalText>
@@ -109,14 +100,6 @@ export function Menu(props: Props) {
 
             <TouchableOpacity onPress={handleMenuVagas}>
               <ItemMenu>Vagas</ItemMenu>
-            </TouchableOpacity>
-
-            <TouchableOpacity onPress={handleThemeDark}>
-              <ItemMenu>Tema Dark</ItemMenu>
-            </TouchableOpacity>
-
-            <TouchableOpacity onPress={handleThemeLight}>
-              <ItemMenu>Tema Light</ItemMenu>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={handleLogOutConfirm}>

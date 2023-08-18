@@ -4,7 +4,7 @@ export const HeaderContainer = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: ${props => props.theme.COLORS.BACKGROUND};
+  background-color: ${(props) => props.theme.COLORS.BACKGROUND};
   padding: 11px;
   border-bottom-width: 1px;
   border-bottom-color: ${({ theme }) => theme.COLORS.PRIMARY_600};
@@ -14,5 +14,5 @@ export const Logo = styled.Text`
 `
 
 export const LogoBold = styled.Text`
-  font-weight: ${({ theme }) => theme.FONT_FAMILY.BOLD};
+  font-weight: ${({ theme }) => theme.FONT_WEIGHT.BOLD};
 `

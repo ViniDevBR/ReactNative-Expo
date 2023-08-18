@@ -5,7 +5,7 @@ import {
   Keyboard,
   ScrollView,
   Platform,
-  Alert
+  Alert,
 } from 'react-native'
 //STYLES
 import {
@@ -16,25 +16,25 @@ import {
   TermsAcept,
   TermsLine,
   TermsText,
-  CheckBox
+  CheckBox,
 } from './styles'
 import { useTheme } from 'styled-components'
 //COMPONENTS
 import { ControlledInput } from '../../components/ControlInput'
 import { Buttons } from '../../components/Button'
-import { IFormInputs } from '../SignIn'
+import { SignUpInterface } from '@/screens/SignUp/interfaces/interfaces'
 //HOOK FORM
-import { useForm } from 'react-hook-form'
+import { FieldValues, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 //NAVIGATION
 import { useNavigation } from '@react-navigation/native'
 import { api } from '../../localServer'
 
-const defaultForm: IFormInputs = {
+const defaultForm: SignUpInterface = {
   email: '',
   user: '',
-  password: ''
+  password: '',
 }
 
 const schema = yup
@@ -50,7 +50,7 @@ const schema = yup
       .email('Este e-mail esta correto?')
       .required('Campo Obrigatório')
       .lowercase()
-      .trim()
+      .trim(),
   })
   .required()
 
@@ -63,20 +63,20 @@ export function SignUp() {
     control,
     handleSubmit,
     formState: { errors, isValid, isSubmitting },
-    reset
-  } = useForm<IFormInputs>({
+    reset,
+  } = useForm<FieldValues>({
     defaultValues: defaultForm,
     resolver: yupResolver(schema),
     mode: 'onTouched',
-    reValidateMode: 'onChange'
+    reValidateMode: 'onChange',
   })
 
-  async function onSubmit(formData: IFormInputs) {
+  async function onSubmit(formData: SignUpInterface) {
     try {
       const { data } = await api.post('/users', {
         user: formData.user!.trim(),
         email: formData.email.trim(),
-        password: formData.password.trim()
+        password: formData.password.trim(),
       })
 
       if (data.id) {
@@ -88,11 +88,9 @@ export function SignUp() {
       } else {
         Alert.alert('Não foi possivel criar usuario')
       }
-
     } catch (error) {
       console.log('errors ===>', error)
       Alert.alert('Não foi possivel criar usuario')
-
     } finally {
       reset()
       setChecked(false)
@@ -112,29 +110,27 @@ export function SignUp() {
           <Title>
             Sou<TitleBold>Junior</TitleBold>
           </Title>
-          <Title type='subtitle'>Criar conta</Title>
+          <Title type="subtitle">Criar conta</Title>
 
           <ControlledInput
             control={control}
-            name='user'
-            placeholder='Nome'
-            keyboardType='email-address'
-            icon='user'
+            name="user"
+            keyboardType="email-address"
+            icon="user"
             error={errors.user}
           />
           <ControlledInput
             control={control}
-            name='email'
-            placeholder='E-mail'
-            keyboardType='email-address'
-            icon='mail'
+            name="email"
+            keyboardType="email-address"
+            icon="mail"
             error={errors.email}
           />
           <ControlledInput
             control={control}
-            name='password'
-            placeholder='Senha'
-            icon='lock'
+            name="password"
+            icon="eye"
+            type="signup"
             secureTextEntry
             autoCorrect={false}
             clearTextOnFocus
@@ -158,13 +154,13 @@ export function SignUp() {
           </TermsAcept>
 
           <Buttons
-            onPress={handleSubmit(onSubmit)}
+            onPress={handleSubmit(onSubmit as any)}
             isLoading={isSubmitting}
-            type='signin'
-            title='Criar conta'
+            type="signin"
+            title="Criar conta"
             disabled={!isChecked || !isValid || isSubmitting}
           />
-          <Buttons onPress={goBack} type='linkedin' title='Fazer login' />
+          <Buttons onPress={goBack} type="linkedin" title="Fazer login" />
         </SignUpContainer>
       </ScrollView>
     </TouchableWithoutFeedback>

@@ -35,6 +35,12 @@
       "email": "rogerio@teste.com",
       "password": "123456",
       "id": 6
+    },
+    {
+      "user": "Mateus",
+      "email": "mateus@teste.com",
+      "password": "123456",
+      "id": 6
     }
   ],
   "vagas": [
